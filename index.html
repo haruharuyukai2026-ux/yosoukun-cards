@@ -211,6 +211,11 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
 .labg{display:grid;grid-template-columns:1fr 1fr;gap:8px}.dtile{display:grid;grid-template-columns:1fr;justify-items:center;text-align:center;gap:4px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 12px;color:var(--ink);text-decoration:none;}.dtile .li2{grid-row:auto}a.dtile::after{content:'';position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:22px;color:var(--sub)}.dtile{position:relative}.dtile b{font-family:var(--f-disp);font-size:15px}.dtile small{color:var(--sub);font-size:12px;line-height:1.5}.dtile .li2{font-size:28px;text-align:center}.dtile-r input,.dtile-r #rqr{grid-column:1/-1}.lt-r input{margin-top:6px;width:100%;box-sizing:border-box;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:#0b1a2e;color:var(--ink);font-size:16px}#rqr{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}#rqr a{background:#0b1a2e;border:1px solid var(--line);border-radius:999px;padding:5px 10px;color:var(--ink);text-decoration:none;font-size:13px}#rqr a small{color:var(--sub);margin-left:4px}
 .tabs a{font-size:15px!important;padding:8px 14px!important;border-width:2px!important}.tabs a.on{background:#fff!important;color:#0b1a2e!important;border-color:#fff!important}.tabs{box-shadow:0 6px 12px rgba(0,0,0,.35)}
 .bm .mr{display:block;font-size:10px;color:var(--sub);white-space:nowrap}.bm .mr.top{color:var(--gold);font-weight:800}
+.obtn{display:block;width:100%;margin:8px 0 4px;padding:10px;border-radius:10px;border:2px solid var(--gold);background:rgba(255,209,102,.12);color:var(--gold);font-weight:900;font-size:15px;font-family:var(--f-disp)}
+.od{position:fixed;inset:0;z-index:50;pointer-events:none}.od .odb{position:absolute;inset:0;background:rgba(0,0,0,.55);opacity:0;transition:opacity .25s}.od .odp{position:absolute;top:0;right:0;bottom:0;width:min(88vw,380px);background:var(--deep);border-left:2px solid var(--gold);transform:translateX(100%);transition:transform .28s ease-out;overflow-y:auto;padding:14px 14px 40px;box-sizing:border-box}
+.od.on{pointer-events:auto}.od.on .odb{opacity:1}.od.on .odp{transform:none}.odh{display:flex;align-items:center;gap:8px;position:sticky;top:-14px;background:var(--deep);padding:4px 0 8px;z-index:1}.odh b{flex:1;font-family:var(--f-disp);font-size:18px}.odx{background:none;border:0;color:var(--ink);font-size:28px;line-height:1}
+.odf{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}.odf button{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:5px 10px;font-size:12px;font-weight:700}.odf button.on{background:var(--gold);color:#0b1a2e;border-color:var(--gold)}
+.oda{font-size:12px;color:var(--sub);margin:4px 0}.odo{list-style:none;margin:0;padding:0;display:grid;gap:4px}.odo li{display:grid;grid-template-columns:24px 1fr auto;align-items:center;gap:8px;background:var(--panel);border-radius:10px;padding:8px 10px}.odo .odr{color:var(--sub);font-size:12px;text-align:right}.odo b{font-family:var(--f-num);font-size:20px;color:var(--gold)}.odn{color:var(--sub);text-align:center;padding:30px 0}
 .wh{font-family:var(--f-disp);font-size:16px;margin:4px 0 6px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}.wh small{font-family:var(--f-body);font-weight:400;font-size:12px;color:var(--sub)}
 .wl{list-style:none;margin:0;padding:0;display:grid;gap:4px}
 .wl li{display:grid;grid-template-columns:44px 72px 1fr auto auto;gap:6px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:7px 10px;font-size:13px}
@@ -531,7 +536,7 @@ const umabashira=bs=>{if(!bs.some(b=>b.recent&&b.recent.length))return'';
 const evHTML=r=>{const A=r.ana;if(!A||!A.boats)return evOld(r);
   return `<details class="ev" id="r${r.code}"><summary>6艇分析(展示・選手・モーター)</summary>`+
   `<div class="wx">${A.wind!=null?'風 '+A.wind+'m':''}${A.wave!=null?' / 波 '+A.wave+'cm':''}${r.yellow&&r.yellow.length?' / 注意 '+r.yellow.join('・'):''}</div>`+
-  (A.has_ex?`<h5>スタート展示</h5>${stSVG(A.boats)}<h5>展示タイム<small>コース順 / 金色が一番速い</small></h5>${exBars(A.boats)}`:'<p class="wx">展示はまだだよ(締切の約20分前に出るよ)</p>')+tenkai(A.boats)+
+  `<button class="obtn" data-code="${r.code}" data-race="${r.race||((r.venue||'')+(r.rno?r.rno+'R':''))}">💰 3連単オッズ</button>`+(A.has_ex?`<h5>スタート展示</h5>${stSVG(A.boats)}<h5>展示タイム<small>コース順 / 金色が一番速い</small></h5>${exBars(A.boats)}`:'<p class="wx">展示はまだだよ(締切の約20分前に出るよ)</p>')+tenkai(A.boats)+
   `<h5>6艇の数字<small>タップで選手カード</small></h5><div class="bcs">${(()=>{const mx=Math.max(...A.boats.map(b=>b.ai??-1));return A.boats.map(b=>boatCard(r,b,b.ai!=null&&b.ai===mx)).join('')})()}</div>`+umabashira(A.boats)+
   `<div class="lnk"><a href="https://www.boatrace.jp/owpc/pc/race/beforeinfo?rno=${+r.code.slice(10)}&jcd=${r.code.slice(8,10)}&hd=${r.code.slice(0,8)}" target="_blank" rel="noopener">公式の直前情報 ›</a><a href="https://www.boatrace.jp/owpc/pc/race/odds3t?rno=${+r.code.slice(10)}&jcd=${r.code.slice(8,10)}&hd=${r.code.slice(0,8)}" target="_blank" rel="noopener">オッズ ›</a></div></details>`};
 const evOld=r=>{if(!r.boats||!r.boats.length)return'';
@@ -610,4 +615,22 @@ const goHash2=()=>{goHash();if(location.hash&&!/^#p\d/.test(location.hash))setTi
 showTab('home');addEventListener('hashchange',goHash);goHash();addEventListener('load',()=>setTimeout(goHash2,200));
 </script>
 <script>(()=>{const d=document.getElementById('dock');if(!d)return;const vis=new Set();const upd=()=>{d.classList.toggle('on',scrollY>400&&vis.size===0)};const io=new IntersectionObserver(es=>{es.forEach(e=>{e.isIntersecting?vis.add(e.target):vis.delete(e.target)});upd()});document.querySelectorAll('a.lbtn,a.jb').forEach(a=>io.observe(a));addEventListener('scroll',upd,{passive:true});upd()})();</script>
+<div id="od" class="od" aria-hidden="true"><div class="odb"></div><aside class="odp"><div class="odh"><b id="odt"></b><button class="odx" aria-label="とじる">×</button></div><div class="odf" id="odf"></div><div id="odl"></div></aside></div>
+<script>
+(()=>{const KEY=[];for(let a=1;a<=6;a++)for(let b=1;b<=6;b++)for(let c=1;c<=6;c++)if(a!==b&&b!==c&&a!==c)KEY.push(`${a}-${b}-${c}`);
+ const od=document.getElementById('od');let cur=null,H=0;
+ const close=()=>{od.classList.remove('on');document.body.style.overflow=''};
+ od.querySelector('.odb').onclick=close;od.querySelector('.odx').onclick=close;
+ const draw=()=>{if(!cur){document.getElementById('odl').innerHTML='<p class="odn">オッズは展示が出たあとに出るよ！</p>';document.getElementById('odf').innerHTML='';return}
+  let L=KEY.map((k,i)=>[k,cur.o[i]]).filter(x=>x[1]>0);if(H)L=L.filter(x=>x[0][0]==H);L.sort((a,b)=>a[1]-b[1]);
+  document.getElementById('odf').innerHTML=['人気順',1,2,3,4,5,6].map((h,i)=>`<button class="${(i?h:0)===H?'on':''}" data-h="${i?h:0}">${i?h+'が1着':h}</button>`).join('');
+  document.getElementById('odl').innerHTML=`<p class="oda">${cur.at} 時点</p><ol class="odo">`+L.slice(0,H?20:30).map((x,i)=>`<li><span class="odr">${i+1}</span><span>${balls(x[0])}</span><b>${x[1].toFixed(1)}</b></li>`).join('')+'</ol>'};
+ document.getElementById('odf').addEventListener('click',e=>{const b=e.target.closest('button');if(b){H=+b.dataset.h;draw()}});
+ document.addEventListener('click',async e=>{const b=e.target.closest('.obtn');if(!b)return;e.preventDefault();e.stopPropagation();H=0;cur=null;
+  document.getElementById('odt').textContent=b.dataset.race+' 3連単オッズ';document.getElementById('odl').innerHTML='<p class="odn">読み込み中…</p>';document.getElementById('odf').innerHTML='';
+  od.classList.add('on');document.body.style.overflow='hidden';
+  try{const L=await (await fetch('live.json?t='+Date.now(),{cache:'no-store'})).json();cur=(L.odds||{})[b.dataset.code]||null}catch(_){}draw()},true);
+})();
+</script>
+
 </body></html>
