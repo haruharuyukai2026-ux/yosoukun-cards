@@ -206,6 +206,10 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
 .nerai .ns{font-size:13px;margin-top:8px;font-weight:700}.nerai .ns .on{background:#fff;color:#e63946;border-radius:999px;padding:3px 10px}.nn{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:8px;font-size:13px}.nn small{width:100%;font-size:11px;opacity:.85}.nn span{background:rgba(0,0,0,.2);border-radius:8px;padding:3px 8px;display:inline-flex;align-items:center;gap:4px}
 .ad .run{display:block;font-style:normal;font-size:9px;color:#ffd166;font-family:var(--f-body)}.arr.hotr summary{border-left:4px solid #ff6b1a}
 .join .jpre{background:#0f2a4a;border:2px solid #ffd166;border-radius:14px;padding:12px;margin:14px 0 12px;color:#fff;text-align:center}.join .jpre b{display:block;font-size:16px;line-height:1.5;margin:6px 0 4px}.join .jpre small{font-size:12px;color:#ffd166}.join .jpt{display:inline-block;background:#ffd166;color:#0f2a4a;font-weight:900;font-size:12px;border-radius:999px;padding:2px 10px}
+.s-hh .hhs{list-style:none;margin:0;padding:0;display:grid;gap:6px}.s-hh .hhs li{display:grid;grid-template-columns:40px 1fr auto auto;gap:8px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:13px}.s-hh .hhs li small{color:var(--sub);font-size:11px}.s-hh .tr{display:inline-block;margin-left:4px;font-size:10px;color:var(--sub);border:1px solid var(--line);border-radius:6px;padding:0 4px}.s-hh .hhs .py{font-family:var(--f-num);font-weight:800;color:var(--gold)}
+.s-hh details.hhd>summary{list-style:none;cursor:pointer;background:linear-gradient(135deg,#3a2a00,#5c4300);border:1px solid var(--gold);border-radius:12px;padding:12px;font-weight:800;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.s-hh details.hhd>summary::-webkit-details-mark{display:none}.s-hh .hhd>summary .op{margin-left:auto;font-size:12px;color:var(--gold)}.s-hh .hhd[open]>summary .op::after{content:'とじる ▲'}.s-hh .hhd:not([open])>summary .op::after{content:'ひらく ▼'}.s-hh .hhd .hhs{margin-top:8px}.s-hh .more{display:block;text-align:center;margin-top:8px;color:var(--gold);font-weight:800;text-decoration:none}
+.labg{display:grid;grid-template-columns:1fr;gap:8px}.lt{display:grid;grid-template-columns:40px 1fr;column-gap:10px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 12px;color:var(--ink);text-decoration:none;}.lt .li2{grid-row:span 2}a.lt::after{content:'›';position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:22px;color:var(--sub)}.lt{position:relative}.lt b{font-family:var(--f-disp);font-size:15px}.lt small{color:var(--sub);font-size:12px;line-height:1.5}.lt .li2{font-size:28px;text-align:center}.lt-r input,.lt-r #rqr{grid-column:1/-1}.lt-r input{margin-top:6px;width:100%;box-sizing:border-box;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:#0b1a2e;color:var(--ink);font-size:16px}#rqr{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}#rqr a{background:#0b1a2e;border:1px solid var(--line);border-radius:999px;padding:5px 10px;color:var(--ink);text-decoration:none;font-size:13px}#rqr a small{color:var(--sub);margin-left:4px}
+.tabs a{font-size:15px!important;padding:8px 14px!important;border-width:2px!important}.tabs a.on{background:#fff!important;color:#0b1a2e!important;border-color:#fff!important}.tabs{box-shadow:0 6px 12px rgba(0,0,0,.35)}
 .wh{font-family:var(--f-disp);font-size:16px;margin:4px 0 6px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}.wh small{font-family:var(--f-body);font-weight:400;font-size:12px;color:var(--sub)}
 .wl{list-style:none;margin:0;padding:0;display:grid;gap:4px}
 .wl li{display:grid;grid-template-columns:44px 72px 1fr auto auto;gap:6px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:7px 10px;font-size:13px}
@@ -339,6 +343,22 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
     <div id="ar"><p class="note">読み込み中…</p></div>
   </section>
 
+
+  <section data-t="home" id="home-hits" class="sec s-hh">
+    <h2><span class="ic">🎯</span><span class="tt">的中の記録</span> <small>外れも全記録にぜんぶ残してるよ</small></h2>
+    <div id="hhits"></div>
+  </section>
+
+  <section data-t="home" id="lab" class="sec s-lab">
+    <h2><span class="ic">🔬</span><span class="tt">予想くんのデータ室</span> <small>予想の中身、ぜんぶ見られるよ</small></h2>
+    <div class="labg">
+      <a class="lt" data-tab="home" data-go="races-sec" href="#races-sec"><span class="li2">🚤</span><b>全レース・6艇分析</b><small id="lt-r">展示・選手・モーターを6艇で比べる</small></a>
+      <a class="lt" data-tab="data" data-go="venues-sec" href="#venues-sec"><span class="li2">📊</span><b>24場データ</b><small>場ごとのイン1着率・荒れやすさ・決まり手</small></a>
+      <a class="lt" data-tab="rec" data-go="all-sec" href="#all-sec"><span class="li2">📒</span><b>的中・全記録</b><small>締切前に出した予想と結果を、外れもぜんぶ</small></a>
+      <div class="lt lt-r"><span class="li2">🧑‍✈️</span><b>選手データ</b><small id="lt-p">今日走る選手のコース別成績・決まり手・近況</small>
+        <input id="rq" type="search" placeholder="選手の名前で探す(例:西村)" autocomplete="off"><div id="rqr"></div></div>
+    </div>
+  </section>
 
   <section data-t="rec" id="all-sec" class="sec s-all">
     <h2><span class="ic">📒</span><span class="tt">全記録</span> <small>新しい順・外れも含む</small></h2>
@@ -577,6 +597,13 @@ const tabs=[...document.querySelectorAll('.tabs a')];
 const showTab=t=>{document.querySelectorAll('section.sec[data-t]').forEach(x=>x.classList.toggle('off',x.dataset.t!==t));tabs.forEach(a=>a.classList.toggle('on',a.dataset.t===t&&!a.dataset.go))};
 tabs.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();showTab(a.dataset.t);const g=a.dataset.go&&document.getElementById(a.dataset.go);const n=g||document.querySelector('.tabs');scrollTo({top:n.getBoundingClientRect().top+scrollY-(g?56:4),behavior:'smooth'});tabs.forEach(x=>x.classList.toggle('on',x===a))}));
 const goHash=()=>{const h=location.hash.slice(1);if(!h||/^p\d/.test(h))return;const el=document.getElementById(h);if(!el)return;const sec=el.closest('section.sec[data-t]');if(sec){showTab(sec.dataset.t);if(el.tagName==='DETAILS')el.open=true;setTimeout(()=>{const t=el.closest('article')||el;scrollTo({top:t.getBoundingClientRect().top+scrollY-58})},80)}};
+
+{const HL=DATA.records.filter(r=>r.groups.some(g=>g.hit)),TN={"◎":"◎1点","6点":"6点","12点":"手広く12点"};const el=document.getElementById('hhits');
+ const li=r=>{const g=r.groups.find(g=>g.hit);return `<li><small>${r.date.slice(5).replace('-','/')}</small><span><b>${r.race}</b> <span class="chip k-${g.kind}">${g.kind}${g.tier?' '+TN[g.tier]:''}</span>${r.public===false?'<small class="tr">試験運用</small>':''}</span><span>${balls(r.result)}</span><span class="py">${(r.pay||0).toLocaleString()}円</span></li>`};
+ if(el)el.innerHTML=HL.length?`<details class="hhd"><summary>🎯 直近の的中 <b>${HL[0].race}</b>${HL[0].public===false?'<small class="tr">試験運用</small>':''} ${balls(HL[0].result)} <span class="py">${(HL[0].pay||0).toLocaleString()}円</span><span class="op"></span></summary><ul class="hhs">${HL.slice(0,8).map(li).join('')}</ul><a class="more" href="#record" data-tab="rec">的中・全記録をぜんぶ見る ›</a></details>`:'<p class="note">的中が出たら、ここに並べていくよ</p>';}
+document.querySelectorAll('[data-tab]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();showTab(a.dataset.tab);const g=document.getElementById(a.dataset.go||'')||document.querySelector('section.sec[data-t="'+a.dataset.tab+'"]');if(g)scrollTo({top:g.getBoundingClientRect().top+scrollY-64,behavior:'smooth'});tabs.forEach(x=>x.classList.toggle('on',x.dataset.t===a.dataset.tab&&!x.dataset.go))}));
+(async()=>{const R=await loadR();const P=Object.values(R.racers||{});const lp=document.getElementById('lt-p');if(lp&&P.length)lp.textContent=`今日走る${P.length}人のコース別成績・決まり手・近況`;
+ const q=document.getElementById('rq'),o=document.getElementById('rqr');if(!q)return;q.addEventListener('input',()=>{const v=q.value.replace(/\s/g,'');if(!v){o.innerHTML='';return}const m=P.filter(p=>p.name.replace(/\s/g,'').includes(v)).slice(0,10);o.innerHTML=m.length?m.map(p=>`<a href="#p${p.no}">${p.name}<small>${p.cls} ${p.branch}</small></a>`).join(''):'<small class="note">今日走る選手にはいないみたい</small>'})})();
 try{history.scrollRestoration='manual'}catch(e){}
 const _rl=(performance.getEntriesByType&&performance.getEntriesByType('navigation')[0]||{}).type==='reload';
 if(_rl&&location.hash&&!sessionStorage.getItem('yk_y')){history.replaceState(null,'',location.pathname+location.search)}
