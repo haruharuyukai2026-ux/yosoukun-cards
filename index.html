@@ -76,6 +76,12 @@ h2 small{font-family:var(--f-body);font-weight:400;color:var(--sub);font-size:13
 .join .jc{position:relative;justify-self:center;width:min(300px,100%);background:#0f2a4a;border-radius:14px;padding:12px 14px 12px;text-align:left;box-shadow:0 6px 18px rgba(0,0,0,.25);transform:rotate(-1.5deg)}
 .join .jc .jl{font-size:10px;color:#9fb6cf;margin-bottom:4px}.join .jc .jt{font-weight:900;font-size:15px}.join .jc .jf6{font-family:var(--f-num);font-weight:900;font-size:22px;color:#ffd166;margin:2px 0}
 .join .jc .jw{font-size:12px;color:#dce6f2}.join .jc .js{position:absolute;right:10px;bottom:10px;transform:rotate(-12deg);border:3px solid #e63946;color:#e63946;background:#fff8e1;border-radius:50%;width:62px;height:62px;display:grid;place-content:center;text-align:center;font-weight:900;font-size:16px;line-height:1.1}.join .jc .js small{font-size:10px}
+.join .phone{justify-self:center;width:min(300px,100%);background:#1b1b1f;border-radius:26px;padding:10px 8px 12px;box-shadow:0 8px 22px rgba(0,0,0,.3);display:grid;gap:8px;text-align:left}
+.join .pnt{background:rgba(255,255,255,.92);color:#1d1d1d;border-radius:14px;padding:8px 10px}.join .pn{display:flex;align-items:center;gap:6px;font-size:11px}.join .pn i{font-style:normal;width:18px;height:18px;border-radius:5px;background:#06c755;display:grid;place-items:center;font-size:11px}.join .pn small{margin-left:auto;color:#777}.join .pnt p{margin:4px 0 0!important;font-size:12px;font-weight:700;line-height:1.4}
+.join .pch{background:#8cabd8;border-radius:14px;padding:8px}.join .pcn{font-size:10px;color:#2b3a55;margin:0 0 4px 4px}.join .pch .jc{transform:none;width:auto;box-shadow:none}.join .jbtn{margin-top:6px;text-align:center;font-size:12px;font-weight:700;color:#8ecae6;border-top:1px solid rgba(255,255,255,.12);padding-top:6px}
+.join .pch .js{bottom:auto;top:34px;right:8px;width:56px;height:56px;font-size:14px}
+.join .pcap{font-size:11px;opacity:.9;margin:0!important}
+.join .jexb{background:#0f2a4a;border-radius:12px;padding:10px;text-align:left;color:var(--ink)}.join .jexh{font-weight:900;font-size:14px;margin-bottom:6px}.join .jexh small{font-weight:400;font-size:11px;color:var(--sub);margin-left:6px}
 .join .jn{font-size:11px;opacity:.9}
 section.sec.off{display:none}
 .hero .wrap>div:first-child{min-width:0}
@@ -358,11 +364,12 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
     <p class="jf"><span>完全無料</span>毎日2本、友だち追加するだけ</p>
     <div id="jproof"></div>
     <div id="jcard"></div>
+    <div id="jex"></div>
     <ul class="jm">
       <li>本命が出たらすぐ通知が来る！</li>
       <li>締切前に届くから、そのまま買える！</li>
       <li>サイトより先に買い目が見られる！</li>
-      <li>タップ1つで展示の図をチェック！</li>
+      <li>展示走行もすぐチェックできる！</li>
     </ul>
     <a class="jb" href="https://lin.ee/88lwcTO"><svg class="li" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="11" fill="#fff"/><path d="M24 10c-9.4 0-17 6.1-17 13.6 0 6.7 6 12.3 14.2 13.4.6.1 1.3.4 1.5.9.2.4.1 1.1.1 1.5l-.2 1.5c-.1.4-.3 1.7 1.5.9s9.9-5.8 13.5-10C40 29 41 26.4 41 23.6 41 16.1 33.4 10 24 10z" fill="#06c755"/><text x="24" y="27.5" text-anchor="middle" font-size="8.5" font-weight="900" fill="#fff" font-family="Arial,sans-serif">LINE</text></svg><span>無料で受け取る！</span><i>›</i></a>
     <p class="jn">いつでもブロックOK / 全部のレースが見られる会員プランは準備中</p>
@@ -474,7 +481,9 @@ const hb=DATA.summary['本命']||{n:0,hit:0};
 const small=['狙い目','万舟狙い'].map(k=>{const s=DATA.summary[k]||{n:0,hit:0},b=best(k);
   return s.hit?`<span class="mini"><span class="chip k-${k}">${k}</span> ${s.hit}本的中・最高 ${b.toLocaleString()}円</span>`:`<span class="mini"><span class="chip k-${k}">${k}</span> 一発狙い</span>`}).join('');
 {const sr=DATA.records.filter(r=>r.sent),ex=sr.find(r=>r.groups.some(g=>g.hit))||sr[0];const bg=ex&&ex.groups.find(g=>g.kind==='本命');
- if(ex&&bg&&bg.f6)document.getElementById('jcard').innerHTML=`<div class="jc"><div class="jl">LINEで実際に届いた本命(${ex.date.slice(5).replace('-','/')})</div><div class="jt">🚤 ${ex.race}${ex.deadline?' 締切'+ex.deadline:''}</div><div class="jf6">本命 ${bg.f6}</div><div class="jw">◎ ${bg.star||''}</div>${bg.hit?`<div class="js">的中<small>${(ex.pay||0).toLocaleString()}円</small></div>`:''}</div>`;
+ if(ex&&bg&&bg.f6)document.getElementById('jcard').innerHTML=`<div class="phone"><div class="pnt"><div class="pn"><i>🚤</i><b>ボートレース予想くん</b><small>今</small></div><p>🚤【予想】${ex.race} 締切${ex.deadline||''}<br>本命 ${bg.f6}</p></div>
+ <div class="pch"><div class="pcn">ボートレース予想くん</div><div class="jc"><div class="jl">LINEで実際に届いた本命(${ex.date.slice(5).replace('-','/')})</div><div class="jt">🚤 ${ex.race}${ex.deadline?' 締切'+ex.deadline:''}</div><div class="jf6">本命 ${bg.f6}</div><div class="jw">◎ ${bg.star||''}</div><div class="jbtn">6艇の比較を見る</div>${bg.hit?`<div class="js">的中<small>${(ex.pay||0).toLocaleString()}円</small></div>`:''}</div></div></div><p class="pcap">↑ 本命が出るとこう届く(通知 → トーク)</p>`;
+ (async()=>{try{const A=await loadAR();const R=A.races.filter(r=>r.ana&&r.ana.has_ex&&r.ana.boats.every(b=>b.ex)).pop();if(!R)return;const el=document.getElementById('jex');if(el)el.innerHTML=`<div class="jexb"><div class="jexh">展示走行もすぐ見られる<small>例:${R.venue}${R.rno}R</small></div>${exBars(R.ana.boats)}</div>`}catch(e){}})();
  document.getElementById('jproof').innerHTML=`<p class="jp">過去3か月の検証で本命は<br>6点で<b>51%</b>・手広く12点で<b>70%</b>的中</p>`}
 const _allH=DATA.records.filter(r=>r.groups.some(g=>g.hit)),_hits=_allH.slice(0,10);
 const hp=DATA.summary['本命_公開後']||{n:0};
