@@ -1,11 +1,12 @@
 """5分おき(GitHub Actions)に公式サイトから、このあと30分の展示と、終わったレースの結果を取って live.json に書く。
 allraces.json(朝に予想くんが作る今日の全レース)の締切時刻を見て、取りにいくレースを決める。"""
-import json, re, os, time, datetime as dt, urllib.request
+import json, re, os, time, datetime as dt, urllib.request, itertools
 from bs4 import BeautifulSoup
 JST = dt.timezone(dt.timedelta(hours=9)); now = dt.datetime.now(JST)
 A = json.load(open("allraces.json"))
 L = json.load(open("live.json")) if os.path.exists("live.json") else {}
-if L.get("date") != A["date"]: L = {"date": A["date"], "ex": {}, "res": {}}
+if L.get("date") != A["date"]: L = {"date": A["date"], "ex": {}, "res": {}, "odds": {}}
+L.setdefault("odds", {})
 hm = lambda m: (now + dt.timedelta(minutes=m)).strftime("%H:%M")
 today = now.strftime("%Y-%m-%d") == A["date"]
 def get(page, code):
@@ -37,6 +38,20 @@ def res(code):
         m = re.search(r"3連単 (\d-\d-\d) ¥([\d,]+)", tx(t))
         if m: return [m.group(1), int(m.group(2).replace(",", ""))]
     return None
+KEY = [f"{a+1}-{b+1}-{c+1}" for a, b, c in itertools.permutations(range(6), 3)]
+def odds(code):
+    d = get("odds3t", code)
+    if not d: return None
+    M = [[] for _ in range(6)]
+    for r in d.select(".table1 tbody tr"):
+        tds = r.select("td.oddsPoint")
+        if len(tds) == 6:
+            for a, td in enumerate(tds):
+                try: M[a].append(float(td.get_text().strip()))
+                except ValueError: M[a].append(0)
+    v = [x for col in M for x in col]
+    if len(v) != 120 or not any(v): return None
+    return dict(o=v, at=now.strftime("%H:%M"))
 n = 0
 if today:
     A["races"].sort(key=lambda r: 0 if (hm(-60) <= (r.get("deadline") or "") <= hm(-3)) else 1)
@@ -46,6 +61,9 @@ if today:
         if hm(0) <= d <= hm(30) and len((L["ex"].get(c) or {}).get("boats", [])) < 6:
             x = ex(c); n += 1; time.sleep(1)
             if x and x["boats"]: L["ex"][c] = x
+        elif hm(-2) <= d <= hm(25) and len((L["ex"].get(c) or {}).get("boats", [])) == 6 and (L["odds"].get(c) or {}).get("at", "") < hm(-1):
+            x = odds(c); n += 1; time.sleep(1)
+            if x: L["odds"][c] = x
         elif hm(-60) <= d <= hm(-3) and c not in L["res"] and not r.get("result"):
             x = res(c); n += 1; time.sleep(1)
             if x: L["res"][c] = x
