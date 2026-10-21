@@ -39,13 +39,14 @@ def res(code):
     return None
 n = 0
 if today:
+    A["races"].sort(key=lambda r: 0 if (hm(-60) <= (r.get("deadline") or "") <= hm(-3)) else 1)
     for r in A["races"]:
         c, d = r["code"], r.get("deadline") or ""
-        if n >= 40: break
+        if n >= 30: break
         if hm(0) <= d <= hm(30) and len((L["ex"].get(c) or {}).get("boats", [])) < 6:
             x = ex(c); n += 1; time.sleep(1)
             if x and x["boats"]: L["ex"][c] = x
-        elif hm(-90) <= d <= hm(-2) and c not in L["res"] and not r.get("result"):
+        elif hm(-60) <= d <= hm(-3) and c not in L["res"] and not r.get("result"):
             x = res(c); n += 1; time.sleep(1)
             if x: L["res"][c] = x
 L["updated"] = now.strftime("%Y-%m-%d %H:%M")
