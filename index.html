@@ -494,7 +494,7 @@ try{const c=JSON.parse(sessionStorage.getItem('yk_res')||'null');if(c&&c.date===
 try{const y=+sessionStorage.getItem('yk_y');if(y){sessionStorage.removeItem('yk_y');addEventListener('load',()=>setTimeout(()=>scrollTo(0,y),50))}}catch(e){}
 const pollRes=async()=>{try{const L=await (await fetch('live.json?t='+Date.now(),{cache:'no-store'})).json();if(!L||!L.res)return;
  const fresh=DATA.records.some(r=>!r.result&&L.res[r.code]);if(fresh){sessionStorage.setItem('yk_res',JSON.stringify({date:L.date,res:L.res}));sessionStorage.setItem('yk_y',String(scrollY));location.reload()}}catch(e){}};
-setTimeout(pollRes,3000);setInterval(pollRes,60000);
+setTimeout(pollRes,3000);setInterval(pollRes,30000);
 const C={1:['#f4f4f4','#1d1d1d'],2:['#1d1d1d','#fff'],3:['#e63946','#fff'],4:['#2a6fdb','#fff'],5:['#ffd166','#1d1d1d'],6:['#2bb673','#fff']};
 const balls=c=>c.split('-').map(n=>`<span class="ball" style="background:${C[n][0]};color:${C[n][1]}">${n}</span>`).join('');
 const form=cs=>{if(!cs.length)return'';const h=cs[0][0];const os=cs.filter(c=>c[0]!==h);if(os.length&&os.length<cs.length){return form(cs.filter(c=>c[0]===h))+' +押さえ'+os.join('・')}if(!cs.every(c=>c[0]===h))return cs.join(' / ');
