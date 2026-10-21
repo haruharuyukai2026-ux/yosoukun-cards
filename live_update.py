@@ -68,7 +68,7 @@ if today:
             if x:
                 x["st"] = "締切直前" if d <= hm(4) else ("展示後" if len((L["ex"].get(c) or {}).get("boats", [])) == 6 else "展示前")
                 L["odds"][c] = x
-        elif hm(-60) <= d <= hm(-3) and c not in L["res"] and not r.get("result"):
+        elif hm(-60) <= d <= hm(-2) and c not in L["res"] and not r.get("result"):
             x = res(c); n += 1; time.sleep(1)
             if x: L["res"][c] = x
 L["updated"] = now.strftime("%Y-%m-%d %H:%M")
