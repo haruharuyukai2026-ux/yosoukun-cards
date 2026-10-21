@@ -351,12 +351,12 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
   </section>
 
   <section data-t="home" id="lab" class="sec s-lab">
-    <h2><span class="ic">🔬</span><span class="tt">予想くんのデータ室</span> <small>予想の中身、ぜんぶ見られるよ</small></h2>
+    <h2><span class="ic">🔬</span><span class="tt">予想くんのデータ室</span></h2>
     <div class="labg">
-      <a class="lt" data-tab="home" data-go="races-sec" href="#races-sec"><span class="li2">🚤</span><b>全レース・6艇分析</b><small id="lt-r">展示・選手・モーターを6艇で比べる</small></a>
-      <a class="lt" data-tab="data" data-go="venues-sec" href="#venues-sec"><span class="li2">📊</span><b>24場データ</b><small>場ごとのイン1着率・荒れやすさ・決まり手</small></a>
-      <a class="lt" data-tab="rec" data-go="all-sec" href="#all-sec"><span class="li2">📒</span><b>的中・全記録</b><small>締切前に出した予想と結果を、外れもぜんぶ</small></a>
-      <a class="lt" href="meikan.html"><span class="li2">🧑‍✈️</span><b>選手名鑑</b><small id="lt-p">今日走る選手の級別・勝率・スタート・コース別成績</small></a>
+      <a class="lt" data-tab="home" data-go="races-sec" href="#races-sec"><span class="li2">🚤</span><b>全レース・6艇分析</b></a>
+      <a class="lt" data-tab="data" data-go="venues-sec" href="#venues-sec"><span class="li2">📊</span><b>24場データ</b></a>
+      <a class="lt" data-tab="rec" data-go="all-sec" href="#all-sec"><span class="li2">📒</span><b>的中・全記録</b></a>
+      <a class="lt" href="meikan.html"><span class="li2">🧑‍✈️</span><b>選手名鑑</b></a>
     </div>
   </section>
 
@@ -602,7 +602,7 @@ const goHash=()=>{const h=location.hash.slice(1);if(!h||/^p\d/.test(h))return;co
  const li=r=>{const g=r.groups.find(g=>g.hit);return `<li><small>${r.date.slice(5).replace('-','/')}</small><span><b>${r.race}</b> <span class="chip k-${g.kind}">${g.kind}${g.tier?' '+TN[g.tier]:''}</span>${r.public===false?'<small class="tr">試験運用</small>':''}</span><span>${balls(r.result)}</span><span class="py">${(r.pay||0).toLocaleString()}円</span></li>`};
  if(el)el.innerHTML=HL.length?`<details class="hhd"><summary>🎯 直近の的中 <b>${HL[0].race}</b>${HL[0].public===false?'<small class="tr">試験運用</small>':''} ${balls(HL[0].result)} <span class="py">${(HL[0].pay||0).toLocaleString()}円</span><span class="op"></span></summary><ul class="hhs">${HL.slice(0,8).map(li).join('')}</ul><a class="more" href="#record" data-tab="rec">的中・全記録をぜんぶ見る ›</a></details>`:'<p class="note">的中が出たら、ここに並べていくよ</p>';}
 document.querySelectorAll('[data-tab]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();showTab(a.dataset.tab);const g=document.getElementById(a.dataset.go||'')||document.querySelector('section.sec[data-t="'+a.dataset.tab+'"]');if(g)scrollTo({top:g.getBoundingClientRect().top+scrollY-64,behavior:'smooth'});tabs.forEach(x=>x.classList.toggle('on',x.dataset.t===a.dataset.tab&&!x.dataset.go))}));
-(async()=>{const R=await loadR();const n=Object.keys(R.racers||{}).length;const lp=document.getElementById('lt-p');if(lp&&n)lp.textContent=`今日走る${n}人の級別・勝率・スタート・コース別成績`})();
+(async()=>{const R=await loadR();const n=Object.keys(R.racers||{}).length;})();
 try{history.scrollRestoration='manual'}catch(e){}
 const _rl=(performance.getEntriesByType&&performance.getEntriesByType('navigation')[0]||{}).type==='reload';
 if(_rl&&location.hash&&!sessionStorage.getItem('yk_y')){history.replaceState(null,'',location.pathname+location.search)}
