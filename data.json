@@ -76,7 +76,7 @@
    "code": "202610211210",
    "race": "住之江10R",
    "deadline": "19:38",
-   "state": "展示待ち",
+   "state": "見送り",
    "note": "判定予定",
    "date": "2026-10-21",
    "result": null
@@ -1239,7 +1239,7 @@
    "in1": 0.626
   }
  ],
- "updated": "2026-10-21 19:08",
+ "updated": "2026-10-21 19:25",
  "public_from": "20261021",
  "summary": {
   "本命": {
@@ -1265,8 +1265,8 @@
    "h12": 0
   }
  },
- "judged": 44,
- "skipped": 18,
+ "judged": 46,
+ "skipped": 19,
  "records": [
   {
    "posted": "13:07",
