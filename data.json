@@ -103,7 +103,7 @@
    "code": "202610211212",
    "race": "住之江12R",
    "deadline": "20:36",
-   "state": "展示待ち",
+   "state": "予想あり",
    "note": "判定予定",
    "date": "2026-10-21",
    "result": null
@@ -1275,7 +1275,7 @@
    "in1": 0.626
   }
  ],
- "updated": "2026-10-21 20:17",
+ "updated": "2026-10-21 20:25",
  "public_from": "20261021",
  "summary": {
   "本命": {
@@ -1308,7 +1308,7 @@
    "h12": 0
   }
  },
- "judged": 47,
+ "judged": 48,
  "skipped": 20,
  "records": [
   {
@@ -3467,6 +3467,429 @@
     "has_ex": true
    },
    "weather": "晴・風5m・波3cm"
+  },
+  {
+   "posted": "20:25",
+   "deadline": "20:36",
+   "date": "2026-10-21",
+   "race": "住之江12R",
+   "code": "202610211212",
+   "public": true,
+   "result": null,
+   "pay": null,
+   "groups": [
+    {
+     "kind": "まくり",
+     "combos": [],
+     "odds": [],
+     "hit": null
+    }
+   ],
+   "sent": false,
+   "boats": [
+    {
+     "n": "1",
+     "cls": "A1",
+     "ai": 53,
+     "pop": 64,
+     "ren": 69,
+     "loc": "8.83",
+     "ex": "6.83",
+     "st": "0.05"
+    },
+    {
+     "n": "2",
+     "cls": "A2",
+     "ai": 7,
+     "pop": 13,
+     "ren": 65,
+     "loc": "5.55",
+     "ex": "6.78",
+     "st": "-0.01"
+    },
+    {
+     "n": "3",
+     "cls": "B1",
+     "ai": 32,
+     "pop": 7,
+     "ren": 64,
+     "loc": "5.36",
+     "ex": "6.77",
+     "st": "-0.05"
+    },
+    {
+     "n": "4",
+     "cls": "B1",
+     "ai": 5,
+     "pop": 7,
+     "ren": 10,
+     "loc": "5.78",
+     "ex": "6.81",
+     "st": "-0.11"
+    },
+    {
+     "n": "5",
+     "cls": "A2",
+     "ai": 1,
+     "pop": 4,
+     "ren": 3,
+     "loc": "6.29",
+     "ex": "6.84",
+     "st": "-0.02"
+    },
+    {
+     "n": "6",
+     "cls": "A1",
+     "ai": 2,
+     "pop": 5,
+     "ren": 18,
+     "loc": "5.75",
+     "ex": "6.8",
+     "st": "-0.07"
+    }
+   ],
+   "yellow": [
+    "2号艇のSTが遅め(0.17・壁にならない)"
+   ],
+   "ana": {
+    "boats": [
+     {
+      "w": 1,
+      "no": "4208",
+      "name": "三浦 永理",
+      "cls": "A1",
+      "branch": "静岡",
+      "F": 0,
+      "local": 8.83,
+      "nat": 7.36,
+      "motor": 34.1,
+      "mno": "19",
+      "home": false,
+      "recent": [
+       {
+        "f": 2,
+        "c": 1
+       },
+       {
+        "f": 4,
+        "c": 3
+       },
+       {
+        "f": 2,
+        "c": 6
+       },
+       {
+        "f": 3,
+        "c": 3
+       },
+       {
+        "f": 6,
+        "c": 2
+       }
+      ],
+      "k_nige": 0.704,
+      "k_sasare": 0.085,
+      "k_makurare": 0.101,
+      "k_msasare": 0.083,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.0,
+      "k_makuri": 0.0,
+      "k_msashi": 0.0,
+      "rc_n": 509.0,
+      "rc_win": 0.699,
+      "rc_top2": 0.862,
+      "motor_adj": -0.037,
+      "setsu_n": 3.0,
+      "setsu_fin": 3.667,
+      "ex": 6.83,
+      "tilt": -0.5,
+      "course": 1,
+      "exst": 0.05,
+      "ai": 53,
+      "pop": 64
+     },
+     {
+      "w": 2,
+      "no": "5188",
+      "name": "武井 莉里佳",
+      "cls": "A2",
+      "branch": "兵庫",
+      "F": 0,
+      "local": 5.55,
+      "nat": 6.15,
+      "motor": 42.5,
+      "mno": "24",
+      "home": false,
+      "recent": [
+       {
+        "f": 4,
+        "c": 1
+       },
+       {
+        "f": 1,
+        "c": 2
+       },
+       {
+        "f": 2,
+        "c": 3
+       },
+       {
+        "f": 6,
+        "c": 1
+       },
+       {
+        "f": 1,
+        "c": 4
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.504,
+      "k_sashi": 0.104,
+      "k_makuri": 0.059,
+      "k_msashi": 0.0,
+      "rc_n": 137.0,
+      "rc_win": 0.168,
+      "rc_top2": 0.358,
+      "motor_adj": 0.107,
+      "setsu_n": 3.0,
+      "setsu_fin": 3.0,
+      "ex": 6.78,
+      "tilt": -0.5,
+      "course": 2,
+      "exst": -0.01,
+      "ai": 7,
+      "pop": 13
+     },
+     {
+      "w": 3,
+      "no": "3302",
+      "name": "谷川 里江",
+      "cls": "B1",
+      "branch": "愛知",
+      "F": 0,
+      "local": 5.36,
+      "nat": 5.36,
+      "motor": 34.1,
+      "mno": "35",
+      "home": false,
+      "recent": [
+       {
+        "f": 5,
+        "c": 2
+       },
+       {
+        "f": 6,
+        "c": 5
+       },
+       {
+        "f": 4,
+        "c": 5
+       },
+       {
+        "f": 1,
+        "c": 1
+       },
+       {
+        "f": 1,
+        "c": 2
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.028,
+      "k_makuri": 0.099,
+      "k_msashi": 0.016,
+      "rc_n": 429.0,
+      "rc_win": 0.163,
+      "rc_top2": 0.359,
+      "motor_adj": 0.011,
+      "setsu_n": 3.0,
+      "setsu_fin": 2.0,
+      "ex": 6.77,
+      "tilt": -0.5,
+      "course": 3,
+      "exst": -0.05,
+      "ai": 32,
+      "pop": 7
+     },
+     {
+      "w": 4,
+      "no": "5277",
+      "name": "井上 未都",
+      "cls": "B1",
+      "branch": "福岡",
+      "F": 1,
+      "local": 5.78,
+      "nat": 4.98,
+      "motor": 20.3,
+      "mno": "31",
+      "home": false,
+      "recent": [
+       {
+        "f": 3,
+        "c": 4
+       },
+       {
+        "f": null,
+        "c": 3
+       },
+       {
+        "f": 3,
+        "c": 1
+       },
+       {
+        "f": 3,
+        "c": 5
+       },
+       {
+        "f": 1,
+        "c": 6
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.028,
+      "k_makuri": 0.065,
+      "k_msashi": 0.009,
+      "rc_n": 110.0,
+      "rc_win": 0.1,
+      "rc_top2": 0.227,
+      "motor_adj": -0.02,
+      "setsu_n": 3.0,
+      "setsu_fin": 2.333,
+      "ex": 6.81,
+      "tilt": -0.5,
+      "course": 4,
+      "exst": -0.11,
+      "ai": 5,
+      "pop": 7
+     },
+     {
+      "w": 5,
+      "no": "5129",
+      "name": "山口 真喜子",
+      "cls": "A2",
+      "branch": "長崎",
+      "F": 0,
+      "local": 6.29,
+      "nat": 5.99,
+      "motor": 33.0,
+      "mno": "56",
+      "home": false,
+      "recent": [
+       {
+        "f": 3,
+        "c": 4
+       },
+       {
+        "f": 3,
+        "c": 6
+       },
+       {
+        "f": 3,
+        "c": 6
+       },
+       {
+        "f": null,
+        "c": 4
+       },
+       {
+        "f": 3,
+        "c": 1
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.019,
+      "k_makuri": 0.009,
+      "k_msashi": 0.033,
+      "rc_n": 216.0,
+      "rc_win": 0.065,
+      "rc_top2": 0.19,
+      "motor_adj": -0.035,
+      "setsu_n": 3.0,
+      "setsu_fin": 4.167,
+      "ex": 6.84,
+      "tilt": -0.5,
+      "course": 5,
+      "exst": -0.02,
+      "ai": 1,
+      "pop": 4
+     },
+     {
+      "w": 6,
+      "no": "4387",
+      "name": "平山 智加",
+      "cls": "A1",
+      "branch": "香川",
+      "F": 0,
+      "local": 5.75,
+      "nat": 6.94,
+      "motor": 33.6,
+      "mno": "17",
+      "home": false,
+      "recent": [
+       {
+        "f": 1,
+        "c": 1
+       },
+       {
+        "f": 3,
+        "c": 3
+       },
+       {
+        "f": 1,
+        "c": 1
+       },
+       {
+        "f": 1,
+        "c": 2
+       },
+       {
+        "f": 5,
+        "c": 4
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.012,
+      "k_makuri": 0.0,
+      "k_msashi": 0.004,
+      "rc_n": 253.0,
+      "rc_win": 0.028,
+      "rc_top2": 0.138,
+      "motor_adj": 0.043,
+      "setsu_n": 3.0,
+      "setsu_fin": 2.333,
+      "ex": 6.8,
+      "tilt": -0.5,
+      "course": 6,
+      "exst": -0.07,
+      "ai": 2,
+      "pop": 5
+     }
+    ],
+    "wind": 1.0,
+    "wave": 1.0,
+    "has_ex": true
+   },
+   "weather": "曇り・風1m・波1cm",
+   "locked": true
   },
   {
    "posted": "15:56",
