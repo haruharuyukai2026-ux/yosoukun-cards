@@ -2,20 +2,27 @@ name: live
 on:
   schedule:
     - cron: "*/5 23,0-13 * * *"
+    - cron: "2 23,0-13 * * *"
   workflow_dispatch:
 permissions:
   contents: write
-concurrency: live
+concurrency:
+  group: live
+  cancel-in-progress: false
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - run: pip install -q beautifulsoup4
-      - name: 展示と結果を取る
-        run: python3 live_update.py
-      - name: 保存
+      - name: 5分おきに展示と結果を取る(1回の実行で約55分まわす)
         run: |
           git config user.name yosoukun-live; git config user.email yosoukun-live@users.noreply.github.com
-          git add live.json && git commit -qm "live $(date -u +%H:%M)" && git pull -q --rebase && git push -q || echo nochange
+          for i in $(seq 1 11); do
+            git pull -q --rebase || true
+            python3 live_update.py || true
+            git add live.json && git commit -qm "live $(date -u +%H:%M)" && git push -q || echo nochange
+            h=$(TZ=Asia/Tokyo date +%H); [ "$h" -ge 23 ] && break
+            [ $i -lt 11 ] && sleep 290
+          done
