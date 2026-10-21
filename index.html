@@ -407,7 +407,7 @@ window.loadAR=async()=>{const J=await (await fetch('allraces.json',{cache:'no-ca
  return J};
 </script>
 <script>
-(async()=>{let J;try{J=await loadAR()}catch(e){document.getElementById('ar').innerHTML='<p class="note">今日の全レースはまだ準備中</p>';return}
+(async()=>{let J;try{J=await loadAR()}catch(e){document.getElementById('ar').innerHTML='<p class="note">今日の全レースはいま準備中だよ</p>';return}
  const today=new Date(Date.now()+9*36e5).toISOString().slice(0,10);
  document.getElementById('ar-date').textContent=J.date.slice(5).replace('-','/')+(J.date!==today?'(最新の開催日)':'');
  let V=[];let cur='すべて';const hasO=r=>{const o=(typeof oshi==='function'?oshi():[]);return r.ana.boats.some(b=>o.includes(b.no))};
@@ -419,7 +419,7 @@ window.loadAR=async()=>{const J=await (await fetch('allraces.json',{cache:'no-ca
  const draw=()=>{const _n=new Date(Date.now()+9*36e5).toISOString().slice(11,16),_nx={};J.races.forEach(r=>{if(r.result||(J.date===today&&(r.deadline||'99')<_n))return;if(!_nx[r.venue]||r.deadline<_nx[r.venue])_nx[r.venue]=r.deadline});V=Object.keys(_nx).sort((a,b)=>_nx[a].localeCompare(_nx[b]));if(cur!=='すべて'&&cur!=='⭐推し'&&!V.includes(cur))cur='すべて';
   document.getElementById('vf').innerHTML=['すべて','⭐推し',...V].map(v=>`<button class="${v===cur?'on':''}" data-v="${v}">${v}</button>`).join('');
   const F=J.races.filter(r=>cur==='すべて'||(cur==='⭐推し'?hasO(r):r.venue===cur)),nowT=new Date(Date.now()+9*36e5).toISOString().slice(11,16),ago=new Date(Date.now()+9*36e5-30*6e4).toISOString().slice(11,16),isPast=r=>!!r.result||(typeof DATA!=='undefined'&&DATA.records.some(x=>x.code===r.code&&x.result))||(J.date<today)||(J.date===today&&(r.deadline||'99')<ago),up0=F.filter(r=>!isPast(r)),up=up0.slice().sort((a,b)=>(a.deadline||'99').localeCompare(b.deadline||'99')),dn=F.filter(isPast);
-  const N=8;document.getElementById('ar').innerHTML=(up.length?up.slice(0,N).map(row).join('')+(up.length>N?`<details class="past"><summary>これからのレースをもっと見る(あと${up.length-N}本)</summary>${up.slice(N).map(row).join('')}</details>`:''):(cur==='⭐推し'?((typeof oshi==='function'?oshi():[]).length?'<p class="note">推しの選手が出るレースは、このあと無いよ</p>':'<p class="note">推しの選手はまだいないよ<br>選手の名前を押して「☆推しに登録」すると、ここに出る</p>'):cur!=='すべて'?'<p class="note">この場のレースは、このあと無いよ</p>':'<p class="note">今日のレースはぜんぶ終わったよ</p>'))};
+  const N=8;document.getElementById('ar').innerHTML=(up.length?up.slice(0,N).map(row).join('')+(up.length>N?`<details class="past"><summary>これからのレースをもっと見る(あと${up.length-N}本)</summary>${up.slice(N).map(row).join('')}</details>`:''):(cur==='⭐推し'?((typeof oshi==='function'?oshi():[]).length?'<p class="note">推しの選手が出るレースは、このあと無いよ</p>':'<p class="note">推しの選手はまだいないよ<br>選手の名前を押して「☆推しに登録」すると、ここに出るよ</p>'):cur!=='すべて'?'<p class="note">この場のレースは、このあと無いよ</p>':'<p class="note">今日のレースはぜんぶ終わったよ</p>'))};
  draw();window.addEventListener('oshi',draw);setInterval(draw,60000);setInterval(async()=>{try{const N=await loadAR();J.races=N.races;draw();const el=document.getElementById('ar-date');if(el&&LIVE_AT)el.textContent='展示・結果 '+LIVE_AT+' 更新'}catch(e){}},120000);{const el=document.getElementById('ar-date');if(el&&LIVE_AT)el.textContent='展示・結果 '+LIVE_AT+' 更新'}
  document.getElementById('vf').addEventListener('click',e=>{const b=e.target.closest('button');if(b){cur=b.dataset.v;draw()}});
  document.getElementById('ar').addEventListener('toggle',e=>{const d=e.target;if(!d.open||!d.classList.contains('arr'))return;const box=d.querySelector('.arb');if(box.dataset.done)return;const r=J.races.find(x=>x.code===box.dataset.code);
@@ -474,7 +474,7 @@ const small=['狙い目','万舟狙い'].map(k=>{const s=DATA.summary[k]||{n:0,h
 {const sr=DATA.records.filter(r=>r.sent),ex=sr.find(r=>r.groups.some(g=>g.hit))||sr[0];const bg=ex&&ex.groups.find(g=>g.kind==='本命');
  if(ex&&bg&&bg.f6)document.getElementById('jcard').innerHTML=`<div class="phone"><div class="pnt"><div class="pn"><i>🚤</i><b>ボートレース予想くん</b><small>今</small></div><p>🚤【予想】${ex.race} 締切${ex.deadline||''}<br>本命 ${bg.f6}</p></div>
  <div class="pch"><div class="pcn">ボートレース予想くん</div><div class="jc"><div class="jl">LINEで実際に届いた本命(${ex.date.slice(5).replace('-','/')})</div><div class="jt">🚤 ${ex.race}${ex.deadline?' 締切'+ex.deadline:''}</div><div class="jf6">本命 ${bg.f6}</div><div class="jw">◎ ${bg.star||''}</div><div class="jbtn">6艇の比較を見る</div>${bg.hit?`<div class="js">的中<small>${(ex.pay||0).toLocaleString()}円</small></div>`:''}</div></div></div><p class="pcap">↑ 本命が出るとこう届く(通知 → トーク)</p>`;
- (async()=>{try{const A=await loadAR();const R=A.races.filter(r=>r.ana&&r.ana.has_ex&&r.ana.boats.every(b=>b.ex)).pop();if(!R)return;const el=document.getElementById('jex');if(el)el.innerHTML=`<div class="jexb"><div class="jexh">展示走行もすぐ見られる<small>例:${R.venue}${R.rno}R</small></div>${exBars(R.ana.boats)}</div>`}catch(e){}})();
+ (async()=>{try{const A=await loadAR();const R=A.races.filter(r=>r.ana&&r.ana.has_ex&&r.ana.boats.every(b=>b.ex)).pop();if(!R)return;const el=document.getElementById('jex');if(el)el.innerHTML=`<div class="jexb"><div class="jexh">展示走行もすぐ見られる！<small>例:${R.venue}${R.rno}R</small></div>${exBars(R.ana.boats)}</div>`}catch(e){}})();
  document.getElementById('jproof').innerHTML=`<p class="jp">過去3か月の検証で本命は<br>6点で<b>51%</b>・手広く12点で<b>70%</b>的中</p>`}
 const _allH=DATA.records.filter(r=>r.groups.some(g=>g.hit)),_hits=_allH.filter(r=>r.date===new Date(Date.now()+9*36e5).toISOString().slice(0,10)).slice(0,10);
 const hp=DATA.summary['本命_公開後']||{n:0};
@@ -511,7 +511,7 @@ const umabashira=bs=>{if(!bs.some(b=>b.recent&&b.recent.length))return'';
 const evHTML=r=>{const A=r.ana;if(!A||!A.boats)return evOld(r);
   return `<details class="ev" id="r${r.code}"><summary>6艇分析(展示・選手・モーター)</summary>`+
   `<div class="wx">${A.wind!=null?'風 '+A.wind+'m':''}${A.wave!=null?' / 波 '+A.wave+'cm':''}${r.yellow&&r.yellow.length?' / 注意 '+r.yellow.join('・'):''}</div>`+
-  (A.has_ex?`<h5>スタート展示</h5>${stSVG(A.boats)}<h5>展示タイム<small>コース順 / 金色が一番速い</small></h5>${exBars(A.boats)}`:'<p class="wx">展示はまだ(締切の約20分前に出る)</p>')+tenkai(A.boats)+
+  (A.has_ex?`<h5>スタート展示</h5>${stSVG(A.boats)}<h5>展示タイム<small>コース順 / 金色が一番速い</small></h5>${exBars(A.boats)}`:'<p class="wx">展示はまだだよ(締切の約20分前に出るよ)</p>')+tenkai(A.boats)+
   `<h5>6艇の数字<small>タップで選手カード</small></h5><div class="bcs">${(()=>{const mx=Math.max(...A.boats.map(b=>b.ai??-1));return A.boats.map(b=>boatCard(r,b,b.ai!=null&&b.ai===mx)).join('')})()}</div>`+umabashira(A.boats)+
   `<div class="lnk"><a href="https://www.boatrace.jp/owpc/pc/race/beforeinfo?rno=${+r.code.slice(10)}&jcd=${r.code.slice(8,10)}&hd=${r.code.slice(0,8)}" target="_blank" rel="noopener">公式の直前情報 ›</a><a href="https://www.boatrace.jp/owpc/pc/race/odds3t?rno=${+r.code.slice(10)}&jcd=${r.code.slice(8,10)}&hd=${r.code.slice(0,8)}" target="_blank" rel="noopener">オッズ ›</a></div></details>`};
 const evOld=r=>{if(!r.boats||!r.boats.length)return'';
