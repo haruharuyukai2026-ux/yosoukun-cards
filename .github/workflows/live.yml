@@ -1,7 +1,7 @@
 name: live
 on:
   schedule:
-    - cron: "2 23,0-13 * * *"
+    - cron: "2,32 23,0-13 * * *"
   workflow_dispatch:
 permissions:
   contents: write
@@ -11,7 +11,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 75
     steps:
       - uses: actions/checkout@v4
       - run: pip install -q beautifulsoup4
@@ -23,5 +23,5 @@ jobs:
             python3 live_update.py || true
             git add live.json && git commit -qm "live $(date -u +%H:%M)" && git push -q || echo nochange
             h=$(TZ=Asia/Tokyo date +%H); [ "$h" -ge 23 ] && break
-            [ $i -lt 27 ] && sleep 110
+            [ $i -lt 27 ] && sleep 90
           done
