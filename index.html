@@ -299,7 +299,7 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
 </header>
 
 <main class="wrap" lang="ja">
-  <nav class="tabs"><a href="#today-sec" data-t="home"><i style="background:var(--hit)"></i>今日の予想</a><a href="#races-sec" data-t="home" data-go="races-sec"><i style="background:#ff9f43"></i>全レース</a><a href="#record" data-t="rec"><i style="background:var(--gold)"></i>的中・全記録</a><a href="#venues-sec" data-t="data"><i style="background:#8ecae6"></i>24場・計算機</a></nav>
+  <nav class="tabs"><a href="#today-sec" data-t="home"><i style="background:var(--hit)"></i>今日の予想</a><a href="#races-sec" data-t="home" data-go="races-sec"><i style="background:#ff9f43"></i>全レース</a><a href="#record" data-t="rec"><i style="background:var(--gold)"></i>的中・全記録</a><a href="#venues-sec" data-t="data"><i style="background:#8ecae6"></i>24場データ</a></nav>
   <div id="latest" hidden></div>
   <section data-t="rec" id="record" class="sec s-rec">
     <h2><span class="ic">🎯</span><span class="tt">的中の記録</span> <small id="upd"></small></h2>
@@ -340,17 +340,6 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
 
 
 
-  <section data-t="data" id="calc-sec" class="sec s-calc">
-    <h2><span class="ic">🧮</span><span class="tt">買い方計算機</span></h2>
-    <p class="note">買い目とオッズを入れると、予算をどう分けるかと、当たった時の払戻が出るよ</p>
-    <textarea id="cin" rows="5" placeholder="1-2-3 7.4&#10;1-2-4 12.2&#10;1-3-2 18.4">1-2-3 7.4
-1-2-4 12.2
-1-3-2 18.4
-1-3-4 17.7</textarea>
-    <div class="crow"><label>予算 <input id="cbud" type="number" value="1000" step="100" min="100" inputmode="numeric">円</label>
-    <select id="cmode"><option value="eq">払戻をそろえる</option><option value="flat">均等に買う</option></select></div>
-    <div id="cout"></div>
-  </section>
 
   <section data-t="data" id="venues-sec" class="sec s-ven">
     <h2><span class="ic">📊</span><span class="tt">24場データ</span> <small>直近2年の全レースから集計</small></h2>
@@ -449,14 +438,6 @@ window.addEventListener('hashchange',showPage);showPage();
 </script>
 
 <script>
-function calcRun(){const L=document.getElementById('cin').value.split('\n').map(x=>x.trim().split(/[\s,]+/)).filter(x=>x.length>=2&&/^[1-6]-[1-6]-[1-6]$/.test(x[0])&&+x[1]>0).map(x=>({c:x[0],o:+x[1]}));
- const bud=Math.max(100,Math.floor((+document.getElementById('cbud').value||0)/100)*100),mode=document.getElementById('cmode').value,out=document.getElementById('cout');
- if(!L.length){out.innerHTML='<p class="note">「1-2-3 7.4」の形で1行ずつ入れてね</p>';return}
- let st;if(mode==='flat'){const u=Math.max(100,Math.floor(bud/L.length/100)*100);st=L.map(()=>u)}else{const inv=L.map(x=>1/x.o),T=inv.reduce((a,b)=>a+b,0);st=inv.map(v=>Math.max(100,Math.floor(bud*v/T/100)*100));let left=bud-st.reduce((a,b)=>a+b,0);while(left>=100){let k=0,mn=1e18;L.forEach((x,i)=>{if(x.o*st[i]<mn){mn=x.o*st[i];k=i}});st[k]+=100;left-=100}}
- const tot=st.reduce((a,b)=>a+b,0),pays=L.map((x,i)=>Math.floor(x.o*st[i])),mn=Math.min(...pays);
- out.innerHTML=`<table class="ct"><tr><th>買い目</th><th>オッズ</th><th>金額</th><th>当たったら</th></tr>${L.map((x,i)=>`<tr><td>${balls(x.c)}</td><td>${x.o}</td><td>${st[i].toLocaleString()}円</td><td class="${pays[i]<tot?'gm':''}">${pays[i].toLocaleString()}円</td></tr>`).join('')}</table><p class="cres">合計 <b>${tot.toLocaleString()}円</b> / どれが当たっても <b class="${mn<tot?'gm':'ok'}">${mn.toLocaleString()}円以上</b> ${mn<tot?'→ ガミる目がある(赤)':'→ ガミらない'}</p>`}
-['cin','cbud','cmode'].forEach(id=>document.getElementById(id).addEventListener('input',calcRun));window.addEventListener('load',calcRun);
-function toCalc(lines){document.getElementById('cin').value=lines;calcRun();location.hash='calc-sec'}
 </script>
 <footer><div class="wrap">舟券の購入は20歳から<br>予想は参考情報で、的中を保証するものではありません<br>無理のない範囲で楽しんでね<br>データはBOAT RACE公式の公開情報から集計(BOAT RACE公式とは関係ありません)</div></footer>
 
@@ -541,7 +522,7 @@ const raceHTML=r=>{if(r.locked)return lockHTML(r);
   const any=r.groups.some(g=>g.hit), done=r.result!==null;
   const mark=!done?'<span class="mark wait">結果待ち</span>':any?'<span class="mark ok">的中</span>':'<span class="mark ng">はずれ</span>';
   return `<article class="race ${done?(any?'won':'lost'):''}">${done&&any?`<span class="stamp">的中<small>${(()=>{const g=r.groups.find(g=>g.tier);return g?TS[g.tier]+"で":""})()}</small><small>${(r.pay||0).toLocaleString()}円</small></span>`:''}<div class="top"><span class="name">${r.race}</span><span class="time">${r.posted?"予想 "+r.posted:""}${r.deadline?" / 締切 "+r.deadline:""}</span><span class="res">${!r.public?'<span class="pre">記録のみ</span>':''}${done?'結果 '+balls(r.result):''} ${mark}${any&&r.pay?` <span class="pay">${r.pay.toLocaleString()}円</span>`:''}</span></div>`+
-   (r.why&&r.why.length?`<ul class="why">${r.why.map(w=>`<li>${w}</li>`).join('')}</ul>`:'')+evHTML(r)+(()=>{const g=r.groups.find(g=>g.kind==='本命'&&g.odds&&g.odds.length===g.combos.length&&g.combos.length);return g&&r.result===null?`<button class="tocalc" onclick="toCalc('${g.combos.map((c,i)=>c+' '+g.odds[i]).join('\\n')}')">🧮 この本命で金額を計算</button>`:''})()+(r.groups.length&&!r.groups.some(g=>g.kind==='本命')?'<div class="grp"><span class="chip k-本命">本命</span><span class="fm" style="color:var(--sub)">今回は見送り</span></div>':'')+r.groups.map(g=>g.kind==='本命'&&g.f6?tiersHTML(r,g,done):`<div class="grp"><span class="chip k-${g.kind}">${g.kind}</span><span class="fm">${g.combos.length>1?form(g.combos)+'('+g.combos.length+'点) ◎'+g.combos[0]:g.combos[0]}</span>${g.combos.map((c,i)=>`<span class="combo ${done&&c===r.result?'hit':''}">${balls(c)}</span>`).join('')}${g.why?`<span class="hw">${g.why}</span>`:''}</div>`).join('')+`</article>`;
+   (r.why&&r.why.length?`<ul class="why">${r.why.map(w=>`<li>${w}</li>`).join('')}</ul>`:'')+evHTML(r)+(r.groups.length&&!r.groups.some(g=>g.kind==='本命')?'<div class="grp"><span class="chip k-本命">本命</span><span class="fm" style="color:var(--sub)">今回は見送り</span></div>':'')+r.groups.map(g=>g.kind==='本命'&&g.f6?tiersHTML(r,g,done):`<div class="grp"><span class="chip k-${g.kind}">${g.kind}</span><span class="fm">${g.combos.length>1?form(g.combos)+'('+g.combos.length+'点) ◎'+g.combos[0]:g.combos[0]}</span>${g.combos.map((c,i)=>`<span class="combo ${done&&c===r.result?'hit':''}">${balls(c)}</span>`).join('')}${g.why?`<span class="hw">${g.why}</span>`:''}</div>`).join('')+`</article>`;
 };
 const lastHit=DATA.records.find(r=>r.groups.some(g=>g.hit));
 if(lastHit){const g=lastHit.groups.find(g=>g.hit);document.getElementById('latest').innerHTML=`<a class="banner" href="#record"><span class="chip k-${g.kind}">${g.kind}</span> 最新の的中 <b>${lastHit.race}</b> ${balls(lastHit.result)} <span class="pay">${(lastHit.pay||0).toLocaleString()}円</span><small>${lastHit.date.slice(5).replace('-','/')}</small></a>`}
