@@ -229,6 +229,12 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
 .hot.skp{background:#556b85!important;color:#fff!important}
 .pbh .cf{font-size:11px;font-weight:800;color:#0b1a2e;background:#9fb6cf;border-radius:6px;padding:1px 6px;margin-left:8px;vertical-align:middle}
 .cfw{font-size:12px;color:var(--sub);margin:-2px 0 8px}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;margin:6px 0 12px;font-size:14px;border-radius:12px;overflow:hidden}
+.cmp th{background:#1b3a63;color:#cfe0f2;font-size:11px;font-weight:800;padding:7px 4px;text-align:center}
+.cmp td{padding:8px 4px;text-align:center;font-family:var(--f-num);font-weight:800;border-top:1px solid #0b2545}
+.cmp tbody tr:nth-child(odd) td{background:#13345c}.cmp tbody tr:nth-child(even) td{background:#0f2b4d}
+.cmp td.cn{text-align:left;font-family:var(--f-body);white-space:nowrap}.cmp td.cn span{font-size:12px;margin-left:4px;font-weight:700}
+.cmp td.h1{background:#ffd166!important;color:#0b1a2e}.cmp td.h2{background:#fff0c2!important;color:#0b1a2e}.cmp td.h6{color:#6f86a0}
 .wh{font-family:var(--f-disp);font-size:16px;margin:4px 0 6px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}.wh small{font-family:var(--f-body);font-weight:400;font-size:12px;color:var(--sub)}
 .wl{list-style:none;margin:0;padding:0;display:grid;gap:4px}
 .wl li{display:grid;grid-template-columns:44px 72px 1fr auto auto;gap:6px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:7px 10px;font-size:13px}
@@ -546,10 +552,13 @@ const tenkai=(bs,vc)=>{const g=c=>{const b=bs.find(x=>(x.course||x.w)===c);retur
  return `<h5>1マークの展開<small>予想くんの見立て</small></h5><div class="tk2">${it.map(x=>`<i style="flex:${Math.max(x[1],1)};background:${x[2]}"></i>`).join('')}</div><div class="km">${it.map(x=>`<span><i style="background:${x[2]}"></i>${x[0]} <b>${Math.round(x[1]*100/t)}%</b>${(()=>{const V=(typeof DATA!=='undefined'&&DATA.venues||[]).find(v=>v.code===vc);if(!V||!V.first)return'';const f=V.first,base=[f[1],f[2],f[3]+f[4],f[5]+f[6]][it.indexOf(x)],q=x[1]/t/base;return q>=1.3?'<em class="kv up">いつもより多い</em>':q<=0.7?'<em class="kv dn">いつもより少ない</em>':'<em class="kv eq">いつも通り</em>'})()}</span>`).join('')}</div>`};
 const umabashira=bs=>{if(!bs.some(b=>b.recent&&b.recent.length))return'';
  return `<h5>直近5走<small>左が古い→右が最新 / 小さい数字=コース</small></h5><div class="ub">`+bs.map(b=>`<div class="ubr">${balls(String(b.w))}<span class="ubn">${(b.name||'').split(' ')[0]}</span>${[0,1,2,3,4].map(i=>{const x=(b.recent||[])[(b.recent||[]).length-5+i];return x?`<span class="f f${x.f||0}">${x.f||'欠'}<small>${x.c||''}</small></span>`:'<span class="f fe">-</span>'}).join('')}</div>`).join('')+`</div>`};
+const cmpT=bs=>{const cols=[['1着見込み',b=>b.ai,v=>v+'%'],['当地勝率',b=>b.local,v=>v],['モーター',b=>b.motor,v=>v+'%'],['コース1着',b=>b.rc_win!=null?Math.round(b.rc_win*100):null,v=>v+'%']];
+ const rk=cols.map(([,f])=>{const v=bs.map(f).filter(x=>x!=null).sort((a,b)=>b-a);return x=>x==null?'':x===v[0]?'h1':x===v[1]?'h2':x===v[v.length-1]?'h6':''});
+ return `<h5>6艇くらべ<small>濃い金=6艇で一番 / うすい金=2番目</small></h5><table class="cmp"><thead><tr><th></th>${cols.map(c=>`<th>${c[0]}</th>`).join('')}</tr></thead><tbody>${bs.slice().sort((a,b)=>a.w-b.w).map(b=>`<tr><td class="cn">${balls(String(b.w))}<span>${(b.name||'').split(' ')[0]}</span></td>${cols.map(([,f,fmt],i)=>{const v=f(b);return `<td class="${rk[i](v)}">${v==null?'—':fmt(v)}</td>`}).join('')}</tr>`).join('')}</tbody></table>`};
 const evHTML=r=>{const A=r.ana;if(!A||!A.boats)return evOld(r);
   return `<details class="ev" id="r${r.code}"><summary>6艇分析(展示・選手・モーター)</summary>`+
   `<div class="wx">${A.wind!=null?'風 '+A.wind+'m':''}${A.wave!=null?' / 波 '+A.wave+'cm':''}${r.yellow&&r.yellow.length?' / 注意 '+r.yellow.join('・'):''}</div>`+
-  (A.has_ex?`<h5>スタート展示</h5>${stSVG(A.boats)}<h5>展示タイム<small>コース順 / 金色が一番速い</small></h5>${exBars(A.boats)}`:'<p class="wx">展示はまだだよ(締切の約20分前に出るよ)</p>')+tenkai(A.boats,r.code.slice(8,10))+
+  (A.has_ex?`<h5>スタート展示</h5>${stSVG(A.boats)}<h5>展示タイム<small>コース順 / 金色が一番速い</small></h5>${exBars(A.boats)}`:'<p class="wx">展示はまだだよ(締切の約20分前に出るよ)</p>')+tenkai(A.boats,r.code.slice(8,10))+cmpT(A.boats)+
   `<h5>6艇の数字<small>タップで選手カード</small></h5><div class="bcs">${(()=>{const mx=Math.max(...A.boats.map(b=>b.ai??-1));return A.boats.map(b=>boatCard(r,b,b.ai!=null&&b.ai===mx)).join('')})()}</div>`+umabashira(A.boats)+
   `<div class="lnk"><a href="https://www.boatrace.jp/owpc/pc/race/beforeinfo?rno=${+r.code.slice(10)}&jcd=${r.code.slice(8,10)}&hd=${r.code.slice(0,8)}" target="_blank" rel="noopener">公式の直前情報 ›</a><a href="https://www.boatrace.jp/owpc/pc/race/odds3t?rno=${+r.code.slice(10)}&jcd=${r.code.slice(8,10)}&hd=${r.code.slice(0,8)}" target="_blank" rel="noopener">オッズ ›</a></div></details>`};
 const evOld=r=>{if(!r.boats||!r.boats.length)return'';
