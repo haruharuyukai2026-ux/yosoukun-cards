@@ -1,7 +1,6 @@
 name: live
 on:
   schedule:
-    - cron: "*/5 23,0-13 * * *"
     - cron: "2 23,0-13 * * *"
   workflow_dispatch:
 permissions:
