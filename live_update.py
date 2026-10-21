@@ -61,7 +61,9 @@ if today:
         if hm(0) <= d <= hm(30) and len((L["ex"].get(c) or {}).get("boats", [])) < 6:
             x = ex(c); n += 1; time.sleep(1)
             if x and x["boats"]: L["ex"][c] = x
-        elif hm(-2) <= d <= hm(25) and len((L["ex"].get(c) or {}).get("boats", [])) == 6 and (L["odds"].get(c) or {}).get("at", "") < hm(-1):
+        elif hm(-2) <= d <= hm(60) and (lambda O, E: not O                                   # 最初(締切1時間前から)
+                or (len(E.get("boats", [])) == 6 and O.get("at", "") < E.get("at", "99"))       # 展示が出たら更新
+                or (d <= hm(4) and O.get("at", "") < hm(-1)))(L["odds"].get(c) or {}, L["ex"].get(c) or {}):  # 締切前に更新
             x = odds(c); n += 1; time.sleep(1)
             if x: L["odds"][c] = x
         elif hm(-60) <= d <= hm(-3) and c not in L["res"] and not r.get("result"):
