@@ -236,6 +236,7 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
 .cmp td.cn{text-align:left;font-family:var(--f-body);white-space:nowrap}.cmp td.cn span{font-size:12px;margin-left:4px;font-weight:700}
 .cmp td.h1{background:#ffd166!important;color:#0b1a2e}.cmp td.h2{background:#fff0c2!important;color:#0b1a2e}.cmp td.h6{color:#6f86a0}
 @keyframes fl{0%{box-shadow:0 0 0 0 rgba(255,209,102,.9)}100%{box-shadow:0 0 0 14px rgba(255,209,102,0)}}.race.flash{animation:fl 1s ease-out 2}
+.bbt{font-size:10px;color:var(--sub)}
 .wh{font-family:var(--f-disp);font-size:16px;margin:4px 0 6px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}.wh small{font-family:var(--f-body);font-weight:400;font-size:12px;color:var(--sub)}
 .wl{list-style:none;margin:0;padding:0;display:grid;gap:4px}
 .wl li{display:grid;grid-template-columns:44px 72px 1fr auto auto;gap:6px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:7px 10px;font-size:13px}
@@ -422,6 +423,8 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
 
 <div class="rm" id="rm" hidden><div class="rmb" onclick="closeR()"></div><div class="rms" role="dialog" aria-modal="true"><button class="rmx" onclick="closeR()" aria-label="閉じる">×</button><div id="rmc"></div></div></div>
 <script>
+var KEY3=(()=>{const K=[];for(let a=1;a<=6;a++)for(let b=1;b<=6;b++)for(let c=1;c<=6;c++)if(a!==b&&b!==c&&a!==c)K.push(`${a}-${b}-${c}`);return K})();window.LODDS={};
+window.refreshBB=()=>document.querySelectorAll('.bb[id]').forEach(w=>{const f=(window._bb||{})[w.id];const v=w.querySelector('.bbv');if(f&&v){const op=v.querySelector('details')?.open;v.innerHTML=f(+w.dataset.b);if(op){const d=v.querySelector('details');if(d)d.open=true}}});
 var LU=(()=>{const q=/[?&]from=line/.test(location.search);try{if(q)localStorage.setItem('yk_line','1');return q||localStorage.getItem('yk_line')==='1'}catch(e){return q}})();
 
 let RJ=null,RIDX={};
@@ -446,7 +449,7 @@ document.addEventListener('click',e=>{const tr=e.target.closest('.rr');if(tr)ope
 <script>
 window.LIVE_AT='';
 window.loadAR=async()=>{const J=await (await fetch('allraces.json',{cache:'no-cache'})).json();
- try{const L=await (await fetch('live.json?t='+Date.now(),{cache:'no-store'})).json();if(L&&L.date===J.date){window.LIVE_AT=(L.updated||'').slice(11);
+ try{const L=await (await fetch('live.json?t='+Date.now(),{cache:'no-store'})).json();if(L&&L.date===J.date){window.LIVE_AT=(L.updated||'').slice(11);window.LODDS=L.odds||{};setTimeout(()=>window.refreshBB&&refreshBB(),0);
   J.races.forEach(r=>{const x=(L.res||{})[r.code];if(x&&!r.result){r.result=x[0];r.pay=x[1]}const e=(L.ex||{})[r.code];
    if(e&&r.ana&&r.ana.boats){r.ana.has_ex=true;if(e.wind!=null)r.ana.wind=e.wind;if(e.wave!=null)r.ana.wave=e.wave;e.boats.forEach(b=>{const t=r.ana.boats.find(y=>y.w===b.w);if(t)Object.assign(t,{ex:b.ex,tilt:b.tilt,course:b.course??t.course,exst:b.exst??t.exst})})}})}}catch(e){}
  return J};
@@ -574,11 +577,11 @@ const evOld=r=>{if(!r.boats||!r.boats.length)return'';
   `</tbody></table><div class="wx">艇の行をタップすると選手カードが開くよ<br>1着率=予想くんの見立て / 人気=オッズから出した1着率 / 2連対=このコースでの2着以内率 / 当地=この場の勝率 / 展示・ST=レース直前の展示<br>金色=6艇で一番、緑=人気より予想くんが高く見ている艇</div></details>`};
 const lockHTML=r=>`<article class="race locked"><div class="top"><span class="name">${r.race}</span><span class="time">${r.posted?"予想 "+r.posted:""}${r.deadline?" / 締切 "+r.deadline:""}</span></div><div class="lk">🔒 本命はLINE限定<br><small>締切のあと、ここにも出るよ</small></div><a class="lkl" href="https://lin.ee/88lwcTO">LINEで受け取る ›</a>${evHTML(r)}</article>`;
 const buyCalc=(cs,os,B)=>{const n=os.length;let U=Math.max(n,Math.floor(B/100));const st=os.map(()=>1);U-=n;while(U-->0){let k=0,mn=Infinity;os.forEach((o,i)=>{const v=st[i]*o;if(v<mn){mn=v;k=i}});st[k]++}const s2=st.map(x=>x*100),pay=s2.map((x,i)=>Math.floor(x*os[i]));return {st:s2,tot:s2.reduce((a,b)=>a+b,0),lo:Math.min(...pay),hi:Math.max(...pay)}};
-const buyBox=(cs,os)=>{const id='bb'+Math.random().toString(36).slice(2,8);const view=B=>{const c=buyCalc(cs,os,B);return `<div class="bbr">${c.tot.toLocaleString()}円で買うと → 当たれば <b>${c.lo.toLocaleString()}〜${c.hi.toLocaleString()}円</b></div><details class="bbd"><summary>💡 おすすめ資金配分を見る</summary>${cs.map((x,i)=>`<span>${x} <b>${c.st[i]}円</b> <small>${os[i]}倍</small></span>`).join('')}<small>払戻がそろうように配分</small></details>`};
- window._bb=window._bb||{};window._bb[id]=view;return `<div class="bb" id="${id}"><div class="bbc">${[Math.max(1000,cs.length*100),3000,5000].map((B,i)=>`<button class="${i===0?'on':''}" onclick="event.stopPropagation();const w=this.closest('.bb');w.querySelectorAll('.bbc button').forEach(x=>x.classList.remove('on'));this.classList.add('on');w.querySelector('.bbv').innerHTML=window._bb['${id}'](${B})">${B.toLocaleString()}円</button>`).join('')}</div><div class="bbv">${view(Math.max(1000,cs.length*100))}</div></div>`};
+const buyBox=(cs,os0,code)=>{const id='bb'+Math.random().toString(36).slice(2,8);const view=B=>{const LO=code&&window.LODDS&&window.LODDS[code];const os=LO?cs.map((x,i)=>LO.o[KEY3.indexOf(x)]||os0[i]):os0;const el=document.getElementById(id);if(el)el.dataset.b=B;const c=buyCalc(cs,os,B);return `<div class="bbt">${LO?`オッズ ${LO.at}時点で計算`:'予想を出した時点のオッズで計算'}・締切まで変わるよ</div><div class="bbr">${c.tot.toLocaleString()}円で買うと → 当たれば <b>${c.lo.toLocaleString()}〜${c.hi.toLocaleString()}円</b></div><details class="bbd"><summary>💡 おすすめ資金配分を見る</summary>${cs.map((x,i)=>`<span>${x} <b>${c.st[i]}円</b> <small>${os[i]}倍</small></span>`).join('')}<small>払戻がそろうように配分</small></details>`};
+ window._bb=window._bb||{};window._bb[id]=view;return `<div class="bb" id="${id}" data-b="${Math.max(1000,cs.length*100)}"><div class="bbc">${[Math.max(1000,cs.length*100),3000,5000].map((B,i)=>`<button class="${i===0?'on':''}" onclick="event.stopPropagation();const w=this.closest('.bb');w.querySelectorAll('.bbc button').forEach(x=>x.classList.remove('on'));this.classList.add('on');w.querySelector('.bbv').innerHTML=window._bb['${id}'](${B})">${B.toLocaleString()}円</button>`).join('')}</div><div class="bbv">${view(Math.max(1000,cs.length*100))}</div></div>`};
 const TS={'◎':'◎','6点':'6点','12点':'12点'};
 const tiersHTML=(r,g,done)=>{const head=g.kind==='まくり'?`<div class="mkh"><span class="chip k-まくり">まくり予想</span> ${g.f6[0]}号艇の一撃に乗る</div>`:'';const t=g.tier,row=(cls,name,body,on,extra='')=>`<div class="tr ${cls}${on?' hit':''}"><b class="tn">${name}</b>${body}${on?'<span class="hb">的中</span>':''}${extra}</div>`;
- return `<div class="pbox${g.kind==='まくり'?' mk':''}"><div class="pbh">🎯 予想くんの予想${g.conf?'<small class="cf">自信は控えめ</small>':''}</div>${g.conf_why?`<p class="cfw">${g.conf_why}</p>`:''}`+head+`<div class="tiers">`+row('t1','◎ 1点',balls(g.star),done&&t==='◎')+row('t6',(g.kind==='まくり'?'まくり':'本命')+' 6点',`<span class="fm">${g.f6}</span>`,done&&t==='6点',(!done&&g.o6&&g.o6.every(x=>x)?buyBox(g.combos,g.o6):''))+row('t12','手広く 12点',`<span class="fm">${g.f12}</span>`,done&&t==='12点',(!done&&g.o12&&g.o12.every(x=>x)?buyBox(g.wide,g.o12):''))+`</div>`};
+ return `<div class="pbox${g.kind==='まくり'?' mk':''}"><div class="pbh">🎯 予想くんの予想${g.conf?'<small class="cf">自信は控えめ</small>':''}</div>${g.conf_why?`<p class="cfw">${g.conf_why}</p>`:''}`+head+`<div class="tiers">`+row('t1','◎ 1点',balls(g.star),done&&t==='◎')+row('t6',(g.kind==='まくり'?'まくり':'本命')+' 6点',`<span class="fm">${g.f6}</span>`,done&&t==='6点',(!done&&g.o6&&g.o6.every(x=>x)?buyBox(g.combos,g.o6,r.code):''))+row('t12','手広く 12点',`<span class="fm">${g.f12}</span>`,done&&t==='12点',(!done&&g.o12&&g.o12.every(x=>x)?buyBox(g.wide,g.o12,r.code):''))+`</div>`};
 const obtn=r=>`<button class="obtn" data-code="${r.code}" data-race="${r.race||((r.venue||'')+(r.rno?r.rno+'R':''))}">💰 3連単オッズ</button>`;
 const raceHTML=r=>{if(r.locked&&!LU)return lockHTML(r);
   const any=r.groups.some(g=>g.hit), done=r.result!==null;
