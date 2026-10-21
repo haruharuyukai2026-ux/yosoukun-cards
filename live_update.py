@@ -71,6 +71,18 @@ if today:
         elif hm(-60) <= d <= hm(-2) and c not in L["res"] and not r.get("result"):
             x = res(c); n += 1; time.sleep(1)
             if x: L["res"][c] = x
+# 潮(tide736=海上保安庁の推算):1日1回、潮の影響がある場の港の分を取る
+PORTS = {"03":(13,14),"04":(13,3),"06":(22,18),"07":(23,9),"14":(36,5),"15":(37,10),"16":(33,7),"17":(34,23),"18":(35,10),"19":(35,15),"20":(40,10),"22":(40,21),"23":(41,1),"24":(42,50)}
+if today and L.get("tide_date") != A["date"]:
+    L["tide"] = {}
+    for v, (pc, hc) in PORTS.items():
+        try:
+            u = f"https://api.tide736.net/get_tide.php?pc={pc}&hc={hc}&yr={now.year}&mn={now.month}&dy={now.day}&rg=day"
+            c = list(json.loads(urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"}), timeout=20).read())["tide"]["chart"].values())[0]
+            L["tide"][v] = dict(name=c["moon"]["title"], flood=[x["time"] for x in c["flood"]], edd=[x["time"] for x in c["edd"]], s=[[x["time"], round(x["cm"])] for x in c["tide"]])
+            time.sleep(0.5)
+        except Exception as e: print("tide", v, e)
+    if L["tide"]: L["tide_date"] = A["date"]
 L["updated"] = now.strftime("%Y-%m-%d %H:%M")
 json.dump(L, open("live.json", "w"), ensure_ascii=False)
 print("fetched", n, "ex", len(L["ex"]), "res", len(L["res"]))
