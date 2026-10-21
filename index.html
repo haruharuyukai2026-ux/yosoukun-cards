@@ -332,7 +332,7 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
 
 
   <section data-t="home" id="races-sec" class="sec s-races">
-    <h2><span class="ic">📋</span><span class="tt">このあとのレース</span> <small id="ar-date"></small></h2>
+    <h2><span class="ic">📋</span><span class="tt">これからのレース一覧</span> <small id="ar-date"></small></h2>
     <p class="note top">鉄板〜荒れそう=インの堅さ / 1着=予想くんの1着候補 / タップで6艇分析</p>
     <div class="vf" id="vf"></div>
     <div id="ar"><p class="note">読み込み中…</p></div>
@@ -417,7 +417,7 @@ window.loadAR=async()=>{const J=await (await fetch('allraces.json',{cache:'no-ca
  const draw=()=>{const _n=new Date(Date.now()+9*36e5).toISOString().slice(11,16),_nx={};J.races.forEach(r=>{if(r.result||(J.date===today&&(r.deadline||'99')<_n))return;if(!_nx[r.venue]||r.deadline<_nx[r.venue])_nx[r.venue]=r.deadline});V=Object.keys(_nx).sort((a,b)=>_nx[a].localeCompare(_nx[b]));if(cur!=='すべて'&&cur!=='⭐推し'&&!V.includes(cur))cur='すべて';
   document.getElementById('vf').innerHTML=['すべて','⭐推し',...V].map(v=>`<button class="${v===cur?'on':''}" data-v="${v}">${v}</button>`).join('');
   const F=J.races.filter(r=>cur==='すべて'||(cur==='⭐推し'?hasO(r):r.venue===cur)),nowT=new Date(Date.now()+9*36e5).toISOString().slice(11,16),ago=new Date(Date.now()+9*36e5-12*6e4).toISOString().slice(11,16),isPast=r=>!!r.result||(J.date<today)||(J.date===today&&(r.deadline||'99')<ago),up0=F.filter(r=>!isPast(r)),up=up0.slice().sort((a,b)=>(a.deadline||'99').localeCompare(b.deadline||'99')),dn=F.filter(isPast);
-  const N=8;document.getElementById('ar').innerHTML=(up.length?up.slice(0,N).map(row).join('')+(up.length>N?`<details class="past"><summary>このあとのレースをもっと見る(あと${up.length-N}本)</summary>${up.slice(N).map(row).join('')}</details>`:''):(cur==='⭐推し'?((typeof oshi==='function'?oshi():[]).length?'<p class="note">推しの選手が出るレースは、このあと無いよ</p>':'<p class="note">推しの選手はまだいないよ<br>選手の名前を押して「☆推しに登録」すると、ここに出る</p>'):cur!=='すべて'?'<p class="note">この場のレースは、このあと無いよ</p>':'<p class="note">今日のレースはぜんぶ終わったよ</p>'))};
+  const N=8;document.getElementById('ar').innerHTML=(up.length?up.slice(0,N).map(row).join('')+(up.length>N?`<details class="past"><summary>これからのレースをもっと見る(あと${up.length-N}本)</summary>${up.slice(N).map(row).join('')}</details>`:''):(cur==='⭐推し'?((typeof oshi==='function'?oshi():[]).length?'<p class="note">推しの選手が出るレースは、このあと無いよ</p>':'<p class="note">推しの選手はまだいないよ<br>選手の名前を押して「☆推しに登録」すると、ここに出る</p>'):cur!=='すべて'?'<p class="note">この場のレースは、このあと無いよ</p>':'<p class="note">今日のレースはぜんぶ終わったよ</p>'))};
  draw();window.addEventListener('oshi',draw);setInterval(draw,60000);setInterval(async()=>{try{const N=await loadAR();J.races=N.races;draw();const el=document.getElementById('ar-date');if(el&&LIVE_AT)el.textContent='展示・結果 '+LIVE_AT+' 更新'}catch(e){}},120000);{const el=document.getElementById('ar-date');if(el&&LIVE_AT)el.textContent='展示・結果 '+LIVE_AT+' 更新'}
  document.getElementById('vf').addEventListener('click',e=>{const b=e.target.closest('button');if(b){cur=b.dataset.v;draw()}});
  document.getElementById('ar').addEventListener('toggle',e=>{const d=e.target;if(!d.open||!d.classList.contains('arr'))return;const box=d.querySelector('.arb');if(box.dataset.done)return;const r=J.races.find(x=>x.code===box.dataset.code);
@@ -540,10 +540,10 @@ const stc={"展示待ち":"w-wait","予想あり":"w-on","はずれ":"w-done","�
 const _wn=new Date(Date.now()+9*36e5).toISOString().slice(11,16);const Wl=W.filter(w=>w.state==='的中'||((w.state==='展示待ち'||w.state==='予想あり')&&w.deadline>=_wn)),Wd=W.length-Wl.length;
 {const _nw=new Date(Date.now()+9*36e5),_hm=_nw.toISOString().slice(11,16),_mm=t=>{const[a,b]=t.split(':').map(Number);return a*60+b},up=Wl.filter(w=>w.state!=='的中').sort((a,b)=>a.deadline.localeCompare(b.deadline)),hit=Wl.filter(w=>w.state==='的中'),n0=up[0];
  const left=n0?_mm(n0.deadline)-_mm(_hm):0,R0=n0&&DATA.records.find(r=>r.code===n0.code&&r.result===null);
- document.getElementById('watch').innerHTML=(n0?`<div class="nerai"><div class="nh">ここ狙え！<small>予想くんの今日の狙いレース</small></div>`+
+ document.getElementById('watch').innerHTML=(n0?`<div class="nerai"><div class="nh">🎯 今日の狙い目！<small>予想くんが狙ってるレース</small></div>`+
   `<a class="nc" href="${R0?'#r'+n0.code:'#nerai-memo'}"><span class="nt">${n0.deadline}<small>締切</small></span><span class="nr"><b>${n0.race}</b><small id="npick"></small></span><span class="nl">あと<b>${left}</b>分</span></a>`+
   `<div class="ns">${R0||n0.state==='予想あり'?'<b class="on">予想が出た！タップで買い目</b>':left>25?'展示が出たら予想を出すよ(締切の約20分前)':'もうすぐ展示！予想を準備中'}</div>`+
-  (up.length>1?`<div class="nn"><small>このあとの狙い</small>${up.slice(1).map(w=>`<span><b>${w.deadline}</b> ${w.race}</span>`).join('')}</div>`:'')+`</div>`:'')+
+  (up.length>1?`<div class="nn"><small>このあとの狙い目</small>${up.slice(1).map(w=>`<span><b>${w.deadline}</b> ${w.race}</span>`).join('')}</div>`:'')+`</div>`:'')+
   (hit.length?`<div class="nn"><small>今日の狙いで的中</small>${hit.map(w=>`<span><b>${w.race}</b> ${w.result?balls(w.result):''}</span>`).join('')}</div>`:'');
  if(n0)(async()=>{try{const A=await loadAR();const r=A.races.find(x=>x.code===n0.code);const B=(r&&r.ana&&r.ana.boats)||[];const t=B.filter(b=>b.ai!=null).sort((a,b)=>b.ai-a.ai)[0];const el=document.getElementById('npick');if(t&&el)el.innerHTML=`予想くんの1着 ${balls(String(t.w))} ${t.ai}%`}catch(e){}})();}
 const tr=DATA.records.filter(r=>r.date===today).sort((a,b)=>{const da=a.result!==null,db=b.result!==null;if(da!==db)return da?1:-1;const ka=a.deadline||'',kb=b.deadline||'';return da?kb.localeCompare(ka):ka.localeCompare(kb)});
