@@ -2058,7 +2058,7 @@
    "in1": 0.626
   }
  ],
- "updated": "2026-10-22 09:14",
+ "updated": "2026-10-22 09:15",
  "public_from": "20261021",
  "summary": {
   "本命": {
@@ -3549,7 +3549,8 @@
     "wave": 3.0,
     "has_ex": true
    },
-   "weather": "晴・風3m・波3cm"
+   "weather": "晴・風3m・波3cm",
+   "locked": true
   },
   {
    "posted": "08:49",
