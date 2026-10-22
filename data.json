@@ -85,7 +85,7 @@
    "code": "202610221301",
    "race": "尼崎1R",
    "deadline": "10:36",
-   "state": "展示待ち",
+   "state": "予想あり",
    "note": "2号艇 47%",
    "date": "2026-10-22",
    "result": null
@@ -94,7 +94,7 @@
    "code": "202610222301",
    "race": "唐津1R",
    "deadline": "10:38",
-   "state": "展示待ち",
+   "state": "予想あり",
    "note": "判定予定",
    "date": "2026-10-22",
    "result": null
@@ -103,7 +103,7 @@
    "code": "202610221702",
    "race": "宮島2R",
    "deadline": "10:44",
-   "state": "展示待ち",
+   "state": "見送り",
    "note": "判定予定",
    "date": "2026-10-22",
    "result": null
@@ -2058,7 +2058,7 @@
    "in1": 0.626
   }
  ],
- "updated": "2026-10-22 10:22",
+ "updated": "2026-10-22 10:25",
  "public_from": "20261021",
  "summary": {
   "本命": {
@@ -2091,9 +2091,497 @@
    "h12": 4
   }
  },
- "judged": 61,
- "skipped": 22,
+ "judged": 64,
+ "skipped": 24,
  "records": [
+  {
+   "posted": "10:25",
+   "deadline": "10:38",
+   "date": "2026-10-22",
+   "race": "唐津1R",
+   "code": "202610222301",
+   "public": true,
+   "result": null,
+   "pay": null,
+   "groups": [
+    {
+     "kind": "本命",
+     "combos": [
+      "1-2-3",
+      "1-2-4",
+      "1-3-2",
+      "1-3-4",
+      "1-4-2",
+      "1-4-3"
+     ],
+     "odds": [],
+     "hit": null,
+     "star": "1-2-3",
+     "wide": [
+      "1-2-3",
+      "1-2-4",
+      "1-2-5",
+      "1-3-2",
+      "1-3-4",
+      "1-3-5",
+      "1-4-2",
+      "1-4-3",
+      "1-4-5",
+      "1-5-2",
+      "1-5-3",
+      "1-5-4"
+     ],
+     "f6": "1-234-234",
+     "f12": "1-2345-2345",
+     "o6": [
+      10.0,
+      12.4,
+      11.8,
+      11.4,
+      17.6,
+      19.0
+     ],
+     "o12": [
+      10.0,
+      12.4,
+      22.4,
+      11.8,
+      11.4,
+      15.1,
+      17.6,
+      19.0,
+      22.7,
+      41.7,
+      36.2,
+      56.9
+     ],
+     "tier": null
+    }
+   ],
+   "sent": false,
+   "why": [
+    "1号艇(A1)の1着見込み72%",
+    "当地勝率6.91",
+    "展示タイム6.79は5番目",
+    "スタート展示はフライング(F0.08)",
+    "風5mで水面が荒れそう"
+   ],
+   "boats": [
+    {
+     "n": "1",
+     "cls": "A1",
+     "ai": 72,
+     "pop": 59,
+     "ren": 87,
+     "loc": "6.91",
+     "ex": "6.79",
+     "st": "-0.08"
+    },
+    {
+     "n": "2",
+     "cls": "A1",
+     "ai": 5,
+     "pop": 13,
+     "ren": 30,
+     "loc": "5.71",
+     "ex": "6.77",
+     "st": "0.16"
+    },
+    {
+     "n": "3",
+     "cls": "A1",
+     "ai": 8,
+     "pop": 11,
+     "ren": 23,
+     "loc": "7.66",
+     "ex": "6.7",
+     "st": "-0.03"
+    },
+    {
+     "n": "4",
+     "cls": "A1",
+     "ai": 4,
+     "pop": 12,
+     "ren": 35,
+     "loc": "7.17",
+     "ex": "6.8",
+     "st": "0.18"
+    },
+    {
+     "n": "5",
+     "cls": "A1",
+     "ai": 10,
+     "pop": 4,
+     "ren": 29,
+     "loc": "7.21",
+     "ex": "6.78",
+     "st": "0.04"
+    },
+    {
+     "n": "6",
+     "cls": "A1",
+     "ai": 1,
+     "pop": 2,
+     "ren": 5,
+     "loc": "7.28",
+     "ex": "6.71",
+     "st": "0.01"
+    }
+   ],
+   "yellow": [
+    "風5m"
+   ],
+   "ana": {
+    "boats": [
+     {
+      "w": 1,
+      "no": "4502",
+      "name": "遠藤 エミ",
+      "cls": "A1",
+      "branch": "滋賀",
+      "F": 0,
+      "local": 6.91,
+      "nat": 7.38,
+      "motor": 35.2,
+      "mno": "15",
+      "home": false,
+      "recent": [
+       {
+        "f": 2,
+        "c": 1
+       },
+       {
+        "f": 4,
+        "c": 5
+       },
+       {
+        "f": 6,
+        "c": 5
+       },
+       {
+        "f": null,
+        "c": 1
+       },
+       {
+        "f": null,
+        "c": 4
+       }
+      ],
+      "k_nige": 0.732,
+      "k_sasare": 0.093,
+      "k_makurare": 0.088,
+      "k_msasare": 0.065,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.0,
+      "k_makuri": 0.0,
+      "k_msashi": 0.0,
+      "rc_n": 625.0,
+      "rc_win": 0.722,
+      "rc_top2": 0.848,
+      "motor_adj": 0.061,
+      "setsu_n": 6.0,
+      "setsu_fin": 3.5,
+      "ex": 6.79,
+      "tilt": -0.5,
+      "course": 1,
+      "exst": -0.08,
+      "ai": 72,
+      "pop": 59,
+      "mrank": 28,
+      "mcount": 49
+     },
+     {
+      "w": 2,
+      "no": "4772",
+      "name": "石丸 海渡",
+      "cls": "A1",
+      "branch": "香川",
+      "F": 0,
+      "local": 5.71,
+      "nat": 7.0,
+      "motor": 32.1,
+      "mno": "11",
+      "home": false,
+      "recent": [
+       {
+        "f": 3,
+        "c": 4
+       },
+       {
+        "f": 5,
+        "c": 6
+       },
+       {
+        "f": 1,
+        "c": 1
+       },
+       {
+        "f": null,
+        "c": 2
+       },
+       {
+        "f": null,
+        "c": 5
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.556,
+      "k_sashi": 0.108,
+      "k_makuri": 0.067,
+      "k_msashi": 0.0,
+      "rc_n": 378.0,
+      "rc_win": 0.206,
+      "rc_top2": 0.484,
+      "motor_adj": -0.027,
+      "setsu_n": 5.0,
+      "setsu_fin": 3.8,
+      "ex": 6.77,
+      "tilt": -0.5,
+      "course": 2,
+      "exst": 0.16,
+      "ai": 5,
+      "pop": 13,
+      "mrank": 34,
+      "mcount": 49
+     },
+     {
+      "w": 3,
+      "no": "5142",
+      "name": "常住 蓮",
+      "cls": "A1",
+      "branch": "佐賀",
+      "F": 1,
+      "local": 7.66,
+      "nat": 7.0,
+      "motor": 17.6,
+      "mno": "14",
+      "home": true,
+      "recent": [
+       {
+        "f": 2,
+        "c": 3
+       },
+       {
+        "f": 3,
+        "c": 1
+       },
+       {
+        "f": 5,
+        "c": 6
+       },
+       {
+        "f": null,
+        "c": 3
+       },
+       {
+        "f": null,
+        "c": 2
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.029,
+      "k_makuri": 0.062,
+      "k_msashi": 0.096,
+      "rc_n": 210.0,
+      "rc_win": 0.219,
+      "rc_top2": 0.51,
+      "motor_adj": 0.038,
+      "setsu_n": 6.0,
+      "setsu_fin": 3.667,
+      "ex": 6.7,
+      "tilt": -0.5,
+      "course": 3,
+      "exst": -0.03,
+      "ai": 8,
+      "pop": 11,
+      "mrank": 42,
+      "mcount": 49
+     },
+     {
+      "w": 4,
+      "no": "4757",
+      "name": "山田 祐也",
+      "cls": "A1",
+      "branch": "徳島",
+      "F": 0,
+      "local": 7.17,
+      "nat": 6.74,
+      "motor": 72.7,
+      "mno": "61",
+      "home": false,
+      "recent": [
+       {
+        "f": 4,
+        "c": 5
+       },
+       {
+        "f": 1,
+        "c": 2
+       },
+       {
+        "f": 1,
+        "c": 1
+       },
+       {
+        "f": null,
+        "c": 4
+       },
+       {
+        "f": null,
+        "c": 6
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.045,
+      "k_makuri": 0.066,
+      "k_msashi": 0.077,
+      "rc_n": 444.0,
+      "rc_win": 0.212,
+      "rc_top2": 0.419,
+      "motor_adj": 0.069,
+      "setsu_n": 6.0,
+      "setsu_fin": 3.917,
+      "ex": 6.8,
+      "tilt": 0.0,
+      "course": 4,
+      "exst": 0.18,
+      "ai": 4,
+      "pop": 12,
+      "mrank": 1,
+      "mcount": 49
+     },
+     {
+      "w": 5,
+      "no": "4604",
+      "name": "岩瀬 裕亮",
+      "cls": "A1",
+      "branch": "愛知",
+      "F": 0,
+      "local": 7.21,
+      "nat": 7.2,
+      "motor": 35.0,
+      "mno": "19",
+      "home": false,
+      "recent": [
+       {
+        "f": 6,
+        "c": 6
+       },
+       {
+        "f": 3,
+        "c": 5
+       },
+       {
+        "f": 4,
+        "c": 2
+       },
+       {
+        "f": null,
+        "c": 5
+       },
+       {
+        "f": null,
+        "c": 3
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.01,
+      "k_makuri": 0.0,
+      "k_msashi": 0.067,
+      "rc_n": 407.0,
+      "rc_win": 0.091,
+      "rc_top2": 0.324,
+      "motor_adj": 0.004,
+      "setsu_n": 6.0,
+      "setsu_fin": 3.5,
+      "ex": 6.78,
+      "tilt": -0.5,
+      "course": 5,
+      "exst": 0.04,
+      "ai": 10,
+      "pop": 4,
+      "mrank": 31,
+      "mcount": 49
+     },
+     {
+      "w": 6,
+      "no": "4497",
+      "name": "桑原 悠",
+      "cls": "A1",
+      "branch": "長崎",
+      "F": 1,
+      "local": 7.28,
+      "nat": 7.35,
+      "motor": 45.0,
+      "mno": "10",
+      "home": false,
+      "recent": [
+       {
+        "f": 3,
+        "c": 2
+       },
+       {
+        "f": 6,
+        "c": 4
+       },
+       {
+        "f": 5,
+        "c": 4
+       },
+       {
+        "f": 6,
+        "c": 6
+       },
+       {
+        "f": null,
+        "c": 6
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.0,
+      "k_makuri": 0.011,
+      "k_msashi": 0.04,
+      "rc_n": 378.0,
+      "rc_win": 0.058,
+      "rc_top2": 0.153,
+      "motor_adj": -0.0,
+      "setsu_n": 6.0,
+      "setsu_fin": 4.5,
+      "ex": 6.71,
+      "tilt": 0.0,
+      "course": 6,
+      "exst": 0.01,
+      "ai": 1,
+      "pop": 2,
+      "mrank": 14,
+      "mcount": 49
+     }
+    ],
+    "wind": 5.0,
+    "wave": 5.0,
+    "has_ex": true
+   },
+   "weather": "晴・風5m・波5cm"
+  },
   {
    "posted": "10:09",
    "deadline": "10:32",
@@ -5985,6 +6473,501 @@
     "has_ex": true
    },
    "weather": "晴・風3m・波3cm"
+  },
+  {
+   "posted": "10:25",
+   "deadline": "10:36",
+   "date": "2026-10-22",
+   "race": "尼崎1R",
+   "code": "202610221301",
+   "public": true,
+   "result": null,
+   "pay": null,
+   "groups": [
+    {
+     "kind": "まくり",
+     "combos": [
+      "3-1-2",
+      "3-1-6",
+      "3-2-1",
+      "3-2-6",
+      "3-6-1",
+      "3-6-2"
+     ],
+     "odds": [],
+     "hit": null,
+     "star": "3-2-6",
+     "wide": [
+      "3-1-2",
+      "3-1-4",
+      "3-1-6",
+      "3-2-1",
+      "3-2-4",
+      "3-2-6",
+      "3-4-1",
+      "3-4-2",
+      "3-4-6",
+      "3-6-1",
+      "3-6-2",
+      "3-6-4"
+     ],
+     "f6": "3-126-126",
+     "f12": "3-1246-1246",
+     "o6": [
+      11.9,
+      21.2,
+      11.5,
+      11.4,
+      31.5,
+      20.8
+     ],
+     "o12": [
+      11.9,
+      31.5,
+      21.2,
+      11.5,
+      19.5,
+      11.4,
+      61.8,
+      55.1,
+      66.6,
+      31.5,
+      20.8,
+      57.2
+     ],
+     "tier": null
+    },
+    {
+     "kind": "狙い目",
+     "combos": [
+      "2-3-6",
+      "2-6-3"
+     ],
+     "odds": [
+      20.9,
+      60.3
+     ],
+     "hit": null
+    }
+   ],
+   "sent": false,
+   "boats": [
+    {
+     "n": "1",
+     "cls": "B1",
+     "ai": 5,
+     "pop": 21,
+     "ren": 15,
+     "loc": "3.5",
+     "ex": "6.8",
+     "st": "0.13"
+    },
+    {
+     "n": "2",
+     "cls": "B1",
+     "ai": 53,
+     "pop": 18,
+     "ren": 85,
+     "loc": "5.1",
+     "ex": "6.8",
+     "st": "0.12"
+    },
+    {
+     "n": "3",
+     "cls": "A1",
+     "ai": 35,
+     "pop": 43,
+     "ren": 57,
+     "loc": "7.07",
+     "ex": "6.79",
+     "st": "0.06"
+    },
+    {
+     "n": "4",
+     "cls": "B1",
+     "ai": 1,
+     "pop": 7,
+     "ren": 4,
+     "loc": "0.0",
+     "ex": "6.73",
+     "st": "0.02"
+    },
+    {
+     "n": "5",
+     "cls": "B2",
+     "ai": 0,
+     "pop": 4,
+     "ren": 1,
+     "loc": "0.0",
+     "ex": "6.85",
+     "st": "0.13"
+    },
+    {
+     "n": "6",
+     "cls": "B1",
+     "ai": 7,
+     "pop": 7,
+     "ren": 24,
+     "loc": "3.53",
+     "ex": "6.81",
+     "st": "-0.04"
+    }
+   ],
+   "yellow": [
+    "進入が枠なりでない(前付け)",
+    "2号艇のSTが遅め(0.17・壁にならない)",
+    "風4m"
+   ],
+   "ana": {
+    "boats": [
+     {
+      "w": 1,
+      "no": "3748",
+      "name": "小黒 竜吾",
+      "cls": "B1",
+      "branch": "埼玉",
+      "F": 1,
+      "local": 3.5,
+      "nat": 4.1,
+      "motor": 35.4,
+      "mno": "1",
+      "home": false,
+      "recent": [
+       {
+        "f": 5,
+        "c": 3
+       },
+       {
+        "f": 6,
+        "c": 6
+       },
+       {
+        "f": 5,
+        "c": 2
+       },
+       {
+        "f": null,
+        "c": 1
+       },
+       {
+        "f": null,
+        "c": 5
+       }
+      ],
+      "k_nige": 0.262,
+      "k_sasare": 0.251,
+      "k_makurare": 0.289,
+      "k_msasare": 0.137,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.0,
+      "k_makuri": 0.0,
+      "k_msashi": 0.0,
+      "rc_n": 266.0,
+      "rc_win": 0.259,
+      "rc_top2": 0.429,
+      "motor_adj": 0.013,
+      "setsu_n": 3.0,
+      "setsu_fin": 5.333,
+      "ex": 6.8,
+      "tilt": -0.5,
+      "course": 1,
+      "exst": 0.13,
+      "ai": 5,
+      "pop": 21,
+      "mrank": 11,
+      "mcount": 42
+     },
+     {
+      "w": 2,
+      "no": "3558",
+      "name": "山本 浩次",
+      "cls": "B1",
+      "branch": "岡山",
+      "F": 1,
+      "local": 5.1,
+      "nat": 4.81,
+      "motor": 34.7,
+      "mno": "2",
+      "home": false,
+      "recent": [
+       {
+        "f": 2,
+        "c": 1
+       },
+       {
+        "f": 2,
+        "c": 3
+       },
+       {
+        "f": 3,
+        "c": 3
+       },
+       {
+        "f": null,
+        "c": 2
+       },
+       {
+        "f": null,
+        "c": 6
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.565,
+      "k_sashi": 0.104,
+      "k_makuri": 0.02,
+      "k_msashi": 0.0,
+      "rc_n": 410.0,
+      "rc_win": 0.129,
+      "rc_top2": 0.376,
+      "motor_adj": -0.031,
+      "setsu_n": 3.0,
+      "setsu_fin": 2.333,
+      "ex": 6.8,
+      "tilt": -0.5,
+      "course": 2,
+      "exst": 0.12,
+      "ai": 53,
+      "pop": 18,
+      "mrank": 13,
+      "mcount": 42
+     },
+     {
+      "w": 3,
+      "no": "4256",
+      "name": "渡辺 浩司",
+      "cls": "A1",
+      "branch": "福岡",
+      "F": 1,
+      "local": 7.07,
+      "nat": 6.83,
+      "motor": 27.2,
+      "mno": "10",
+      "home": false,
+      "recent": [
+       {
+        "f": 3,
+        "c": 2
+       },
+       {
+        "f": 3,
+        "c": 5
+       },
+       {
+        "f": 1,
+        "c": 1
+       },
+       {
+        "f": null,
+        "c": 3
+       },
+       {
+        "f": null,
+        "c": 6
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.025,
+      "k_makuri": 0.064,
+      "k_msashi": 0.053,
+      "rc_n": 475.0,
+      "rc_win": 0.164,
+      "rc_top2": 0.499,
+      "motor_adj": -0.01,
+      "setsu_n": 4.0,
+      "setsu_fin": 2.75,
+      "ex": 6.79,
+      "tilt": 0.0,
+      "course": 3,
+      "exst": 0.06,
+      "ai": 35,
+      "pop": 43,
+      "mrank": 28,
+      "mcount": 42
+     },
+     {
+      "w": 4,
+      "no": "5382",
+      "name": "山下 心一",
+      "cls": "B1",
+      "branch": "福岡",
+      "F": 0,
+      "local": 0.0,
+      "nat": 2.46,
+      "motor": 29.7,
+      "mno": "51",
+      "home": false,
+      "recent": [
+       {
+        "f": 2,
+        "c": 3
+       },
+       {
+        "f": 6,
+        "c": 5
+       },
+       {
+        "f": 5,
+        "c": 3
+       },
+       {
+        "f": 5,
+        "c": 2
+       },
+       {
+        "f": null,
+        "c": 4
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.0,
+      "k_makuri": 0.0,
+      "k_msashi": 0.021,
+      "rc_n": 47.0,
+      "rc_win": 0.021,
+      "rc_top2": 0.085,
+      "motor_adj": -0.008,
+      "setsu_n": 3.0,
+      "setsu_fin": 5.333,
+      "ex": 6.73,
+      "tilt": 0.0,
+      "course": 4,
+      "exst": 0.02,
+      "ai": 1,
+      "pop": 7,
+      "mrank": 22,
+      "mcount": 42
+     },
+     {
+      "w": 5,
+      "no": "5465",
+      "name": "直江 健成",
+      "cls": "B2",
+      "branch": "福井",
+      "F": 1,
+      "local": 0.0,
+      "nat": 1.17,
+      "motor": 34.0,
+      "mno": "26",
+      "home": false,
+      "recent": [
+       {
+        "f": 6,
+        "c": 6
+       },
+       {
+        "f": 6,
+        "c": 6
+       },
+       {
+        "f": 5,
+        "c": 6
+       },
+       {
+        "f": null,
+        "c": 5
+       },
+       {
+        "f": null,
+        "c": 4
+       }
+      ],
+      "k_nige": null,
+      "k_sasare": null,
+      "k_makurare": null,
+      "k_msasare": null,
+      "k_nigashi": null,
+      "k_sashi": null,
+      "k_makuri": null,
+      "k_msashi": null,
+      "rc_n": 0.0,
+      "rc_win": null,
+      "rc_top2": null,
+      "motor_adj": -0.002,
+      "setsu_n": 2.0,
+      "setsu_fin": 5.5,
+      "ex": 6.85,
+      "tilt": -0.5,
+      "course": 6,
+      "exst": 0.13,
+      "ai": 0,
+      "pop": 4,
+      "mrank": 16,
+      "mcount": 42
+     },
+     {
+      "w": 6,
+      "no": "4380",
+      "name": "鈴木 峻佑",
+      "cls": "B1",
+      "branch": "静岡",
+      "F": 0,
+      "local": 3.53,
+      "nat": 4.65,
+      "motor": 26.4,
+      "mno": "50",
+      "home": false,
+      "recent": [
+       {
+        "f": 2,
+        "c": 3
+       },
+       {
+        "f": 3,
+        "c": 3
+       },
+       {
+        "f": 4,
+        "c": 1
+       },
+       {
+        "f": null,
+        "c": 6
+       },
+       {
+        "f": null,
+        "c": 2
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.0,
+      "k_makuri": 0.0,
+      "k_msashi": 0.006,
+      "rc_n": 326.0,
+      "rc_win": 0.009,
+      "rc_top2": 0.058,
+      "motor_adj": -0.03,
+      "setsu_n": 3.0,
+      "setsu_fin": 3.0,
+      "ex": 6.81,
+      "tilt": 0.0,
+      "course": 5,
+      "exst": -0.04,
+      "ai": 7,
+      "pop": 7,
+      "mrank": 29,
+      "mcount": 42
+     }
+    ],
+    "wind": 4.0,
+    "wave": 0.0,
+    "has_ex": true
+   },
+   "weather": "晴・風4m・波0cm"
   },
   {
    "posted": "22:44",
