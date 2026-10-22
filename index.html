@@ -339,6 +339,7 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
 .gm{color:#ff8a93}.ok{color:var(--hit)}.cres{font-size:13px;margin-top:8px}
 .tocalc{margin-top:6px;background:none;border:1px solid #a29bfe;color:#a29bfe;border-radius:99px;padding:4px 12px;font-size:12px;font-weight:700}
 .ext{width:100%;border-collapse:collapse;table-layout:fixed;background:#0d2240;border-radius:10px;overflow:hidden;margin:4px 0 8px}.ext th{font-size:10px;color:var(--sub);font-weight:400;padding:6px 0 2px}.ext td{text-align:center;padding:3px 0;font-size:15px;font-weight:800}.ext tr:last-child td{padding-bottom:8px}.ext td.fx{color:var(--gold)}
+.jm li small{display:block;font-size:12px;font-weight:400;opacity:.85;margin-top:2px}
 </style>
 
 <header class="hero" lang="ja">
@@ -419,13 +420,13 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
 
   <section data-t="home" class="sec s-how how join" id="how">
     <div class="jr">LINE会員 募集中</div>
-    <p class="jh">狙いのレース、<br>もう見逃さない！</p><p class="jh2">本命が出たら<br><b>LINEが鳴って教えてくれる</b></p>
-    <p class="jf"><span>完全無料</span>毎日2本、友だち追加するだけ</p>
+    <p class="jh">狙いのレース、<br>もう見逃さない！</p><p class="jh2">LINE限定の予想を<br><b>締切前に届けるよ</b></p>
+    <p class="jf"><span>完全無料</span>毎日2本・夜に今日の結果も届く</p>
     <div id="jproof"></div>
     <div id="jcard"></div>
     <ul class="jm">
-      <li>狙いのレースの予想がすぐ届く！</li>
-      <li>サイトより先に買い目が見られる！</li>
+      <li>LINE限定の予想が締切前に届く！<small>(サイトでは締切のあと)</small></li>
+      <li>サイトを見張らなくていい。鳴ったら見るだけ！</li>
     </ul>
     <div class="jpre"><span class="jpt">近日スタート</span><b>全部の予想が締切前にLINEに届く<br>有料プラン、準備中！</b><small>今の友だちに一番先に案内するよ</small></div>
     <a class="jb" href="https://lin.ee/88lwcTO"><svg class="li" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="11" fill="#fff"/><path d="M24 10c-9.4 0-17 6.1-17 13.6 0 6.7 6 12.3 14.2 13.4.6.1 1.3.4 1.5.9.2.4.1 1.1.1 1.5l-.2 1.5c-.1.4-.3 1.7 1.5.9s9.9-5.8 13.5-10C40 29 41 26.4 41 23.6 41 16.1 33.4 10 24 10z" fill="#06c755"/><text x="24" y="27.5" text-anchor="middle" font-size="8.5" font-weight="900" fill="#fff" font-family="Arial,sans-serif">LINE</text></svg><span>無料で受け取る！</span><i>›</i></a>
@@ -539,7 +540,7 @@ const small=['狙い目','万舟狙い'].map(k=>{const s=DATA.summary[k]||{n:0,h
   return s.hit?`<span class="mini"><span class="chip k-${k}">${k}</span> ${s.hit}本的中・最高 ${b.toLocaleString()}円</span>`:`<span class="mini"><span class="chip k-${k}">${k}</span> 一発狙い</span>`}).join('');
 {const sr=DATA.records.filter(r=>r.sent),ex=sr.find(r=>r.groups.some(g=>g.hit))||sr[0];const bg=ex&&ex.groups.find(g=>g.kind==='本命');
  if(ex&&bg&&bg.f6)document.getElementById('jcard').innerHTML=`<div class="phone"><div class="pnt"><div class="pn"><img class="pic" src="icon.png" alt=""><b>ボートレース予想くん</b><small>今</small></div><p>🚤【予想】${ex.race} 締切${ex.deadline||''}<br>本命 ${bg.f6}</p></div>
- <div class="pch"><div class="pcn"><img class="pic" src="icon.png" alt="">ボートレース予想くん</div><div class="jc"><div class="jt">${ex.race}${ex.deadline?' 締切'+ex.deadline:''}</div><div class="jf6">本命 ${bg.f6}</div><div class="jw">◎ ${bg.star||''}</div><div class="jbtn">6艇の比較を見る</div>${bg.hit?`<div class="js">的中<small>${(ex.pay||0).toLocaleString()}円</small></div>`:''}</div></div></div><p class="pcap">↑ 本命が出たら、こう届くよ！</p>`;
+ <div class="pch"><div class="pcn"><img class="pic" src="icon.png" alt="">ボートレース予想くん</div><div class="jc"><div class="jt">${ex.race}${ex.deadline?' 締切'+ex.deadline:''}</div><div class="jf6">本命 ${bg.f6}</div><div class="jw">◎ ${bg.star||''}</div><div class="jbtn">6艇の比較を見る</div>${bg.hit?`<div class="js">的中<small>${(ex.pay||0).toLocaleString()}円</small></div>`:''}</div></div></div><p class="pcap">↑ こう届くよ！</p>`;
  document.getElementById('jproof').innerHTML=`<p class="jp">過去3か月の検証で本命は<br>6点で<b>51%</b>・手広く12点で<b>70%</b>的中</p>`}
 const _allH=DATA.records.filter(r=>r.groups.some(g=>g.hit)),_hits=_allH.filter(r=>r.date===new Date(Date.now()+9*36e5).toISOString().slice(0,10)).slice(0,10);
 const hp=DATA.summary['本命_公開後']||{n:0};
