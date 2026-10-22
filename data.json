@@ -238,7 +238,7 @@
    "code": "202610221104",
    "race": "びわこ4R",
    "deadline": "11:42",
-   "state": "展示待ち",
+   "state": "見送り",
    "note": "判定予定",
    "date": "2026-10-22",
    "result": null
@@ -247,7 +247,7 @@
    "code": "202610221603",
    "race": "児島3R",
    "deadline": "11:52",
-   "state": "展示待ち",
+   "state": "見送り",
    "note": "判定予定",
    "date": "2026-10-22",
    "result": null
@@ -2058,7 +2058,7 @@
    "in1": 0.626
   }
  ],
- "updated": "2026-10-22 11:25",
+ "updated": "2026-10-22 11:29",
  "public_from": "20261021",
  "summary": {
   "本命": {
@@ -2091,8 +2091,8 @@
    "h12": 6
   }
  },
- "judged": 77,
- "skipped": 27,
+ "judged": 79,
+ "skipped": 28,
  "records": [
   {
    "posted": "11:13",
