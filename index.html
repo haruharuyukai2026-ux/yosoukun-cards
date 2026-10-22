@@ -383,6 +383,8 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
 .dtile small{color:#6b5d44!important;opacity:1!important;font-size:11px!important}
 .dtile::after{color:#9a8a6a!important;top:10px!important}
 .dtile .tno{position:absolute;right:12px;bottom:10px;font-family:var(--f-num);font-size:10px;color:#b3a585;letter-spacing:.1em}
+.dtile .tz{font-style:normal;font-size:11px;line-height:1.35;color:#6b5d44;margin-top:6px;padding-top:6px;border-top:1px dashed #c8bba0;width:100%}.dtile .tz:empty{display:none}.dtile .tz b{font-size:13px;color:#14223a}
+.dtile>b{order:1}.dtile>em{order:2}.dtile>small{order:3}.dtile>.tz{order:4}.dtile .tz b{border:0!important;padding:0!important;display:inline;width:auto}
 </style>
 
 <header class="hero" lang="ja">
@@ -440,10 +442,10 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
   <section data-t="home" id="lab" class="sec s-lab">
     <h2><span class="ic">🔬</span><span class="tt">ぜんぶ無料で見られるデータ</span></h2>
     <div class="labg">
-      <a class="dtile t-r" data-tab="home" data-go="races-sec" href="#races-sec"><b>全レース<br>6艇分析</b><em id="dt-r">—</em><small>レース</small></a>
-      <a class="dtile t-v" data-tab="data" data-go="venues-sec" href="#venues-sec"><b>24場<br>データ</b><em id="dt-v">—</em><small>場で開催中</small></a>
-      <a class="dtile t-h" data-tab="rec" data-go="all-sec" href="#all-sec"><b>的中<br>全記録</b><em id="dt-h">—</em><small>本の的中</small></a>
-      <a class="dtile t-p" href="meikan.html"><b>選手<br>名鑑</b><em id="dt-p">—</em><small>人が出走</small></a>
+      <a class="dtile t-r" data-tab="home" data-go="races-sec" href="#races-sec"><b>全レース<br>6艇分析</b><em id="dt-r">—</em><i class="tz" id="tz-r"></i><small>レース</small></a>
+      <a class="dtile t-v" data-tab="data" data-go="venues-sec" href="#venues-sec"><b>24場<br>データ</b><em id="dt-v">—</em><i class="tz" id="tz-v"></i><small>場で開催中</small></a>
+      <a class="dtile t-h" data-tab="rec" data-go="all-sec" href="#all-sec"><b>的中<br>全記録</b><em id="dt-h">—</em><i class="tz" id="tz-h"></i><small>本の的中</small></a>
+      <a class="dtile t-p" href="meikan.html"><b>選手<br>名鑑</b><em id="dt-p">—</em><i class="tz" id="tz-p"></i><small>人が出走</small></a>
     </div>
   </section>
 
@@ -730,7 +732,12 @@ const goHash=()=>{const h=location.hash.slice(1);if(!h||/^p\d/.test(h))return;co
 document.querySelectorAll('[data-tab]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();showTab(a.dataset.tab);const g=document.getElementById(a.dataset.go||'')||document.querySelector('section.sec[data-t="'+a.dataset.tab+'"]');if(g)scrollTo({top:g.getBoundingClientRect().top+scrollY-64,behavior:'smooth'});tabs.forEach(x=>x.classList.toggle('on',x.dataset.t===a.dataset.tab&&!x.dataset.go))}));
 (async()=>{const R=await loadR();const n=Object.keys(R.racers||{}).length;})();
 
-(async()=>{try{const A=await loadAR();const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v};set('dt-r',A.races.length);set('dt-v',new Set(A.races.map(r=>r.code.slice(8,10))).size);set('dt-h',DATA.records.filter(r=>r.public!==false&&r.groups.some(g=>g.hit)).length);const R=await loadR();set('dt-p',Object.keys(R.racers||{}).length)}catch(e){}})();
+(async()=>{try{const A=await loadAR();const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v};set('dt-r',A.races.length);set('dt-v',new Set(A.races.map(r=>r.code.slice(8,10))).size);set('dt-h',DATA.records.filter(r=>r.public!==false&&r.groups.some(g=>g.hit)).length);const H=(id,h)=>{const e=document.getElementById(id);if(e&&h)e.innerHTML=h};const _n=new Date(Date.now()+9*36e5).toISOString().slice(11,16);
+ const up=A.races.filter(r=>!r.result&&(r.deadline||'99')>=_n&&r.in1&&r.in1.ai!=null).sort((a,b)=>a.in1.ai-b.in1.ai)[0];if(up)H('tz-r',`いま一番荒れそう<br><b>${up.venue}${up.rno}R</b>`);
+ const op=new Set(A.races.map(r=>r.code.slice(8,10)));const vv=(DATA.venues||[]).filter(v=>op.has(v.code)).sort((a,b)=>b.first[1]-a.first[1])[0];if(vv)H('tz-v',`今日イン最強<br><b>${vv.name} ${Math.round(vv.first[1]*100)}%</b>`);
+ const hh=DATA.records.filter(r=>r.public!==false&&r.groups.some(g=>g.hit)&&r.pay).sort((a,b)=>b.pay-a.pay)[0];if(hh)H('tz-h',`最高配当<br><b>${hh.pay.toLocaleString()}円</b>`);
+ let st=null;A.races.forEach(r=>((r.ana&&r.ana.boats)||[]).forEach(b=>{const f=(b.recent||[]).map(x=>x.f);while(f.length&&f[f.length-1]==null)f.pop();let k=0;for(let i=f.length-1;i>=0&&f[i]===1;i--)k++;if(k>=3&&(!st||k>st.k))st={k,n:b.name}}));if(st)H('tz-p',`連勝中<br><b>${st.n} ${st.k}連勝</b>`);
+ const R=await loadR();set('dt-p',Object.keys(R.racers||{}).length)}catch(e){}})();
 try{history.scrollRestoration='manual'}catch(e){}
 const _rl=(performance.getEntriesByType&&performance.getEntriesByType('navigation')[0]||{}).type==='reload';
 if(_rl&&location.hash&&!sessionStorage.getItem('yk_y')){history.replaceState(null,'',location.pathname+location.search)}
