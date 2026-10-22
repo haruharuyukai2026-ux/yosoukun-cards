@@ -367,6 +367,22 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
 .cf.hdS{background:#ffd166;color:#0b1a2e}.cf.hdA{background:#3ccf7d;color:#06210f}.cf.hdB{background:#8ecae6;color:#0b1a2e}
 .arr .a1{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin-top:-2px}.arr .a1 em{font-style:normal;font-size:12px;font-weight:700;color:var(--ink);margin-right:4px}
 .alt{font-style:normal;font-size:10px;font-weight:800;border-radius:5px;padding:1px 5px}.alt.mk{background:#e63946;color:#fff}.alt.mae{background:#ffd166;color:#0b1a2e}.alt.tl{background:#8ecae6;color:#0b1a2e}
+.stk{margin:0 0 10px}.stkh{font-size:13px;font-weight:900;margin-bottom:6px}.stkl{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}.stkl::-webkit-scrollbar{display:none}
+.stki{flex:none;display:flex;flex-direction:column;gap:1px;min-width:118px;padding:8px 10px;border-radius:12px;background:var(--deep);border:1px solid #5a2a1a;color:var(--ink);text-decoration:none}
+.stki em{font-style:normal;font-size:11px;font-weight:900;color:#ff6b1a}.stki b{font-size:14px}.stki small{font-size:10px;color:var(--sub)}
+/* 2026-10-23 データ室=舟券(ボートレースのチケット)の形。競艇らしさで他と差をつける */
+.labg{gap:12px!important}
+.dtile{background:#f6efdf!important;color:#14223a!important;border-radius:6px!important;padding:14px 14px 12px 22px!important;min-height:128px;box-shadow:0 6px 14px rgba(0,0,0,.35);
+ -webkit-mask:radial-gradient(circle 7px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat,radial-gradient(circle 7px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat;
+ mask:radial-gradient(circle 7px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat,radial-gradient(circle 7px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat}
+.dtile::before{content:'';position:absolute;left:0;top:0;bottom:0;width:9px;background:var(--tc)}
+.dtile.t-r{--tc:#e63946}.dtile.t-v{--tc:#2a6fdb}.dtile.t-h{--tc:#e0a100}.dtile.t-p{--tc:#2bb673}
+.dtile b{font-size:14px!important;letter-spacing:.02em;border-bottom:1px dashed #c8bba0;padding-bottom:6px;width:100%}
+.dtile b br{display:none}
+.dtile em{font-size:38px!important;color:#14223a;margin-top:8px!important}
+.dtile small{color:#6b5d44!important;opacity:1!important;font-size:11px!important}
+.dtile::after{color:#9a8a6a!important;top:10px!important}
+.dtile .tno{position:absolute;right:12px;bottom:10px;font-family:var(--f-num);font-size:10px;color:#b3a585;letter-spacing:.1em}
 </style>
 
 <header class="hero" lang="ja">
@@ -374,7 +390,7 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
     <div>
       
       <h1 class="hlogo"><img src="thumbs/hero.jpg" alt="予想くんの的中ラボ ボートレース予想くん公式サイト" width="1200" height="630"></h1>
-      <ul class="why3"><li>展示を見てから予想</li><li>外れもぜんぶ公開</li><li>完全無料</li></ul><div id="dash" class="dash"></div>
+      <div id="dash" class="dash"></div>
       <a class="lbtn" href="https://lin.ee/88lwcTO"><svg class="li" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="11" fill="#fff"/><path d="M24 10c-9.4 0-17 6.1-17 13.6 0 6.7 6 12.3 14.2 13.4.6.1 1.3.4 1.5.9.2.4.1 1.1.1 1.5l-.2 1.5c-.1.4-.3 1.7 1.5.9s9.9-5.8 13.5-10C40 29 41 26.4 41 23.6 41 16.1 33.4 10 24 10z" fill="#06c755"/><text x="24" y="27.5" text-anchor="middle" font-size="8.5" font-weight="900" fill="#fff" font-family="Arial,sans-serif">LINE</text></svg><span class="lt">LINEで受け取る！<small>LINE限定の予想を締切前に！無料</small></span><i>›</i></a>
     </div>
   </div>
@@ -411,7 +427,7 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
   <section data-t="home" id="races-sec" class="sec s-races">
     <h2><span class="ic">📋</span><span class="tt">これからのレース一覧</span> <small id="ar-date"></small></h2>
     <p class="note top">鉄板〜荒れそう=インの堅さ / 1着=予想くんの1着候補 / アラート=展示で出たサイン / タップで6艇分析</p>
-    <div class="vf" id="vf"></div>
+    <div id="streak"></div><div class="vf" id="vf"></div>
     <div id="ar"><p class="note">読み込み中…</p></div>
   </section>
 
@@ -738,6 +754,12 @@ showTab('home');addEventListener('hashchange',goHash);goHash();addEventListener(
   od.classList.add('on');document.body.style.overflow='hidden';
   try{const L=await (await fetch('live.json?t='+Date.now(),{cache:'no-store'})).json();cur=(L.odds||{})[b.dataset.code]||null}catch(_){}draw()},true);
 })();
+
+(async()=>{try{const A=await loadAR();const _n=new Date(Date.now()+9*36e5).toISOString().slice(11,16);const S=[];
+ A.races.forEach(r=>{if(r.result||(r.deadline||'99')<_n)return;((r.ana&&r.ana.boats)||[]).forEach(b=>{const f=(b.recent||[]).map(x=>x.f);while(f.length&&f[f.length-1]==null)f.pop();let k=0;for(let i=f.length-1;i>=0&&f[i]===1;i--)k++;if(k>=3)S.push({k,b,r})})});
+ S.sort((x,y)=>y.k-x.k||(x.r.deadline||'').localeCompare(y.r.deadline||''));const el=document.getElementById('streak');
+ if(el&&S.length)el.innerHTML=`<div class="stk"><div class="stkh">🔥 連勝中の注目選手</div><div class="stkl">${S.slice(0,8).map(s=>`<a href="#" class="stki" data-code="${s.r.code}"><em>${s.k}連勝中</em><b>${s.b.name}</b><small>${s.r.venue}${s.r.rno}R ${s.b.w}号艇 ${s.r.deadline}</small></a>`).join('')}</div></div>`}catch(e){}})();
+document.addEventListener('click',e=>{const a=e.target.closest('.stki');if(!a)return;e.preventDefault();const d=document.querySelector(`.arr .arb[data-code="${a.dataset.code}"]`);const det=d&&d.closest('details');if(det){det.open=true;det.scrollIntoView({behavior:'smooth',block:'start'})}});
 </script>
 
 </body></html>
