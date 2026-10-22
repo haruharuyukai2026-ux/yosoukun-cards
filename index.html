@@ -65,7 +65,7 @@ h2 small{font-family:var(--f-body);font-weight:400;color:var(--sub);font-size:13
 .vc .open.end{background:#3a4f6b;color:#c9d6e5}.vc .vk{display:grid;text-align:right}.vc .vk small{font-size:9px;color:var(--sub)}.vc .vk b{font-family:var(--f-num);font-size:15px}
 .vc .vb{padding:0 12px 12px}.vc .vtd{background:rgba(60,207,125,.1);border:1px solid rgba(60,207,125,.4);border-radius:8px;padding:6px 8px;font-size:12px;margin-bottom:6px}
 .cb{display:grid;gap:4px}.cr{display:grid;grid-template-columns:24px 1fr 40px 44px;gap:6px;align-items:center}.cbar{height:10px;background:rgba(255,255,255,.06);border-radius:5px;overflow:hidden}.cbar i{display:block;height:100%;background:var(--gold);border-radius:5px;max-width:100%}.cr b{font-family:var(--f-num);font-size:13px;text-align:right}.cr small{font-size:11px;color:var(--sub)}
-.vtop{display:flex;gap:12px;flex-wrap:wrap}.vtop span{display:flex;align-items:center;gap:4px}.vtop b{font-family:var(--f-num);font-size:13px}.vft{margin-top:8px;font-size:12px;color:var(--sub)}.vft b{color:var(--ink);font-family:var(--f-num)}.arr>summary .am{display:none}.arr .av .hot{font-style:normal;font-size:10px;background:#ff9f43;color:#1d1d1d;border-radius:5px;padding:0 4px;margin-left:4px;vertical-align:2px}.arr>summary .as:has(.pl){grid-column:1/-1}.arr .pl{color:var(--ink);text-decoration:none;font-weight:700;font-size:12px;font-family:var(--f-num)}.arr .hd{display:flex;align-items:center;gap:3px;white-space:nowrap}.arr .hd small{font-size:10px;color:var(--sub)}.arr .hd b{font-family:var(--f-num);font-size:12px}.arr .hd .ball{width:18px;height:18px;font-size:10px;border-width:1px}
+.vtop{display:flex;gap:12px;flex-wrap:wrap}.vtop span{display:flex;align-items:center;gap:4px}.vtop b{font-family:var(--f-num);font-size:13px}.vft{margin-top:8px;font-size:12px;color:var(--sub)}.vft b{color:var(--ink);font-family:var(--f-num)}.arr>summary .am{display:none}.arr .av .hot{white-space:nowrap;font-style:normal;font-size:10px;background:#ff9f43;color:#1d1d1d;border-radius:5px;padding:0 4px;margin-left:4px;vertical-align:2px}.arr>summary .as:has(.pl){grid-column:1/-1}.arr .pl{color:var(--ink);text-decoration:none;font-weight:700;font-size:12px;font-family:var(--f-num)}.arr .hd{display:flex;align-items:center;gap:3px;white-space:nowrap}.arr .hd small{font-size:10px;color:var(--sub)}.arr .hd b{font-family:var(--f-num);font-size:12px}.arr .hd .ball{width:18px;height:18px;font-size:10px;border-width:1px}
 .join{position:relative;background:linear-gradient(160deg,#06c755 0%,#05a648 100%)!important;border:none!important;color:#fff;text-align:center;padding:30px 18px 20px!important;overflow:hidden}
 .join::before{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.12)}
 .join .jr{justify-self:center;background:#ffd166;color:#1d1d1d;font-family:var(--f-disp);font-weight:900;font-size:15px;letter-spacing:.08em;padding:5px 16px;border-radius:99px;transform:rotate(-2deg);box-shadow:0 3px 0 rgba(0,0,0,.18)}
@@ -365,6 +365,8 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
 .apn{font-size:11px;color:var(--sub);margin:4px 0 0}
 .why3{display:flex;gap:6px;list-style:none;padding:0;margin:6px 0 10px}.why3 li{flex:1;text-align:center;font-size:12px;font-weight:800;color:var(--ink);background:#16396a;border:1px solid #2c5a92;border-radius:999px;padding:6px 2px;white-space:nowrap}
 .cf.hdS{background:#ffd166;color:#0b1a2e}.cf.hdA{background:#3ccf7d;color:#06210f}.cf.hdB{background:#8ecae6;color:#0b1a2e}
+.arr .a1{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin-top:-2px}.arr .a1 em{font-style:normal;font-size:12px;font-weight:700;color:var(--ink);margin-right:4px}
+.alt{font-style:normal;font-size:10px;font-weight:800;border-radius:5px;padding:1px 5px}.alt.mk{background:#e63946;color:#fff}.alt.mae{background:#ffd166;color:#0b1a2e}.alt.tl{background:#8ecae6;color:#0b1a2e}
 </style>
 
 <header class="hero" lang="ja">
@@ -394,10 +396,10 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
     <details class="guide"><summary>📖 予想の見方 <small>はじめての人へ</small></summary>
       <div class="gx">
         <div class="gr"><div class="gl"><span class="chip k-本命">本命</span> <b class="gf">1-235-235</b></div><div class="gd">1着 → <b>1号艇</b><br>2・3着 → <b>2・3・5</b><br>全部で6点</div></div>
-        <div class="gr"><div class="gl"><span class="chip k-手広く">手広く</span> <b class="gf">1-2345-2345</b></div><div class="gd">相手を4艇に広げた12点<br>手堅くいきたい人向け</div></div>
-        <div class="gr"><div class="gl"><b class="gm">◎</b> <span class="ball" style="background:#f4f4f4;color:#1d1d1d">1</span><span class="ball" style="background:#1d1d1d;color:#fff">2</span><span class="ball" style="background:#e63946;color:#fff">3</span></div><div class="gd"><b>一番の推し</b></div></div>
-        <div class="gr"><div class="gl"><b class="gm">🛡️</b> <span class="ball" style="background:#1d1d1d;color:#fff">2</span><span class="ball" style="background:#f4f4f4;color:#1d1d1d">1</span><span class="ball" style="background:#e63946;color:#fff">3</span></div><div class="gd"><b>押さえ</b><br>インが負けた時の保険</div></div>
-        <div class="gr"><div class="gl"><span class="chip k-狙い目">狙い目</span></div><div class="gd"><b>穴の1点</b><br>100倍以上は<br><span class="chip k-万舟狙い">万舟狙い</span></div></div>
+        <div class="gr"><div class="gl"><span class="chip k-まくり">中穴</span> <b class="gf">3-124-124</b></div><div class="gd">外の艇の一撃を狙う6点<br>当たれば配当が跳ねる！</div></div>
+        <div class="gr"><div class="gl"><span class="chip k-手広く">手広く</span> <b class="gf">1-2345-2345</b></div><div class="gd">相手を4艇に広げた12点</div></div>
+        <div class="gr"><div class="gl"><b class="gm">◎</b> <span class="ball" style="background:#f4f4f4;color:#1d1d1d">1</span><span class="ball" style="background:#1d1d1d;color:#fff">2</span><span class="ball" style="background:#e63946;color:#fff">3</span></div><div class="gd"><b>一番の推し</b>(1点)</div></div>
+        <div class="gr"><div class="gl"><small class="cf hdS">的中度 S</small></div><div class="gd">予想くんの1着の見込み<br>S=80%以上・A=65%以上</div></div>
       </div>
     </details>
     <div id="watch"></div>
@@ -408,7 +410,7 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
 
   <section data-t="home" id="races-sec" class="sec s-races">
     <h2><span class="ic">📋</span><span class="tt">これからのレース一覧</span> <small id="ar-date"></small></h2>
-    <p class="note top">鉄板〜荒れそう=インの堅さ / 1着=予想くんの1着候補 / タップで6艇分析</p>
+    <p class="note top">鉄板〜荒れそう=インの堅さ / 1着=予想くんの1着候補 / アラート=展示で出たサイン / タップで6艇分析</p>
     <div class="vf" id="vf"></div>
     <div id="ar"><p class="note">読み込み中…</p></div>
   </section>
@@ -499,11 +501,19 @@ window.loadAR=async()=>{const J=await (await fetch('allraces.json',{cache:'no-ca
  const today=new Date(Date.now()+9*36e5).toISOString().slice(0,10);
  document.getElementById('ar-date').textContent=J.date.slice(5).replace('-','/')+(J.date!==today?'(最新の開催日)':'');
  let V=[];let cur='すべて';const hasO=r=>{const o=(typeof oshi==='function'?oshi():[]);return r.ana.boats.some(b=>o.includes(b.no))};
- const LV={'鉄板':'lv1','堅め':'lv2','普通':'lv3','荒れそう':'lv4'};
+ const rLine=r=>{const B=(r.ana&&r.ana.boats)||[];if(!B.length)return'';const al=[];
+ const byC=B.filter(b=>b.course).sort((a,b)=>a.course-b.course);
+ for(let i=1;i<byC.length;i++){const a=byC[i-1],b=byC[i];if(a.ex&&b.ex&&a.ex-b.ex>=0.10){al.push(`<i class="alt mk">まくりアラート ${b.w}号艇</i>`);break}}
+ if(B.some(b=>b.course&&b.course!==b.w))al.push('<i class="alt mae">前づけ</i>');
+ if(B.some(b=>(b.tilt||0)>=1))al.push('<i class="alt tl">チルト跳ね</i>');
+ const o=B.filter(b=>b.ai!=null&&b.w!==1).sort((a,b)=>b.ai-a.ai)[0];const one=B.find(b=>b.w===1);
+ const s=!r.lvl||!o?'':(r.lvl==='鉄板'||r.lvl==='堅め')?`1号艇が逃げやすいレースだよ`:r.lvl==='荒れそう'?`${o.w}号艇の一撃があるレース！`:`1号艇と${o.w}号艇の勝負！`;
+ return (s||al.length)?`<span class="a1">${s?`<em>${s}</em>`:''}${al.join('')}</span>`:''};
+const LV={'鉄板':'lv1','堅め':'lv2','普通':'lv3','荒れそう':'lv4'};
  const ST={'予想あり':'w-on','的中':'w-hit','はずれ':'w-done'};
  const vote=r=>`https://www.boatrace.jp/owpc/pc/race/racelist?rno=${r.rno}&jcd=${r.code.slice(8,10)}&hd=${r.code.slice(0,8)}`;
  const HOT=new Set(typeof DATA!=="undefined"?[...(DATA.watch||[]).filter(w=>w.date===today&&w.state!=='見送り').map(w=>w.code),...DATA.records.filter(x=>x.result===null).map(x=>x.code)]:[]);
- const row=r=>`<details class="arr${HOT.has(r.code)?' hotr':''}" data-v="${r.venue}"><summary><span class="ad">${r.deadline||''}${(r.deadline||'99')<new Date(Date.now()+9*36e5).toISOString().slice(11,16)?'<i class="run">レース中</i>':''}</span><b class="av">${hasO(r)?'⭐':''}${r.venue}${r.rno}R${HOT.has(r.code)?'<i class="hot">狙い</i>':(typeof DATA!=='undefined'&&(DATA.watch||[]).some(w=>w.code===r.code&&w.state==='見送り')?'<i class="hot skp">見送り</i>':'')}</b><span class="ai">${r.in1.ai!=null?`<i class="lv ${LV[r.lvl]||''}">${r.lvl}</i>`:''}</span><span class="hd">${(()=>{const B=(r.ana&&r.ana.boats)||[];const t=B.filter(b=>b.ai!=null).sort((a,b)=>b.ai-a.ai)[0];return t?`<small>1着</small>${balls(String(t.w))}<b>${t.ai}%</b>`:''})()}</span><span class="am">${(r.marks||[]).map(m=>`<i>${m}</i>`).join('')}${r.grade&&!/^IP|一般/.test(r.grade)?`<i class="g">${r.grade}</i>`:''}</span><span class="as">${(()=>{const R=typeof DATA!=='undefined'?DATA.records.find(x=>x.code===r.code&&x.result===null):null;if(!R)return r.status&&!r.result?`<i class="ws ${ST[r.status]}">${r.status}</i>`:'';if(R.locked&&!LU)return `<a class="pl" href="#how" onclick="event.stopPropagation()"><i class="ws w-on">LINE限定で配信中</i></a>`;const g=R.groups.find(g=>g.kind==='本命')||R.groups[0];return `<a class="pl" href="#r${R.code}" onclick="event.stopPropagation()"><i class="ws w-on">予想あり</i> ${g?KL(g.kind)+' '+(g.f6||g.combos[0]||''):''} ›</a>`})()}${r.result?`${balls(r.result)}<small>${(r.pay||0).toLocaleString()}円</small>`:''}</span></summary><div class="arb" data-code="${r.code}"></div></details>`;
+ const row=r=>`<details class="arr${HOT.has(r.code)?' hotr':''}" data-v="${r.venue}"><summary><span class="ad">${r.deadline||''}${(r.deadline||'99')<new Date(Date.now()+9*36e5).toISOString().slice(11,16)?'<i class="run">レース中</i>':''}</span><b class="av">${hasO(r)?'⭐':''}${r.venue}${r.rno}R${HOT.has(r.code)?'<i class="hot">狙い</i>':(typeof DATA!=='undefined'&&(DATA.watch||[]).some(w=>w.code===r.code&&w.state==='見送り')?'<i class="hot skp">見送り</i>':'')}</b><span class="ai">${r.in1.ai!=null?`<i class="lv ${LV[r.lvl]||''}">${r.lvl}</i>`:''}</span><span class="hd">${(()=>{const B=(r.ana&&r.ana.boats)||[];const t=B.filter(b=>b.ai!=null).sort((a,b)=>b.ai-a.ai)[0];return t?`<small>1着</small>${balls(String(t.w))}<b>${t.ai}%</b>`:''})()}</span>${rLine(r)}<span class="am">${(r.marks||[]).map(m=>`<i>${m}</i>`).join('')}${r.grade&&!/^IP|一般/.test(r.grade)?`<i class="g">${r.grade}</i>`:''}</span><span class="as">${(()=>{const R=typeof DATA!=='undefined'?DATA.records.find(x=>x.code===r.code&&x.result===null):null;if(!R)return r.status&&!r.result?`<i class="ws ${ST[r.status]}">${r.status}</i>`:'';if(R.locked&&!LU)return `<a class="pl" href="#how" onclick="event.stopPropagation()"><i class="ws w-on">LINE限定で配信中</i></a>`;const g=R.groups.find(g=>g.kind==='本命')||R.groups[0];return `<a class="pl" href="#r${R.code}" onclick="event.stopPropagation()"><i class="ws w-on">予想あり</i> ${g?KL(g.kind)+' '+(g.f6||g.combos[0]||''):''} ›</a>`})()}${r.result?`${balls(r.result)}<small>${(r.pay||0).toLocaleString()}円</small>`:''}</span></summary><div class="arb" data-code="${r.code}"></div></details>`;
  const draw=()=>{const _n=new Date(Date.now()+9*36e5).toISOString().slice(11,16),_nx={};J.races.forEach(r=>{if(r.result||(J.date===today&&(r.deadline||'99')<_n))return;if(!_nx[r.venue]||r.deadline<_nx[r.venue])_nx[r.venue]=r.deadline});V=Object.keys(_nx).sort((a,b)=>_nx[a].localeCompare(_nx[b]));if(cur!=='すべて'&&cur!=='⭐推し'&&!V.includes(cur))cur='すべて';
   document.getElementById('vf').innerHTML=['すべて','⭐推し',...V].map(v=>`<button class="${v===cur?'on':''}" data-v="${v}">${v}</button>`).join('');
   const F=J.races.filter(r=>cur==='すべて'||(cur==='⭐推し'?hasO(r):r.venue===cur)),nowT=new Date(Date.now()+9*36e5).toISOString().slice(11,16),ago=new Date(Date.now()+9*36e5-30*6e4).toISOString().slice(11,16),isPast=r=>!!r.result||(typeof DATA!=='undefined'&&DATA.records.some(x=>x.code===r.code&&x.result))||(J.date<today)||(J.date===today&&(r.deadline||'99')<ago),up0=F.filter(r=>!isPast(r)),up=up0.slice().sort((a,b)=>(a.deadline||'99').localeCompare(b.deadline||'99')),dn=F.filter(isPast);
@@ -665,7 +675,7 @@ const _wn=new Date(Date.now()+9*36e5).toISOString().slice(11,16);const Wl=W.filt
  document.getElementById('watch').innerHTML=(n0||sk?`<div class="nerai"><div class="nh">🎯 今日の狙い目！<small>予想くんが狙ってるレース</small></div>`+(sk?`<div class="nskip"><b>${sk.race}は見送り！</b><span>展示を見て、勝負できる形じゃなかったよ。${n0?`次は <b>${n0.deadline} ${n0.race}</b> を狙うよ！`:'今日の狙い目はここまで！'}</span></div>`:'')+(n0?
   `<a class="nc" href="${R0?'#r'+n0.code:'#nerai-memo'}"><span class="nt">${n0.deadline}<small>締切</small></span><span class="nr"><b>${n0.race}</b><small id="npick"></small></span><span class="nl">あと<b>${left}</b>分</span></a>`+
   `<div class="ns">${R0||n0.state==='予想あり'?'<b class="on">予想が出た！タップで買い目</b>':left>25?'展示が出たら予想を出すよ(締切の約20分前)':'もうすぐ展示！予想を準備中'}</div>`+
-  (up.length>1?`<div class="nn"><small>このあとの狙い目</small>${up.slice(1).map(w=>`<span><b>${w.deadline}</b> ${w.race}</span>`).join('')}</div>`:''):'')+`</div>`:'')+
+  (up.length>1?`<div class="nn"><small>このあと公開する予想</small>${up.slice(1).map(w=>{const[h,m]=w.deadline.split(':').map(Number),x=h*60+m-10;return `<span><b>${String(Math.floor(x/60)).padStart(2,'0')}:${String(x%60).padStart(2,'0')}〜公開</b> ${w.race}</span>`}).join('')}</div>`:''):'')+`</div>`:'')+
   (false?`<div class="nn"><small>今日の狙いで的中</small>${hit.map(w=>`<span><b>${w.race}</b> ${w.result?balls(w.result):''}</span>`).join('')}</div>`:'');
  if(n0)(async()=>{try{const A=await loadAR();const r=A.races.find(x=>x.code===n0.code);const B=(r&&r.ana&&r.ana.boats)||[];const t=B.filter(b=>b.ai!=null).sort((a,b)=>b.ai-a.ai)[0];const el=document.getElementById('npick');if(t&&el)el.innerHTML=`予想くんの1着 ${balls(String(t.w))} ${t.ai}%`}catch(e){}})();}
 const tr=DATA.records.filter(r=>r.date===today).sort((a,b)=>{const da=a.result!==null,db=b.result!==null;if(da!==db)return da?1:-1;const ka=a.deadline||'',kb=b.deadline||'';return da?kb.localeCompare(ka):ka.localeCompare(kb)});
