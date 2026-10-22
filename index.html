@@ -489,7 +489,7 @@ p,li,.legend,.note,.ctx,.hw{word-break:auto-phrase;text-wrap:pretty}
     </ul>
     <div class="plan"><div class="plh">無料と有料のちがい</div>
 <table class="plt"><tr><th></th><th class="zf">無料<small>今すぐ</small></th><th class="zp">有料<small>近日スタート</small></th></tr>
-<tr><td>締切前に届く予想</td><td class="zf"><b>1日2本</b></td><td class="zp"><b id="pl-n">ぜんぶ</b></td></tr>
+<tr><td>締切前に届く予想</td><td class="zf"><b>1日2本</b></td><td class="zp"><b id="pl-n">全部</b></td></tr>
 <tr><td>予想くんの勝負レース</td><td class="zf">—</td><td class="zp"><b>届く！</b></td></tr>
 <tr><td>夜の「今日の結果」</td><td class="zf">◯</td><td class="zp">◯</td></tr>
 <tr><td>サイトの分析・全記録</td><td class="zf">◯</td><td class="zp">◯</td></tr></table>
@@ -788,7 +788,7 @@ showTab('home');addEventListener('hashchange',goHash);goHash();addEventListener(
  if(el&&S.length)el.innerHTML=`<div class="stk"><div class="stkh">🔥 連勝中の注目選手</div><div class="stkl">${S.slice(0,8).map(s=>`<a href="#" class="stki" data-code="${s.r.code}"><em>${s.k}連勝中</em><b>${s.b.name}</b><small>${s.r.venue}${s.r.rno}R ${s.b.w}号艇 ${s.r.deadline}</small></a>`).join('')}</div></div>`}catch(e){}})();
 document.addEventListener('click',e=>{const a=e.target.closest('.stki');if(!a)return;e.preventDefault();const d=document.querySelector(`.arr .arb[data-code="${a.dataset.code}"]`);const det=d&&d.closest('details');if(det){det.open=true;det.scrollIntoView({behavior:'smooth',block:'start'})}});
 
-(()=>{try{const y=new Date(Date.now()+9*36e5-864e5).toISOString().slice(0,10);const n=DATA.records.filter(r=>r.date===y&&r.public!==false&&r.groups.some(g=>g.kind==='本命'||g.kind==='まくり')).length;const e=document.getElementById('pl-n');if(e&&n>2)e.innerHTML=`ぜんぶ<small>きのうは${n}本</small>`}catch(e){}})();
+(()=>{try{const y=new Date(Date.now()+9*36e5-864e5).toISOString().slice(0,10);const n=DATA.records.filter(r=>r.date===y&&r.public!==false&&r.groups.some(g=>g.kind==='本命'||g.kind==='まくり')).length;const e=document.getElementById('pl-n');if(e&&n>2)e.innerHTML=`全部<small>昨日は${n}本</small>`}catch(e){}})();
 </script>
 
 </body></html>
