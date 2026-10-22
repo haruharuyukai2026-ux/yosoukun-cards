@@ -2158,7 +2158,7 @@
      "tier": null
     }
    ],
-   "sent": false,
+   "sent": true,
    "why": [
     "1号艇(A1)の1着見込み83%",
     "当地勝率7.8はメンバー最上位",
@@ -2580,7 +2580,8 @@
     "wave": 1.0,
     "has_ex": true
    },
-   "weather": "晴・風1m・波1cm"
+   "weather": "晴・風1m・波1cm",
+   "locked": true
   },
   {
    "posted": "08:23",
