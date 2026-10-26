@@ -1,0 +1,95 @@
+name: engine
+# 予想くんの本体を毎日自動で回す(Claude が止まっても動く)。
+# 朝: データ取得→学習→サイト公開 → 締切13分前ごとに直前判定→公開→LINE。持ち時間が来たら次の実行に引き継ぐ。
+# コードと記録は非公開の boat-line(ops/)にあり、鍵 BOAT_PAT で取ってくる。ログには予想を出さない。
+on:
+  schedule:
+    - cron: "20 22 * * *"   # 日本時間 7:20
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "prep(朝から) / cont(続き)"
+        default: prep
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: engine
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    env:
+      TZ: Asia/Tokyo
+      MODE: ${{ github.event.inputs.mode || 'prep' }}
+    steps:
+      - name: 置き場所をつくる
+        run: |
+          sudo mkdir -p /home/claude && sudo chown $USER /home/claude
+          git config --global user.name yosoukun-engine; git config --global user.email yosoukun-engine@users.noreply.github.com
+          echo "Y=$(date +%Y%m%d)" >> $GITHUB_ENV; echo "D=$(date +%F)" >> $GITHUB_ENV
+          # 持ち時間: 開始から5時間15分
+          echo "STOP_AT=$(date -d '+315 min' +%H:%M)" >> $GITHUB_ENV
+      - uses: actions/checkout@v4
+        with: { path: yc }
+      - uses: actions/checkout@v4
+        with:
+          repository: haruharuyukai2026-ux/boat-line
+          token: ${{ secrets.BOAT_PAT }}
+          path: bl
+      - name: コードと記録を戻す
+        run: |
+          mv yc /home/claude/yosoukun-cards; mv bl /home/claude/boat-line
+          mkdir -p /home/claude/boatai && cd /home/claude/boatai
+          tar xzf /home/claude/boat-line/ops/boatai_code.tgz && tar xzf /home/claude/boat-line/ops/boatai_state.tgz
+          chmod +x *.sh
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip, cache-dependency-path: /home/claude/boatai/params3.json }
+      - name: 道具
+        run: |
+          pip install -q pandas numpy scipy scikit-learn beautifulsoup4 requests
+          npm i -g playwright@1.48.2 >/dev/null 2>&1 && npx playwright install --with-deps chromium >/dev/null 2>&1
+      - name: 学習済みを戻す(続きのとき)
+        if: env.MODE == 'cont'
+        uses: actions/cache/restore@v4
+        with:
+          path: /home/claude/boatai/work/model_${{ env.Y }}.tgz
+          key: model-${{ env.Y }}
+      - name: 朝の準備
+        if: env.MODE != 'cont'
+        run: |
+          cd /home/claude/boatai
+          for i in 1 2 3 4; do
+            ./refresh.sh > work/ci_prep.log 2>&1 && python3 train_final.py $D >> work/ci_prep.log 2>&1 && rm -f work/today_$Y.pkl && python3 live.py prep $D >> work/ci_prep.log 2>&1
+            grep -q "当日 [1-9]" work/ci_prep.log && break
+            echo "出走表まだ。20分待つ"; sleep 1200
+          done
+          python3 daily.py $D > /dev/null && python3 racers.py $Y > /dev/null && python3 allraces.py $Y > /dev/null
+          python3 site_data.py > /dev/null && python3 build_site.py > /dev/null && python3 deploy_pages.py | tail -1
+          ./state_save.sh
+          tar czf work/model_$Y.tgz work/models_full.pkl work/today_$Y.pkl work/hist_long.pkl work/allwin_$Y.json work/morning_$Y.json work/params3.json work/*stats*.json work/od*.pkl
+      - name: 学習済みを保存
+        if: env.MODE != 'cont'
+        uses: actions/cache/save@v4
+        with:
+          path: /home/claude/boatai/work/model_${{ env.Y }}.tgz
+          key: model-${{ env.Y }}
+      - name: 続きの準備
+        if: env.MODE == 'cont'
+        run: |
+          cd /home/claude/boatai && tar xzf work/model_$Y.tgz && ./refresh.sh > /dev/null 2>&1
+      - name: 直前判定(締切13分前ごと)
+        id: drv
+        run: |
+          cd /home/claude/boatai
+          set +e; python3 day_driver.py $Y > /dev/null 2>&1; rc=$?; set -e
+          tail -3 work/driver_$Y.log | sed -E 's/[0-9]-[0-9?]+-[0-9?]+//g'
+          echo "rc=$rc" >> $GITHUB_OUTPUT
+      - name: 次の実行に引き継ぐ
+        if: steps.drv.outputs.rc == '3'
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: gh workflow run engine.yml -R ${{ github.repository }} -f mode=cont
+      - name: 1日の締め(結果LINE・記録)
+        if: steps.drv.outputs.rc == '0'
+        run: cd /home/claude/boatai && ./day_end.sh $Y > /dev/null 2>&1; echo done
