@@ -5,6 +5,8 @@ name: engine
 on:
   schedule:
     - cron: "20 22 * * *"   # 日本時間 7:20
+    - cron: "45 22 * * *"   # 日本時間 7:45(7:20の起動が来なかった時の予備。今日もう動いていれば何もしない)
+    - cron: "15 23 * * *"   # 日本時間 8:15(同じく予備)
   push:
     paths: [engine_test.txt, engine_go.txt]   # engine_test.txt=試運転 / engine_go.txt=本番を今すぐ(GitHubの時刻起動が遅れた時の手動起動)
   workflow_dispatch:
@@ -19,7 +21,24 @@ concurrency:
   group: engine
   cancel-in-progress: false
 jobs:
+  guard:
+    runs-on: ubuntu-latest
+    outputs:
+      skip: ${{ steps.dup.outputs.skip }}
+    steps:
+      - name: 今日もう動いていれば何もしない(予備の時刻起動用)
+        id: dup
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          [ "${{ github.event_name }}" = "schedule" ] || exit 0
+          today=$(date -u -d '+9 hour' +%F)
+          n=$(gh run list -R ${{ github.repository }} -w engine.yml -L 20 --json databaseId,createdAt,conclusion,status \
+              --jq "[.[] | select(.databaseId != ${{ github.run_id }}) | select((.createdAt | fromdate + 32400 | strftime(\"%Y-%m-%d\")) == \"$today\") | select(.status != \"completed\" or .conclusion == \"success\")] | length")
+          echo "今日の本体の実行: $n 件"
+          if [ "$n" != "0" ]; then echo "skip=yes" >> $GITHUB_OUTPUT; fi
   run:
+    needs: guard
+    if: needs.guard.outputs.skip != 'yes'
     runs-on: ubuntu-latest
     timeout-minutes: 350
     env:
