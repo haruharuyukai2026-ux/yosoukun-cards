@@ -6,7 +6,7 @@ on:
   schedule:
     - cron: "20 22 * * *"   # 日本時間 7:20
   push:
-    paths: [engine_test.txt]   # このファイルを変えて push すると「test」で試運転
+    paths: [engine_test.txt, engine_go.txt]   # engine_test.txt=試運転 / engine_go.txt=本番を今すぐ(GitHubの時刻起動が遅れた時の手動起動)
   workflow_dispatch:
     inputs:
       mode:
@@ -24,7 +24,7 @@ jobs:
     timeout-minutes: 350
     env:
       TZ: Asia/Tokyo
-      MODE: ${{ github.event.inputs.mode || (github.event_name == 'push' && 'test') || 'prep' }}
+      MODE: ${{ github.event.inputs.mode || (github.event_name == 'push' && (contains(join(github.event.commits.*.message, ' '), '本番') && 'prep' || 'test')) || 'prep' }}
     steps:
       - name: 置き場所をつくる
         run: |
