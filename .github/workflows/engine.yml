@@ -80,6 +80,7 @@ jobs:
       - name: 朝の準備
         if: env.MODE != 'cont'
         run: |
+          set -x
           cd /home/claude/boatai
           for i in 1 2 3 4; do
             ./refresh.sh > work/ci_prep.log 2>&1 && python3 train_final.py $D >> work/ci_prep.log 2>&1 && rm -f work/today_$Y.pkl && python3 live.py prep $D >> work/ci_prep.log 2>&1
@@ -116,3 +117,10 @@ jobs:
       - name: 1日の締め(結果LINE・記録)
         if: env.MODE != 'test' && steps.drv.outputs.done == 'yes'
         run: cd /home/claude/boatai && ./day_end.sh $Y > /dev/null 2>&1; echo done
+      - name: 失敗したらログを非公開の boat-line に残す(運用担当が読む)
+        if: failure()
+        run: |
+          cd /home/claude/boat-line && mkdir -p ops/logs
+          f=ops/logs/engine_$(date +%Y%m%d_%H%M).txt
+          { echo "run ${{ github.run_id }} mode=$MODE"; tail -c 20000 /home/claude/boatai/work/ci_prep.log 2>/dev/null; ls -la /home/claude/boatai/work | tail -30; tail -c 4000 /home/claude/boatai/work/driver_$Y.log 2>/dev/null; } > $f 2>&1
+          git add ops/logs && git commit -qm "engine 失敗ログ" && git pull -q --rebase origin main && git push -q origin main || true
