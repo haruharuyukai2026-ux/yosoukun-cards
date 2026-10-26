@@ -47,7 +47,7 @@ jobs:
           tar xzf /home/claude/boat-line/ops/boatai_code.tgz && tar xzf /home/claude/boat-line/ops/boatai_state.tgz
           chmod +x *.sh
       - uses: actions/setup-python@v5
-        with: { python-version: "3.12", cache: pip, cache-dependency-path: /home/claude/boatai/params3.json }
+        with: { python-version: "3.12" }
       - name: 道具
         run: |
           pip install -q pandas numpy scipy scikit-learn beautifulsoup4 requests
