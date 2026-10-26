@@ -5,10 +5,12 @@ name: engine
 on:
   schedule:
     - cron: "20 22 * * *"   # 日本時間 7:20
+  push:
+    paths: [engine_test.txt]   # このファイルを変えて push すると「test」で試運転
   workflow_dispatch:
     inputs:
       mode:
-        description: "prep(朝から) / cont(続き)"
+        description: "prep(朝から) / cont(続き) / test(準備だけ試す。公開・LINEなし)"
         default: prep
 permissions:
   contents: write
@@ -22,7 +24,7 @@ jobs:
     timeout-minutes: 350
     env:
       TZ: Asia/Tokyo
-      MODE: ${{ github.event.inputs.mode || 'prep' }}
+      MODE: ${{ github.event.inputs.mode || (github.event_name == 'push' && 'test') || 'prep' }}
     steps:
       - name: 置き場所をつくる
         run: |
@@ -66,11 +68,12 @@ jobs:
             echo "出走表まだ。20分待つ"; sleep 1200
           done
           python3 daily.py $D > /dev/null && python3 racers.py $Y > /dev/null && python3 allraces.py $Y > /dev/null
+          if [ "$MODE" = test ]; then grep -E "refresh done|saved models|prep done" work/ci_prep.log; python3 site_data.py > /dev/null && python3 build_site.py && NODE_PATH=$(npm root -g) node site_check.js site/public/index.html | tail -2; echo "TEST OK"; exit 0; fi
           python3 site_data.py > /dev/null && python3 build_site.py > /dev/null && python3 deploy_pages.py | tail -1
           ./state_save.sh
           tar czf work/model_$Y.tgz work/models_full.pkl work/today_$Y.pkl work/hist_long.pkl work/allwin_$Y.json work/morning_$Y.json work/params3.json work/*stats*.json work/od*.pkl
       - name: 学習済みを保存
-        if: env.MODE != 'cont'
+        if: env.MODE == 'prep'
         uses: actions/cache/save@v4
         with:
           path: /home/claude/boatai/work/model_${{ env.Y }}.tgz
@@ -80,6 +83,7 @@ jobs:
         run: |
           cd /home/claude/boatai && tar xzf work/model_$Y.tgz && ./refresh.sh > /dev/null 2>&1
       - name: 直前判定(締切13分前ごと)
+        if: env.MODE != 'test'
         id: drv
         run: |
           cd /home/claude/boatai
