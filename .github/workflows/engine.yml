@@ -71,7 +71,7 @@ jobs:
         with: { python-version: "3.12" }
       - name: 道具
         run: |
-          pip install -q pandas numpy scipy scikit-learn beautifulsoup4 requests
+          pip install -q pandas numpy scipy scikit-learn beautifulsoup4 lxml requests
           npm i -g playwright@1.48.2 >/dev/null 2>&1 && npx playwright install --with-deps chromium >/dev/null 2>&1
       - name: 学習済みを戻す(続きのとき)
         if: env.MODE == 'cont'
