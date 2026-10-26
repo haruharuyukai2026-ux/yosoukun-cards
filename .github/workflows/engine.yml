@@ -89,11 +89,11 @@ jobs:
           cd /home/claude/boatai
           set +e; python3 day_driver.py $Y > /dev/null 2>&1; rc=$?; set -e
           tail -3 work/driver_$Y.log | sed -E 's/[0-9]-[0-9?]+-[0-9?]+//g'
-          echo "rc=$rc" >> $GITHUB_OUTPUT
+          if [ "$rc" = 3 ]; then echo "next=yes" >> $GITHUB_OUTPUT; elif [ "$rc" = 0 ]; then echo "done=yes" >> $GITHUB_OUTPUT; fi
       - name: 次の実行に引き継ぐ
-        if: steps.drv.outputs.rc == '3'
+        if: env.MODE != 'test' && steps.drv.outputs.next == 'yes'
         env: { GH_TOKEN: "${{ github.token }}" }
         run: gh workflow run engine.yml -R ${{ github.repository }} -f mode=cont
       - name: 1日の締め(結果LINE・記録)
-        if: steps.drv.outputs.rc == '0'
+        if: env.MODE != 'test' && steps.drv.outputs.done == 'yes'
         run: cd /home/claude/boatai && ./day_end.sh $Y > /dev/null 2>&1; echo done
