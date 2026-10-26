@@ -65,6 +65,7 @@ jobs:
           mv yc /home/claude/yosoukun-cards; mv bl /home/claude/boat-line
           mkdir -p /home/claude/boatai && cd /home/claude/boatai
           tar xzf /home/claude/boat-line/ops/boatai_code.tgz && tar xzf /home/claude/boat-line/ops/boatai_state.tgz
+          [ -d /home/claude/boat-line/ops/code ] && cp /home/claude/boat-line/ops/code/* .   # コードは ops/code/ が最新
           chmod +x *.sh
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
