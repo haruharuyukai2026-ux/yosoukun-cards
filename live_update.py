@@ -29,8 +29,20 @@ def ex(code):
         m = re.match(r"\s*(\d)\s*(F|L)?\s*\.?(\d+)", re.sub(r"\s+", "", e.get_text()))
         if m: st[int(m.group(1))] = dict(course=i + 1, exst=float("0." + m.group(3)) * (-1 if m.group(2) == "F" else 1))
     for x in boats: x.update(st.get(x["w"], {}))
+    # 直前情報の細かい所(体重・調整重量・プロペラ・部品交換)。2026-10-27 公式との比較の「待ち」を解く
+    for i, tb in enumerate(b.select(".table1 tbody")[1:7]):
+        trs = tb.select("tr")
+        if not trs: continue
+        td = [re.sub(r"\s+", " ", y.get_text()).strip() for y in trs[0].select("td")]
+        adj = re.sub(r"\s+", " ", trs[2].select("td")[0].get_text()).strip() if len(trs) > 2 and trs[2].select("td") else ""
+        if len(td) >= 8 and i < len(boats):
+            boats[i].update(weight=td[3], adj=adj, prop=td[6], parts=td[7])
     w = tx(b.select_one(".weather1")); wind = re.search(r"風速\s*(\d+)m", w); wave = re.search(r"波高\s*(\d+)cm", w)
-    return dict(boats=boats, wind=float(wind.group(1)) if wind else None, wave=float(wave.group(1)) if wave else None, at=now.strftime("%H:%M"))
+    wd = None
+    for e in b.select(".weather1 [class*='is-wind']"):
+        m = re.search(r"is-wind(\d+)", " ".join(e.get("class", [])))
+        if m: wd = int(m.group(1)); break
+    return dict(boats=boats, wind_dir=wd, wind=float(wind.group(1)) if wind else None, wave=float(wave.group(1)) if wave else None, at=now.strftime("%H:%M"))
 def res(code):
     s = get("raceresult", code)
     if not s: return None

@@ -43,6 +43,7 @@ jobs:
     timeout-minutes: 350
     env:
       TZ: Asia/Tokyo
+      DIRECT_FETCH: "1"   # 公式から直接取る(Actionsの順番待ちをしない)
       MODE: ${{ github.event.inputs.mode || (github.event_name == 'push' && (contains(join(github.event.commits.*.message, ' '), '本番') && 'prep' || 'test')) || 'prep' }}
     steps:
       - name: 置き場所をつくる
