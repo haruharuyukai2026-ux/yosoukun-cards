@@ -15,13 +15,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: pip install -q beautifulsoup4
-      - name: 2分おきに展示と結果を取る(1回の実行で約55分まわす)
+      - name: 展示と結果を取る(レースが終わる頃は約1分おき、それ以外は2分おき。1回の実行で約55分まわす)
         run: |
           git config user.name yosoukun-live; git config user.email yosoukun-live@users.noreply.github.com
-          for i in $(seq 1 27); do
+          end=$(( $(date +%s) + 54*60 ))
+          while [ $(date +%s) -lt $end ]; do
             git pull -q --rebase || true
             python3 live_update.py || true
             git add live.json && git commit -qm "live $(date -u +%H:%M)" && git push -q || echo nochange
             h=$(TZ=Asia/Tokyo date +%H); [ "$h" -ge 23 ] && break
-            [ $i -lt 27 ] && sleep 90
+            # 2026-10-27 和輝「的中の更新が遅い」:締切3〜15分後で結果がまだのレースがある間は40秒で回す
+            fast=$(python3 -c "
+          import json,datetime as d
+          n=d.datetime.now(d.timezone(d.timedelta(hours=9)));A=json.load(open('allraces.json'));L=json.load(open('live.json'))
+          m=lambda t:(n-n.replace(hour=int(t[:2]),minute=int(t[3:5]),second=0)).total_seconds()/60
+          print(1 if any(r.get('deadline') and 3<=m(r['deadline'])<=15 and r['code'] not in L.get('res',{}) for r in A['races']) else 0)" 2>/dev/null || echo 0)
+            if [ "$fast" = "1" ]; then sleep 40; else sleep 90; fi
           done
