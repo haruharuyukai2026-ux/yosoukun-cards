@@ -1,6 +1,6 @@
 {
- "name": "ボートレース予想くん",
- "short_name": "予想くん",
+ "name": "やなぎの的中ラボ",
+ "short_name": "やなぎ",
  "description": "今日の予想・的中・全記録・24場データ",
  "start_url": "./",
  "scope": "./",
