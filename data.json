@@ -1,12 +1,6 @@
 {
  "next_judge": [
   {
-   "code": "202610271601",
-   "race": "児島1R",
-   "deadline": "10:42",
-   "judge_at": "10:29"
-  },
-  {
    "code": "202610272306",
    "race": "唐津6R",
    "deadline": "10:49",
@@ -35,6 +29,12 @@
    "race": "三国6R",
    "deadline": "11:06",
    "judge_at": "10:53"
+  },
+  {
+   "code": "202610272201",
+   "race": "福岡1R",
+   "deadline": "11:08",
+   "judge_at": "10:55"
   }
  ],
  "watch": [
