@@ -1,12 +1,6 @@
 {
  "next_judge": [
   {
-   "code": "202610270908",
-   "race": "津8R",
-   "deadline": "13:56",
-   "judge_at": "13:43"
-  },
-  {
    "code": "202610271308",
    "race": "尼崎8R",
    "deadline": "14:02",
@@ -35,6 +29,12 @@
    "race": "福岡8R",
    "deadline": "14:25",
    "judge_at": "14:12"
+  },
+  {
+   "code": "202610271012",
+   "race": "三国12R",
+   "deadline": "14:27",
+   "judge_at": "14:14"
   }
  ],
  "watch": [
@@ -1241,7 +1241,7 @@
    "in1": 0.626
   }
  ],
- "updated": "2026-10-27 13:43",
+ "updated": "2026-10-27 13:49",
  "public_from": "20261021",
  "summary": {
   "本命": {
@@ -1274,8 +1274,8 @@
    "h12": 31
   }
  },
- "judged": 215,
- "skipped": 95,
+ "judged": 216,
+ "skipped": 96,
  "records": [
   {
    "posted": "13:25",
