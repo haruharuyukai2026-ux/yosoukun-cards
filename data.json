@@ -1241,11 +1241,11 @@
    "in1": 0.626
   }
  ],
- "updated": "2026-10-30 15:20",
+ "updated": "2026-10-30 15:29",
  "public_from": "20261021",
  "summary": {
   "本命": {
-   "n": 193,
+   "n": 195,
    "hit": 124,
    "h1": 23,
    "h6": 73,
@@ -1267,14 +1267,14 @@
    "hit": 0
   },
   "本命_公開後": {
-   "n": 182,
+   "n": 184,
    "hit": 114,
    "h1": 22,
    "h6": 67,
    "h12": 114
   }
  },
- "judged": 488,
+ "judged": 490,
  "skipped": 179,
  "records": [
   {
@@ -8671,8 +8671,8 @@
    "race": "児島9R",
    "code": "202610301609",
    "public": true,
-   "result": null,
-   "pay": null,
+   "result": "3-1-4",
+   "pay": 12080,
    "groups": [
     {
      "kind": "本命",
@@ -8685,7 +8685,7 @@
       "1-5-3"
      ],
      "odds": [],
-     "hit": null,
+     "hit": false,
      "hd": 74,
      "star": "1-3-2",
      "wide": [
@@ -13127,8 +13127,8 @@
    "race": "尼崎10R",
    "code": "202610301310",
    "public": true,
-   "result": null,
-   "pay": null,
+   "result": "3-1-4",
+   "pay": 5560,
    "groups": [
     {
      "kind": "本命",
@@ -13141,7 +13141,7 @@
       "1-4-3"
      ],
      "odds": [],
-     "hit": null,
+     "hit": false,
      "hd": 78,
      "star": "1-3-2",
      "wide": [
