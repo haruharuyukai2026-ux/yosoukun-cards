@@ -49,6 +49,7 @@ def res(code):
     for t in s.select("table"):
         m = re.search(r"3連単 (\d-\d-\d) ¥([\d,]+)", tx(t))
         if m: return [m.group(1), int(m.group(2).replace(",", ""))]
+        if re.search(r"3連単 不成立", tx(t)): return ["不成立", 100]  # 返還(2026-11-02)
     return None
 KEY = [f"{a+1}-{b+1}-{c+1}" for a, b, c in itertools.permutations(range(6), 3)]
 def odds(code):
