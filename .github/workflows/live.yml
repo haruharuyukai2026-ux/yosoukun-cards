@@ -11,14 +11,14 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 75
+    timeout-minutes: 345
     steps:
       - uses: actions/checkout@v4
       - run: pip install -q beautifulsoup4
       - name: 展示と結果を取る(レースが終わる頃は約1分おき、それ以外は2分おき。1回の実行で約55分まわす)
         run: |
           git config user.name yosoukun-live; git config user.email yosoukun-live@users.noreply.github.com
-          end=$(( $(date +%s) + 54*60 ))
+          end=$(( $(date +%s) + 330*60 ))
           while [ $(date +%s) -lt $end ]; do
             git pull -q --rebase || true
             python3 live_update.py || true
