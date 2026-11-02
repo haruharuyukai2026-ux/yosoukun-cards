@@ -556,6 +556,22 @@ h1.hlogo .lg{display:grid;font-size:26px;line-height:1.1;font-weight:900;color:#
 .s-hh details.hhd>summary{background:#10264a!important}
 header.hero a.lbtn{display:none!important}
 #ar .arr .a1{display:none}#ar .arr .hd{display:flex;align-items:center;gap:4px}#ar .arr .hd small{font-size:11px;color:var(--sub)}#ar .arr .hd b{font-size:22px;font-weight:900;color:#eef3f9}#ar .arr .hd .ball{width:26px;height:26px;font-size:16px}
+/* 学んだ決まり(2026-11-02):①1画面で目立たせるのは1つ ②余白は8の倍数 ③入れ子の箱を作らない(線1本で区切る) ④文字は3段(見出し22/本文16/補足13) ⑤押せる所は高さ44px以上 ⑥色は意味のある所だけ */
+body{font-size:16px!important;line-height:1.7}
+.sec h2 .tt{font-size:22px!important}
+.sec h2 small,.note,.pcap,.tpu,.hcond{font-size:13px!important}
+.pbox{padding:16px!important;border-width:2px!important;border-radius:16px!important}
+.tiers{gap:0!important}
+.tiers .tr{background:transparent!important;border:0!important;border-top:1px solid #1d3558!important;border-radius:0!important;padding:12px 0!important}
+.tiers .tr:first-child{border-top:0!important}
+.tiers .tr.hit{background:rgba(226,35,43,.12)!important}
+.race{padding:16px!important;border-radius:16px!important;margin-bottom:16px!important}
+.cbr a,.cbr button,.obtn,.lbtn2,.bbc button,.vf button{min-height:44px}
+.bbc button{min-height:36px}
+.kst>div,.kst .k1.hr3,.kst .k1{border-radius:16px!important;padding:12px 16px!important;justify-content:center}
+.kst .k2{text-align:left!important;align-items:flex-start!important}
+#ar .arr summary{padding:12px 16px!important}
+.kst .hcond{font-size:12px!important;white-space:nowrap}
 /*A-END*/</style>
 
 <header class="hero" lang="ja">
