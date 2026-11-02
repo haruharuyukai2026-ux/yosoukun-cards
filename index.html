@@ -1,4 +1,5 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="icon.png"><meta property="og:title" content="予想くんの的中ラボ|ボートレース予想くん"><meta property="og:description" content="今日の予想・的中実績・全記録・24場データが全部ここに。"><meta property="og:image" content="https://haruharuyukai2026-ux.github.io/yosoukun-cards/thumbs/hero.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://haruharuyukai2026-ux.github.io/yosoukun-cards/"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"></head><body><meta name="description" content="ボートレース(競艇)の予想を無料で公開。展示を見てから締切前に本命を出し、外れも全部記録に残しています。">
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="icon.png"><meta property="og:title" content="予想くんの的中ラボ|ボートレース予想くん"><meta property="og:description" content="今日の予想・的中実績・全記録・24場データが全部ここに。"><meta property="og:image" content="https://haruharuyukai2026-ux.github.io/yosoukun-cards/thumbs/hero.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://haruharuyukai2026-ux.github.io/yosoukun-cards/"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"></head><body>
+<meta name="description" content="ボートレース(競艇)の予想を無料で公開。展示を見てから締切前に本命を出し、外れも全部記録に残しています。">
 <link rel="canonical" href="https://haruharuyukai2026-ux.github.io/yosoukun-cards/">
 <title>予想くんの的中ラボ|ボートレース予想くん</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -515,9 +516,9 @@ body{font-feature-settings:"tnum";background:#0a1a30}
 header.hero{background:#0a1a30;padding-block:10px 0;border-bottom:1px solid #1d3558}
 header.hero .wave{display:none}
 h1.hlogo{margin:0 0 8px!important;font-size:0!important;padding:0!important;background:none!important;display:flex;align-items:center;gap:10px}
-h1.hlogo img{display:none!important}
-h1.hlogo .vh{position:static!important;width:auto;height:auto;clip:auto;overflow:visible;white-space:normal;font-size:0;display:flex;align-items:center;gap:10px}
-h1.hlogo .vh::before{content:"";width:44px;height:44px;border-radius:12px;background:url(icon.png) center/cover;flex:none}
+h1.hlogo img{display:block!important;width:100%;max-height:120px;object-fit:cover;object-position:center 45%;border-radius:12px}h1.hlogo .lg{display:none!important}
+
+
 h1.hlogo .lg{display:grid;font-size:26px;line-height:1.1;font-weight:900;color:#eef3f9}h1.hlogo .lg small{font-size:13px;font-weight:700;color:#8fa6c2}
 .kst{grid-template-columns:1fr 1fr!important;gap:0!important;margin:0 0 10px!important}
 .kst>div,.kst .k1.hr3,.kst .k1{background:none!important;border:0!important;box-shadow:none!important;padding:2px 0!important;animation:none!important}
@@ -554,6 +555,7 @@ h1.hlogo .lg{display:grid;font-size:26px;line-height:1.1;font-weight:900;color:#
 .dtile *{color:#cfe0f2!important}.dtile b,.dtile strong{color:#ffc83d!important}
 .s-hh details.hhd>summary{background:#10264a!important}
 header.hero a.lbtn{display:none!important}
+#ar .arr .a1{display:none}#ar .arr .hd{display:flex;align-items:center;gap:4px}#ar .arr .hd small{font-size:11px;color:var(--sub)}#ar .arr .hd b{font-size:22px;font-weight:900;color:#eef3f9}#ar .arr .hd .ball{width:26px;height:26px;font-size:16px}
 /*A-END*/</style>
 
 <header class="hero" lang="ja">
@@ -932,7 +934,7 @@ const gamiFree=(os,B,PR)=>{B=Math.floor(B/100)*100;if(B<100)return null;const o1
  const st=o10.map(o=>Math.ceil(B/(o*10))*100);let tot=st.reduce((a,b)=>a+b,0);if(tot>B)return null;
  const pay=i=>st[i]/10*o10[i];const sp=PR&&PR.every(x=>x>0)?PR.reduce((a,b)=>a+b,0):0;while(tot+100<=B){let k=0;if(sp){/* 余りは自信のある目(予想くんの確率)に多く 2026-11-02 和輝「自信がある順にしたほうがいいよね」 */let best=-Infinity;st.forEach((s,i)=>{const v=PR[i]/sp*B-s;if(v>best){best=v;k=i}})}else st.forEach((_,i)=>{if(pay(i)<pay(k))k=i});st[k]+=100;tot+=100}
  const P=st.map((_,i)=>pay(i));return {st,tot,lo:Math.min(...P),hi:Math.max(...P)}};
-window._bbO=(()=>{try{return JSON.parse(sessionStorage.getItem('yk_bbo'))||{}}catch(e){return {}}})();const bbK=(code,t,k,w)=>`${code}|${t}|${k}|${w}`;const bbOpen=(code,t,k,w)=>{const v=window._bbO[bbK(code,t,k,w)];return v===undefined?(w==='d'&&t==='6'?true:bbSel(t,k)):v};
+window._bbO=(()=>{try{return JSON.parse(sessionStorage.getItem('yk_bbo'))||{}}catch(e){return {}}})();const bbK=(code,t,k,w)=>`${code}|${t}|${k}|${w}`;const bbOpen=(code,t,k,w)=>{const v=window._bbO[bbK(code,t,k,w)];return v===undefined?bbSel(t,k):v};
 document.addEventListener('toggle',e=>{const d=e.target;if(!d.matches||!d.matches('details.bbd,details.t12d'))return;const key=d.dataset.k;if(!key)return;window._bbO[key]=d.open;try{sessionStorage.setItem('yk_bbo',JSON.stringify(window._bbO))}catch(_){}},true);
 const bbSel=(t,k)=>{const r=window.BUD.r||(window.BUD.b?'中':'');return r==='低'?t==='6'&&k==='本命':r==='中'?t==='12':r==='高'?t==='6'&&k==='まくり':false};
 // 予想カードの中で使う道具:押すだけの金額・目ごとの金額と戻り・安すぎる目は理由つきで外す・「ガミらないって?」
@@ -1182,4 +1184,6 @@ async function run(){try{var J=await loadAR();ticker(J);resList(J)}catch(e){tick
 run();setInterval(run,60000);
 })();
 </script>
-</body></html>
+
+</body>
+</html>
