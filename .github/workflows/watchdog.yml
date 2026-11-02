@@ -5,7 +5,7 @@ name: watchdog
 # - 本体は動いているのにサイトの更新が60分以上止まっている → この見張りを「失敗」にする(GitHubから失敗のメールが届く)
 on:
   schedule:
-    - cron: "20,50 22,23,0-11 * * *"   # 日本時間 7:20〜20:50 の30分ごと
+    - cron: "*/10 22,23,0-11 * * *"   # 日本時間 7:00〜20:50 の10分ごと(2026-11-02 live が15分止まった件で30分→10分)
   workflow_dispatch:
 permissions:
   contents: read
@@ -28,6 +28,11 @@ jobs:
           echo "今 $now_hm / 最終締切 ${last:-不明} / サイト更新 $upd / 本体 動作中=$active 今日の成功=$today_ok"
           # 最終レースの締切+20分を過ぎたら見張りはおしまい
           if [ -n "$last" ] && [[ "$now_hm" > "$(date -d "$last 20 min" +%H:%M)" ]]; then echo "今日のレースは終わり"; exit 0; fi
+          # 展示・オッズ・結果(live)の見張り(2026-11-02 和輝「サイト的に致命傷」):live が動いていなければ起動、live.json が8分以上古ければ失敗メール
+          lact=$(gh run list -R ${{ github.repository }} -w live.yml -L 5 --json status | jq '[.[] | select(.status=="in_progress" or .status=="queued")] | length')
+          if [ "$lact" = "0" ] && [[ "$now_hm" > "08:00" ]]; then echo "live が止まっている → 起動し直す"; gh workflow run live.yml -R ${{ github.repository }}; fi
+          lupd=$(python3 -c "import json;print(json.load(open('live.json')).get('updated',''))" 2>/dev/null || echo "")
+          if [ -n "$lupd" ] && [[ "$now_hm" > "08:40" ]]; then lage=$(( ( $(date +%s) - $(TZ=Asia/Tokyo date -d "$lupd" +%s) ) / 60 )); echo "live 更新から $lage 分"; if [ "$lage" -ge 8 ]; then [ "$lact" = "0" ] || true; echo "::error::展示・オッズ・結果の取り込みが${lage}分止まっている"; LIVE_NG=1; fi; fi
           if [ "$active" = "0" ]; then
             if [ "$today_ok" = "0" ]; then mode=prep; else mode=cont; fi
             # 朝 7:50 より前は本体の時刻起動(7:20/7:45)を待つ
@@ -40,3 +45,4 @@ jobs:
           age=$(( ( $(date +%s) - $(TZ=Asia/Tokyo date -d "$upd" +%s) ) / 60 ))
           echo "サイト更新から $age 分"
           if [[ "$now_hm" > "08:40" ]] && [ "$age" -ge 60 ]; then echo "::error::本体は動いているのにサイトの更新が${age}分止まっている"; exit 1; fi
+          if [ "${LIVE_NG:-0}" = "1" ]; then exit 1; fi
