@@ -652,32 +652,33 @@ h1.hlogo .lg{max-width:calc(100% - 100px)}
 .sec{background:#fff!important;border:1px solid #b9c4d4!important;border-top:7px solid var(--c)!important;border-radius:16px!important;padding:16px 14px 14px!important;margin-top:26px!important;box-shadow:0 3px 10px rgba(11,27,48,.08)!important}
 .s-today{--c:#0a8f4e}.s-races{--c:#e07b00}.s-rec{--c:#0b3d91}.s-hh{--c:#7a3fb0}.s-lab{--c:#c8141e}.s-cond{--c:#0a7f8f}.s-all{--c:#4a5a70}.s-ven{--c:#4a5a70}.s-res{--c:#0b3d91}
 .sec h2{border-bottom:2px solid #cdd5e0!important;padding-bottom:8px!important}.sec h2 .tt{color:#0b1b30!important}
-/* LINE案内:濃い緑の面で一番目立たせる */
-.sec.join,.join{background:#067a3a!important;border:0!important;border-top:7px solid #ffd166!important;color:#fff!important;--ink:#fff;--sub:#d8f0e0;box-shadow:0 6px 18px rgba(6,122,58,.35)!important}
-.join p,.join li,.join .jf,.join .jf2,.join .jh2,.join .jn{color:#fff!important}
-.join .jh{color:#ffd166!important}
-.join .jf span{color:#067a3a!important}
-.join .jb{background:#fff!important;color:#067a3a!important;font-size:22px!important;padding:18px 14px!important;border:3px solid #ffd166!important;box-shadow:0 5px 0 rgba(0,0,0,.25)!important}
+/* LINE案内:LINEの緑(#06C755)の面+濃紺の文字で一番目立たせる */
+.sec.join,.join{background:#06c755!important;border:0!important;border-top:7px solid #0b1b30!important;color:#0b1b30!important;--ink:#0b1b30;--sub:#0b3a1f;box-shadow:0 6px 18px rgba(6,199,85,.35)!important}
+.join p,.join li,.join .jf,.join .jf2,.join .jn{color:#0b1b30!important}
+.join .jh{color:#0b1b30!important;text-shadow:0 2px 0 rgba(255,255,255,.35)!important}
+.join .jh2{color:#0b1b30!important}.join .jh2 b{background:#0b1b30!important;color:#fff!important}
+.join .jf span{background:#0b1b30!important;color:#fff!important}
+.join .jm li::before{background:#0b1b30!important;color:#fff!important}
+.join .jb{background:#fff!important;color:#0b1b30!important;font-size:19px!important;padding:16px 10px!important;width:100%;border:3px solid #0b1b30!important;box-shadow:0 5px 0 rgba(0,0,0,.25)!important}
 .join .jc,.join .jc .jt,.join .jc .jw{color:#fff!important}.join .jc .jl{color:#b9cde4!important}.join .jc .jf6{color:#ffd166!important}
 .join .jpre,.join .jexb,.join .jexb *{color:#fff!important}.join .jexb small{color:#cfe0ff!important}
-.join .jp,.join .jp b{color:#fff!important}.join .jp b{color:#ffd166!important}
+.join .jp{background:#0b1b30!important;color:#fff!important}.join .jp b{color:#ffd166!important}
 .join .pnt,.join .pnt *{color:#1d1d1d!important}
-.join .jr{background:#ffd166!important;color:#1d1d1d!important}
+.join .jr{background:#0b1b30!important;color:#fff!important}
+.jnw{background:#0b1b30!important}.jn1,.jn3,.nw,.jnw,.jnw *{color:#fff!important}.jnw b,.jnw .nw b{color:#ffd166!important}
 /* 使い方の中身・コース表など、濃い面の文字は白 */
 .guide>*:not(summary),.guide>*:not(summary) *{--ink:#fff;--sub:#cfe0ff}
 .gxh,.guide .gf,.guide b{color:#fff!important}
 .kc-m{color:#fff!important}
-/* LINEボタン(上・帯):濃い緑+白文字でくっきり */
-.lbtn,.lbtn2,a.dl,.dl{background:#067a3a!important;color:#fff!important;border:3px solid #fff!important;box-shadow:0 5px 0 #04532a,0 8px 16px rgba(0,0,0,.2)!important}
-
-.lbtn *,.lbtn2 *,.dl *{color:#fff!important}
-.lbtn .tg,.lbtn .tag,.lbtn em{background:#ffd166!important;color:#1d1d1d!important}
+/* LINEボタン(上・帯):LINEの緑+濃紺の文字 */
+.lbtn,.lbtn2,a.dl,.dl{background:#06c755!important;color:#0b1b30!important;border:3px solid #0b1b30!important;box-shadow:0 5px 0 #04532a,0 8px 16px rgba(0,0,0,.2)!important}
+.lbtn *,.lbtn2 *,.dl *{color:#0b1b30!important}
+.lbtn .tg,.lbtn .tag,.lbtn em{background:#0b1b30!important;color:#fff!important}
 /* 使い方の STEP(--sub/--inkが白になる所を戻す) */
 .guide small,.guide [class*=stp] small{color:#4a5a70!important}
 .guide .gxh~*{--ink:#0b1b30;--sub:#4a5a70}
 .ltg{color:#1d1d1d!important}
 /* 「今日の予想はここまで」の緑の帯 */
-.jn1,.jn3,.nw,.jnw,.jnw *{color:#fff!important}.jnw{background:#067a3a!important}.jnw b,.jnw .nw b{color:#ffd166!important}
 .steps li,.steps b,.steps small{color:#0b1b30!important}.steps small{color:#4a5a70!important}.steps b{color:#0b3d91!important}
 .sec.join{box-sizing:border-box;overflow:hidden;padding:18px 14px!important;max-width:100%}.join>*{max-width:100%;box-sizing:border-box}
 .join .jm{white-space:normal!important;max-width:100%!important}
