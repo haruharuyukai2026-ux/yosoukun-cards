@@ -693,6 +693,11 @@ h1.hlogo .lg{max-width:calc(100% - 100px)}
 .mini a[href*="record"],a.more,.sec>a,.cbr a{min-height:44px;display:inline-flex;align-items:center}
 .dock .x,.dock button.x,#lx{min-width:44px;min-height:44px}
 footer a,.foot a{display:inline-block;padding:12px 0;min-height:44px}
+/* 30本の記事の共通ルール:カードの入れ子をやめる(区画=カード、中の行は線だけ)・余白は8の倍数・押せる所は44px */
+.sec li{border:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important;border-bottom:1px solid #e1e7ef!important}
+.sec li:last-child{border-bottom:0!important}
+.sec{padding:16px 16px 24px!important;margin-top:24px!important}
+button.dc,button.odx,.dock button{min-width:44px;min-height:44px}
 /*C-END*/
 
 </style>
