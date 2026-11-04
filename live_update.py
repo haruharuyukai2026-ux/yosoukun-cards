@@ -42,6 +42,7 @@ def ex(code):
     for e in b.select(".weather1 [class*='is-wind']"):
         m = re.search(r"is-wind(\d+)", " ".join(e.get("class", [])))
         if m: wd = int(m.group(1)); break
+    if len(boats) < 6: print("ex_incomplete", code, "boats", len(boats))  # 展示がそろわない理由を後から追えるように(2026-11-04 修正案)
     return dict(boats=boats, wind_dir=wd, wind=float(wind.group(1)) if wind else None, wave=float(wave.group(1)) if wave else None, at=now.strftime("%H:%M"))
 def res(code):
     s = get("raceresult", code)
