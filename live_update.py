@@ -1,4 +1,4 @@
-"""5分おき(GitHub Actions)に公式サイトから、このあと30分の展示と、終わったレースの結果を取って live.json に書く。
+"""GitHub Actions のループ(約1分おき)から呼ばれ、公式サイトから、このあと30分の展示と、終わったレースの結果を取って live.json に書く。
 allraces.json(朝に予想くんが作る今日の全レース)の締切時刻を見て、取りにいくレースを決める。"""
 import json, re, os, time, datetime as dt, urllib.request, itertools
 from bs4 import BeautifulSoup
@@ -68,14 +68,19 @@ def odds(code):
     return dict(o=v, at=now.strftime("%H:%M"))
 n = 0
 if today:
+    # 展示を最優先で取る(2026-11-04 和輝「展示はすぐ反映。5分は遅い」):結果・オッズの取得に枠を食われて展示が遅れないよう、展示だけ先に回して専用の枠を使う
+    nex = 0
+    for r in sorted(A["races"], key=lambda r: r.get("deadline") or ""):
+        c, d = r["code"], r.get("deadline") or ""
+        if nex >= 30: break
+        if hm(0) <= d <= hm(30) and len((L["ex"].get(c) or {}).get("boats", [])) < 6:
+            x = ex(c); nex += 1; time.sleep(1)
+            if x and x["boats"]: L["ex"][c] = x
     A["races"].sort(key=lambda r: 0 if (hm(-60) <= (r.get("deadline") or "") <= hm(-3)) else 1)
     for r in A["races"]:
         c, d = r["code"], r.get("deadline") or ""
         if n >= 30: break
-        if hm(0) <= d <= hm(30) and len((L["ex"].get(c) or {}).get("boats", [])) < 6:
-            x = ex(c); n += 1; time.sleep(1)
-            if x and x["boats"]: L["ex"][c] = x
-        elif hm(-2) <= d <= hm(60) and (lambda O, E: not O                                   # 最初(締切1時間前から)
+        if hm(-2) <= d <= hm(60) and (lambda O, E: not O                                   # 最初(締切1時間前から)
                 or (len(E.get("boats", [])) == 6 and O.get("at", "") < E.get("at", "99"))       # 展示が出たら更新
                 or (d <= hm(4) and O.get("at", "") < hm(-1)))(L["odds"].get(c) or {}, L["ex"].get(c) or {}):  # 締切前に更新
             x = odds(c); n += 1; time.sleep(1)
