@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>移動中</title>
+<script>
+fetch('./pass_target.json', { cache: 'no-store' })
+  .then(function (r) { return r.json(); })
+  .then(function (d) { location.replace(d && d.url ? d.url : './'); })
+  .catch(function () { location.replace('./'); });
+setTimeout(function () { location.replace('./'); }, 5000);
+</script>
+</head>
+<body>
+<p>移動しています。自動で切り替わらない場合は<a href="./">トップページ</a>へ。</p>
+</body>
+</html>
