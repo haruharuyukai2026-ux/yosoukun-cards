@@ -60,10 +60,10 @@
    "code": "202611072306",
    "race": "唐津6R",
    "deadline": "10:48",
-   "state": "予想あり",
+   "state": "はずれ",
    "note": "2号艇 36%",
    "date": "2026-11-07",
-   "result": null
+   "result": "2-1-3"
   },
   {
    "code": "202611070203",
@@ -1241,7 +1241,7 @@
    "in1": 0.626
   }
  ],
- "updated": "2026-11-07 10:41",
+ "updated": "2026-11-07 10:57",
  "public_from": "20261021",
  "summary": {
   "本命": {
@@ -1256,7 +1256,7 @@
    "hit": 2
   },
   "大穴": {
-   "n": 46,
+   "n": 48,
    "hit": 2
   },
   "狙い目": {
@@ -6603,8 +6603,8 @@
    "race": "唐津6R",
    "code": "202611072306",
    "public": true,
-   "result": null,
-   "pay": null,
+   "result": "2-1-3",
+   "pay": 1830,
    "groups": [
     {
      "kind": "大穴",
@@ -6616,7 +6616,7 @@
       18.5,
       45.0
      ],
-     "hit": null
+     "hit": false
     }
    ],
    "sent": false,
@@ -8449,8 +8449,8 @@
    "race": "戸田1R",
    "code": "202611070201",
    "public": true,
-   "result": null,
-   "pay": null,
+   "result": "1-2-3",
+   "pay": 6280,
    "groups": [
     {
      "kind": "大穴",
@@ -8460,7 +8460,7 @@
      "odds": [
       54.9
      ],
-     "hit": null
+     "hit": false
     }
    ],
    "sent": false,
