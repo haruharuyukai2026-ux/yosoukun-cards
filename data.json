@@ -1,12 +1,6 @@
 {
  "next_judge": [
   {
-   "code": "202611102101",
-   "race": "芦屋1R",
-   "deadline": "08:35",
-   "judge_at": "08:22"
-  },
-  {
    "code": "202611101001",
    "race": "三国1R",
    "deadline": "08:47",
@@ -35,6 +29,12 @@
    "race": "芦屋4R",
    "deadline": "09:53",
    "judge_at": "09:40"
+  },
+  {
+   "code": "202611101004",
+   "race": "三国4R",
+   "deadline": "10:05",
+   "judge_at": "09:52"
   }
  ],
  "watch": [
@@ -42,7 +42,7 @@
    "code": "202611102101",
    "race": "芦屋1R",
    "deadline": "08:35",
-   "state": "展示待ち",
+   "state": "予想あり",
    "note": "1号艇 70%",
    "date": "2026-11-10",
    "result": null
@@ -1241,7 +1241,7 @@
    "in1": 0.626
   }
  ],
- "updated": "2026-11-10 08:11",
+ "updated": "2026-11-10 08:23",
  "public_from": "20261021",
  "summary": {
   "本命": {
@@ -1275,7 +1275,7 @@
    "h12": 132
   }
  },
- "judged": 1436,
+ "judged": 1437,
  "skipped": 583,
  "skips": [
   {
@@ -7502,6 +7502,464 @@
   }
  ],
  "records": [
+  {
+   "posted": "08:22",
+   "deadline": "08:35",
+   "date": "2026-11-10",
+   "race": "芦屋1R",
+   "code": "202611102101",
+   "public": true,
+   "result": null,
+   "pay": null,
+   "groups": [
+    {
+     "kind": "本命",
+     "combos": [],
+     "odds": [],
+     "hit": null,
+     "star": null,
+     "wide": [],
+     "f6": "1-???-???",
+     "f12": null,
+     "o6": [],
+     "o12": [],
+     "tier": null
+    },
+    {
+     "kind": "狙い目",
+     "combos": [],
+     "odds": [],
+     "hit": null,
+     "why": "中穴の選出根拠: 頭は見解どおり1号艇。2着候補は対抗評価(2連対率・モーター2連対率・ST)で2号艇・6号艇・5号艇、3着候補は3着残り評価(3連率・当地3連率・平均ST・モーター2連対率)で2号艇・5号艇・4号艇。この範囲7点のうち中穴帯(15〜40倍)に入ったのは1点: 1-5-2(17.8倍)"
+    }
+   ],
+   "sent": false,
+   "label": "本命",
+   "why": [
+    "予想くんの1着予想:1号艇(A1) 80%",
+    "当地勝率5.1",
+    "展示タイム6.73は4番目",
+    "スタート0.13",
+    "2号艇のSTが遅め(0.18・壁にならない)"
+   ],
+   "boats": [
+    {
+     "n": "1",
+     "cls": "A1",
+     "ai": 80,
+     "pop": 70,
+     "ren": 90,
+     "loc": "5.1",
+     "ex": "6.73",
+     "st": "0.13"
+    },
+    {
+     "n": "2",
+     "cls": "B1",
+     "ai": 2,
+     "pop": 6,
+     "ren": 26,
+     "loc": "3.35",
+     "ex": "6.71",
+     "st": "0.13"
+    },
+    {
+     "n": "3",
+     "cls": "B1",
+     "ai": 10,
+     "pop": 11,
+     "ren": 37,
+     "loc": "0.0",
+     "ex": "6.68",
+     "st": "0.3"
+    },
+    {
+     "n": "4",
+     "cls": "B1",
+     "ai": 2,
+     "pop": 5,
+     "ren": 16,
+     "loc": "4.46",
+     "ex": "6.75",
+     "st": "0.18"
+    },
+    {
+     "n": "5",
+     "cls": "B1",
+     "ai": 6,
+     "pop": 6,
+     "ren": 38,
+     "loc": "5.44",
+     "ex": "6.72",
+     "st": "0.16"
+    },
+    {
+     "n": "6",
+     "cls": "B2",
+     "ai": 0,
+     "pop": 1,
+     "ren": 1,
+     "loc": "0.0",
+     "ex": "6.74",
+     "st": "0.28"
+    }
+   ],
+   "yellow": [
+    "2号艇のSTが遅め(0.18・壁にならない)"
+   ],
+   "ana": {
+    "boats": [
+     {
+      "w": 1,
+      "no": "4991",
+      "name": "宗行 治哉",
+      "cls": "A1",
+      "branch": "広島",
+      "F": 0,
+      "local": 5.1,
+      "nat": 6.25,
+      "motor": 35.0,
+      "mno": "60",
+      "home": false,
+      "recent": [
+       {
+        "f": 4,
+        "c": 5
+       },
+       {
+        "f": 1,
+        "c": 1
+       },
+       {
+        "f": 3,
+        "c": 4
+       },
+       {
+        "f": 5,
+        "c": 6
+       },
+       {
+        "f": null,
+        "c": 1
+       }
+      ],
+      "k_nige": 0.559,
+      "k_sasare": 0.107,
+      "k_makurare": 0.191,
+      "k_msasare": 0.114,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.0,
+      "k_makuri": 0.0,
+      "k_msashi": 0.0,
+      "rc_n": 277.0,
+      "rc_win": 0.549,
+      "rc_top2": 0.769,
+      "motor_adj": 0.025,
+      "setsu_n": 4.0,
+      "setsu_fin": 3.25,
+      "ex": 6.73,
+      "tilt": 0.0,
+      "course": 1,
+      "exst": 0.13,
+      "ai": 80,
+      "pop": 70,
+      "mrank": 26,
+      "mcount": 43
+     },
+     {
+      "w": 2,
+      "no": "4110",
+      "name": "小澤 和也",
+      "cls": "B1",
+      "branch": "埼玉",
+      "F": 0,
+      "local": 3.35,
+      "nat": 3.95,
+      "motor": 40.6,
+      "mno": "30",
+      "home": false,
+      "recent": [
+       {
+        "f": 4,
+        "c": 3
+       },
+       {
+        "f": 5,
+        "c": 2
+       },
+       {
+        "f": 5,
+        "c": 5
+       },
+       {
+        "f": null,
+        "c": 2
+       },
+       {
+        "f": null,
+        "c": 4
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.536,
+      "k_sashi": 0.063,
+      "k_makuri": 0.017,
+      "k_msashi": 0.0,
+      "rc_n": 352.0,
+      "rc_win": 0.088,
+      "rc_top2": 0.315,
+      "motor_adj": 0.051,
+      "setsu_n": 3.0,
+      "setsu_fin": 4.667,
+      "ex": 6.71,
+      "tilt": -0.5,
+      "course": 2,
+      "exst": 0.13,
+      "ai": 2,
+      "pop": 6,
+      "mrank": 5,
+      "mcount": 43
+     },
+     {
+      "w": 3,
+      "no": "5441",
+      "name": "鈴木 雄登",
+      "cls": "B1",
+      "branch": "愛知",
+      "F": 0,
+      "local": 0.0,
+      "nat": 3.32,
+      "motor": 25.4,
+      "mno": "2",
+      "home": false,
+      "recent": [
+       {
+        "f": 2,
+        "c": 5
+       },
+       {
+        "f": 5,
+        "c": 3
+       },
+       {
+        "f": 3,
+        "c": 4
+       },
+       {
+        "f": 4,
+        "c": 2
+       },
+       {
+        "f": null,
+        "c": 3
+       }
+      ],
+      "k_nige": null,
+      "k_sasare": null,
+      "k_makurare": null,
+      "k_msasare": null,
+      "k_nigashi": null,
+      "k_sashi": null,
+      "k_makuri": null,
+      "k_msashi": null,
+      "rc_n": 0.0,
+      "rc_win": null,
+      "rc_top2": null,
+      "motor_adj": 0.015,
+      "setsu_n": 4.0,
+      "setsu_fin": 3.5,
+      "ex": 6.68,
+      "tilt": -0.5,
+      "course": 3,
+      "exst": 0.3,
+      "ai": 10,
+      "pop": 11,
+      "mrank": 39,
+      "mcount": 43
+     },
+     {
+      "w": 4,
+      "no": "3656",
+      "name": "伯母 芳恒",
+      "cls": "B1",
+      "branch": "東京",
+      "F": 0,
+      "local": 4.46,
+      "nat": 4.53,
+      "motor": 35.6,
+      "mno": "36",
+      "home": false,
+      "recent": [
+       {
+        "f": 6,
+        "c": 6
+       },
+       {
+        "f": 4,
+        "c": 5
+       },
+       {
+        "f": 5,
+        "c": 2
+       },
+       {
+        "f": null,
+        "c": 4
+       },
+       {
+        "f": null,
+        "c": 1
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.019,
+      "k_makuri": 0.011,
+      "k_msashi": 0.027,
+      "rc_n": 373.0,
+      "rc_win": 0.07,
+      "rc_top2": 0.257,
+      "motor_adj": -0.017,
+      "setsu_n": 3.0,
+      "setsu_fin": 5.0,
+      "ex": 6.75,
+      "tilt": -0.5,
+      "course": 4,
+      "exst": 0.18,
+      "ai": 2,
+      "pop": 5,
+      "mrank": 22,
+      "mcount": 43
+     },
+     {
+      "w": 5,
+      "no": "4273",
+      "name": "佐藤 旭",
+      "cls": "B1",
+      "branch": "静岡",
+      "F": 0,
+      "local": 5.44,
+      "nat": 4.77,
+      "motor": 34.8,
+      "mno": "21",
+      "home": false,
+      "recent": [
+       {
+        "f": 5,
+        "c": 2
+       },
+       {
+        "f": 2,
+        "c": 3
+       },
+       {
+        "f": 4,
+        "c": 4
+       },
+       {
+        "f": null,
+        "c": 5
+       },
+       {
+        "f": null,
+        "c": 3
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.005,
+      "k_makuri": 0.008,
+      "k_msashi": 0.047,
+      "rc_n": 387.0,
+      "rc_win": 0.065,
+      "rc_top2": 0.207,
+      "motor_adj": 0.021,
+      "setsu_n": 3.0,
+      "setsu_fin": 3.667,
+      "ex": 6.72,
+      "tilt": -0.5,
+      "course": 5,
+      "exst": 0.16,
+      "ai": 6,
+      "pop": 6,
+      "mrank": 27,
+      "mcount": 43
+     },
+     {
+      "w": 6,
+      "no": "5485",
+      "name": "口脇 釉美",
+      "cls": "B2",
+      "branch": "福岡",
+      "F": 0,
+      "local": 0.0,
+      "nat": 0.0,
+      "motor": 37.8,
+      "mno": "38",
+      "home": true,
+      "recent": [
+       {
+        "f": 6,
+        "c": 6
+       },
+       {
+        "f": 6,
+        "c": 6
+       },
+       {
+        "f": null,
+        "c": 6
+       },
+       {
+        "f": null,
+        "c": 6
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.0,
+      "k_makuri": 0.0,
+      "k_msashi": 0.0,
+      "rc_n": 1.0,
+      "rc_win": 0.0,
+      "rc_top2": 0.0,
+      "motor_adj": -0.013,
+      "setsu_n": 2.0,
+      "setsu_fin": 6.0,
+      "ex": 6.74,
+      "tilt": -0.5,
+      "course": 6,
+      "exst": 0.28,
+      "ai": 0,
+      "pop": 1,
+      "mrank": 14,
+      "mcount": 43
+     }
+    ],
+    "wind": 3.0,
+    "wave": 3.0,
+    "has_ex": true
+   },
+   "weather": "晴・風3m・波3cm",
+   "locked": true,
+   "kenkai": [
+    "スタート展示は1・2号艇が0.13で並んで一番早い。3・6号艇は遅れてて、隊形が崩れるならそこから！",
+    "展示タイムは3号艇が6.68で一番、1号艇は4番目。3号艇の伸びは要チェック！",
+    "結論:1号艇の逃げ(1着予想80%)で勝負！"
+   ]
+  },
   {
    "posted": "14:03",
    "deadline": "14:16",
