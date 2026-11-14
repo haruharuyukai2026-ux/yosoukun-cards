@@ -82,6 +82,7 @@ if today:
         if n >= 30: break
         if hm(-2) <= d <= hm(60) and (lambda O, E: not O                                   # 最初(締切1時間前から)
                 or (len(E.get("boats", [])) == 6 and O.get("at", "") < E.get("at", "99"))       # 展示が出たら更新
+                                                      or (d <= hm(20) and O.get("at", "") < hm(-2))                                   # 締切20分前からは2分より古ければ取り直す
                 or (d <= hm(4) and O.get("at", "") < hm(-1)))(L["odds"].get(c) or {}, L["ex"].get(c) or {}):  # 締切前に更新
             x = odds(c); n += 1; time.sleep(1)
             if x:
