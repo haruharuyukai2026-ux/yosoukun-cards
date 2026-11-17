@@ -69,6 +69,6 @@ const chips=()=>{const vs=['すべて',...new Set(P.flatMap(p=>p.races.map(x=>x.
  document.getElementById('fs').innerHTML=[['win','勝率が高い順'],['top2','2連対率が高い順'],['st','スタートが早い順']].map(([v,t])=>`<button class="${v===S?'on':''}" data-s="${v}">${t}</button>`).join('')};
 document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.v){V=b.dataset.v;N=40;draw()}if(b.dataset.c){C=b.dataset.c;N=40;draw()}if(b.dataset.s){S=b.dataset.s;draw()}});
 document.getElementById('q').addEventListener('input',()=>{N=40;draw()});
-fetch('racers.json',{cache:'no-cache'}).then(r=>r.json()).then(j=>{P=Object.values(j.racers||{});draw()}).catch(()=>{document.getElementById('rl').innerHTML='<p class="note">いま準備中だよ</p>'});
+fetch('racers.json',{cache:'no-cache'}).then(r=>r.text()).then(s=>JSON.parse(s.replace(/([:,\[]\s*)-?(NaN|Infinity)(?=\s*[,}\]])/g,'$1null'))).then(j=>{P=Object.values(j.racers||{});draw()}).catch(()=>{document.getElementById('rl').innerHTML='<p class="note">いま準備中だよ</p>'});
 </script>
 </body></html>
