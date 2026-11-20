@@ -7,18 +7,6 @@
    "judge_at": "10:19"
   },
   {
-   "code": "202611201301",
-   "race": "尼崎1R",
-   "deadline": "10:34",
-   "judge_at": "10:21"
-  },
-  {
-   "code": "202611202105",
-   "race": "芦屋5R",
-   "deadline": "10:36",
-   "judge_at": "10:23"
-  },
-  {
    "code": "202611201702",
    "race": "宮島2R",
    "deadline": "10:40",
@@ -35,6 +23,18 @@
    "race": "福岡2R",
    "deadline": "11:09",
    "judge_at": "10:56"
+  },
+  {
+   "code": "202611200402",
+   "race": "平和島2R",
+   "deadline": "11:18",
+   "judge_at": "11:05"
+  },
+  {
+   "code": "202611201704",
+   "race": "宮島4R",
+   "deadline": "11:33",
+   "judge_at": "11:20"
   }
  ],
  "pass_guar": {
@@ -1245,7 +1245,7 @@
    "in1": 0.626
   }
  ],
- "updated": "2026-11-20 10:04",
+ "updated": "2026-11-20 10:21",
  "public_from": "20261021",
  "summary": {
   "本命": {
@@ -1256,11 +1256,11 @@
    "h12": 206
   },
   "中穴": {
-   "n": 79,
+   "n": 80,
    "hit": 6
   },
   "大穴": {
-   "n": 81,
+   "n": 82,
    "hit": 4
   },
   "狙い目": {
@@ -1279,7 +1279,7 @@
    "h12": 196
   }
  },
- "judged": 2188,
+ "judged": 2190,
  "skipped": 595,
  "skips": [
   {
@@ -11057,6 +11057,12 @@
    "why": "一番手の1号艇でも1着予想63%で、勝負の目安(65%)に届かない"
   },
   {
+   "code": "202611201301",
+   "race": "尼崎1R",
+   "deadline": "10:34",
+   "why": "一番手の3号艇でも1着予想44%で、勝負の目安(65%)に届かない"
+  },
+  {
    "code": "202611201701",
    "race": "宮島1R",
    "deadline": "10:16",
@@ -11100,6 +11106,446 @@
   }
  ],
  "records": [
+  {
+   "posted": "10:20",
+   "deadline": "10:36",
+   "date": "2026-11-20",
+   "race": "芦屋5R",
+   "code": "202611202105",
+   "public": true,
+   "result": null,
+   "pay": null,
+   "groups": [
+    {
+     "kind": "大穴",
+     "combos": [],
+     "odds": [],
+     "hit": null,
+     "why": "中穴の選出根拠: 頭は見解どおり1号艇。2着候補は対抗評価(2連対率・モーター2連対率・ST)で6号艇・5号艇・2号艇、3着候補は3着残り評価(3連率・当地3連率・平均ST・モーター2連対率)で2号艇・6号艇・5号艇。この範囲6点のうち中穴帯(15〜40倍)に入ったのは3点: 1-6-2(24.9倍)、1-2-6(15.4倍)、1-2-5(24.9倍)"
+    }
+   ],
+   "sent": false,
+   "label": "大穴",
+   "boats": [
+    {
+     "n": "1",
+     "cls": "A1",
+     "ai": 78,
+     "pop": 54,
+     "ren": 84,
+     "loc": "6.29",
+     "ex": "0.0",
+     "st": "nan"
+    },
+    {
+     "n": "2",
+     "cls": "B1",
+     "ai": 6,
+     "pop": 11,
+     "ren": 36,
+     "loc": "5.98",
+     "ex": "0.0",
+     "st": "nan"
+    },
+    {
+     "n": "3",
+     "cls": "B1",
+     "ai": 6,
+     "pop": 14,
+     "ren": 25,
+     "loc": "5.04",
+     "ex": "0.0",
+     "st": "nan"
+    },
+    {
+     "n": "4",
+     "cls": "B1",
+     "ai": 4,
+     "pop": 10,
+     "ren": 19,
+     "loc": "5.55",
+     "ex": "0.0",
+     "st": "nan"
+    },
+    {
+     "n": "5",
+     "cls": "B1",
+     "ai": 5,
+     "pop": 8,
+     "ren": 18,
+     "loc": "3.56",
+     "ex": "0.0",
+     "st": "nan"
+    },
+    {
+     "n": "6",
+     "cls": "A2",
+     "ai": 1,
+     "pop": 5,
+     "ren": 8,
+     "loc": "5.87",
+     "ex": "0.0",
+     "st": "nan"
+    }
+   ],
+   "yellow": [
+    "風5m"
+   ],
+   "ana": {
+    "boats": [
+     {
+      "w": 1,
+      "no": "4025",
+      "name": "山本 隆幸",
+      "cls": "A1",
+      "branch": "兵庫",
+      "F": 0,
+      "local": 6.29,
+      "nat": 6.85,
+      "motor": 29.9,
+      "mno": "49",
+      "home": false,
+      "recent": [
+       {
+        "f": 6,
+        "c": 5
+       },
+       {
+        "f": 2,
+        "c": 2
+       },
+       {
+        "f": 6,
+        "c": 6
+       },
+       {
+        "f": null,
+        "c": 1
+       },
+       {
+        "f": null,
+        "c": 3
+       }
+      ],
+      "k_nige": 0.743,
+      "k_sasare": 0.057,
+      "k_makurare": 0.096,
+      "k_msasare": 0.086,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.0,
+      "k_makuri": 0.0,
+      "k_msashi": 0.0,
+      "rc_n": 603.0,
+      "rc_win": 0.735,
+      "rc_top2": 0.841,
+      "motor_adj": -0.031,
+      "setsu_n": 0.0,
+      "setsu_fin": null,
+      "ex": null,
+      "tilt": null,
+      "course": null,
+      "exst": null,
+      "ai": 78,
+      "pop": 54,
+      "mrank": 32,
+      "mcount": 45
+     },
+     {
+      "w": 2,
+      "no": "3662",
+      "name": "大庭 元明",
+      "cls": "B1",
+      "branch": "福岡",
+      "F": 0,
+      "local": 5.98,
+      "nat": 5.27,
+      "motor": 38.1,
+      "mno": "35",
+      "home": true,
+      "recent": [
+       {
+        "f": 1,
+        "c": 1
+       },
+       {
+        "f": 5,
+        "c": 6
+       },
+       {
+        "f": 5,
+        "c": 2
+       },
+       {
+        "f": 6,
+        "c": 5
+       },
+       {
+        "f": null,
+        "c": 2
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.568,
+      "k_sashi": 0.108,
+      "k_makuri": 0.039,
+      "k_msashi": 0.0,
+      "rc_n": 462.0,
+      "rc_win": 0.173,
+      "rc_top2": 0.435,
+      "motor_adj": 0.068,
+      "setsu_n": 0.0,
+      "setsu_fin": null,
+      "ex": null,
+      "tilt": null,
+      "course": null,
+      "exst": null,
+      "ai": 6,
+      "pop": 11,
+      "mrank": 14,
+      "mcount": 45
+     },
+     {
+      "w": 3,
+      "no": "3663",
+      "name": "木山 和幸",
+      "cls": "B1",
+      "branch": "広島",
+      "F": 0,
+      "local": 5.04,
+      "nat": 5.04,
+      "motor": 39.7,
+      "mno": "39",
+      "home": false,
+      "recent": [
+       {
+        "f": 2,
+        "c": 3
+       },
+       {
+        "f": 5,
+        "c": 4
+       },
+       {
+        "f": 5,
+        "c": 3
+       },
+       {
+        "f": null,
+        "c": 3
+       },
+       {
+        "f": null,
+        "c": 5
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.004,
+      "k_makuri": 0.043,
+      "k_msashi": 0.054,
+      "rc_n": 487.0,
+      "rc_win": 0.113,
+      "rc_top2": 0.355,
+      "motor_adj": 0.042,
+      "setsu_n": 0.0,
+      "setsu_fin": null,
+      "ex": null,
+      "tilt": null,
+      "course": null,
+      "exst": null,
+      "ai": 6,
+      "pop": 14,
+      "mrank": 9,
+      "mcount": 45
+     },
+     {
+      "w": 4,
+      "no": "3852",
+      "name": "澤 大介",
+      "cls": "B1",
+      "branch": "三重",
+      "F": 0,
+      "local": 5.55,
+      "nat": 5.27,
+      "motor": 24.4,
+      "mno": "6",
+      "home": false,
+      "recent": [
+       {
+        "f": 2,
+        "c": 3
+       },
+       {
+        "f": 2,
+        "c": 2
+       },
+       {
+        "f": 2,
+        "c": 3
+       },
+       {
+        "f": 3,
+        "c": 5
+       },
+       {
+        "f": null,
+        "c": 4
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.016,
+      "k_makuri": 0.038,
+      "k_msashi": 0.038,
+      "rc_n": 188.0,
+      "rc_win": 0.096,
+      "rc_top2": 0.277,
+      "motor_adj": 0.023,
+      "setsu_n": 0.0,
+      "setsu_fin": null,
+      "ex": null,
+      "tilt": null,
+      "course": null,
+      "exst": null,
+      "ai": 4,
+      "pop": 10,
+      "mrank": 40,
+      "mcount": 45
+     },
+     {
+      "w": 5,
+      "no": "3075",
+      "name": "中村 裕将",
+      "cls": "B1",
+      "branch": "埼玉",
+      "F": 0,
+      "local": 3.56,
+      "nat": 5.16,
+      "motor": 44.2,
+      "mno": "3",
+      "home": false,
+      "recent": [
+       {
+        "f": 3,
+        "c": 3
+       },
+       {
+        "f": 2,
+        "c": 4
+       },
+       {
+        "f": 1,
+        "c": 3
+       },
+       {
+        "f": null,
+        "c": 5
+       },
+       {
+        "f": null,
+        "c": 1
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.0,
+      "k_makuri": 0.018,
+      "k_msashi": 0.023,
+      "rc_n": 393.0,
+      "rc_win": 0.051,
+      "rc_top2": 0.173,
+      "motor_adj": 0.044,
+      "setsu_n": 0.0,
+      "setsu_fin": null,
+      "ex": null,
+      "tilt": null,
+      "course": null,
+      "exst": null,
+      "ai": 5,
+      "pop": 8,
+      "mrank": 4,
+      "mcount": 45
+     },
+     {
+      "w": 6,
+      "no": "3514",
+      "name": "山一 鉄也",
+      "cls": "A2",
+      "branch": "福岡",
+      "F": 0,
+      "local": 5.87,
+      "nat": 5.68,
+      "motor": 41.4,
+      "mno": "4",
+      "home": true,
+      "recent": [
+       {
+        "f": 1,
+        "c": 2
+       },
+       {
+        "f": 1,
+        "c": 1
+       },
+       {
+        "f": 1,
+        "c": 3
+       },
+       {
+        "f": 2,
+        "c": 3
+       },
+       {
+        "f": null,
+        "c": 6
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.0,
+      "k_makuri": 0.0,
+      "k_msashi": 0.016,
+      "rc_n": 245.0,
+      "rc_win": 0.016,
+      "rc_top2": 0.086,
+      "motor_adj": -0.014,
+      "setsu_n": 0.0,
+      "setsu_fin": null,
+      "ex": null,
+      "tilt": null,
+      "course": null,
+      "exst": null,
+      "ai": 1,
+      "pop": 5,
+      "mrank": 7,
+      "mcount": 45
+     }
+    ],
+    "wind": 5.0,
+    "wave": 5.0,
+    "has_ex": false
+   },
+   "weather": "曇り・風5m・波5cm",
+   "locked": true,
+   "kenkai": [
+    "結論:1号艇の一撃(1着予想78%)で勝負！"
+   ]
+  },
   {
    "posted": "09:30",
    "deadline": "09:43",
@@ -11555,8 +12001,8 @@
    "race": "徳山4R",
    "code": "202611201804",
    "public": true,
-   "result": null,
-   "pay": null,
+   "result": "1-2-3",
+   "pay": 600,
    "groups": [
     {
      "kind": "大穴",
@@ -11568,7 +12014,7 @@
       35.1,
       73.4
      ],
-     "hit": null,
+     "hit": false,
      "why": "中穴の選出根拠: 頭は見解どおり1号艇。2着候補は対抗評価(2連対率・モーター2連対率・ST)で2号艇・3号艇・5号艇、3着候補は3着残り評価(3連率・当地3連率・平均ST・モーター2連対率)で2号艇・3号艇・5号艇。この範囲6点のうち中穴帯(15〜40倍)に入ったのは1点: 1-5-2(35.1倍)"
     }
    ],
@@ -12000,8 +12446,8 @@
    "race": "鳴門4R",
    "code": "202611201404",
    "public": true,
-   "result": null,
-   "pay": null,
+   "result": "1-4-6",
+   "pay": 2400,
    "groups": [
     {
      "kind": "中穴",
@@ -12013,7 +12459,7 @@
       31.2,
       78.6
      ],
-     "hit": null,
+     "hit": false,
      "why": "中穴の選出根拠: 頭は見解どおり1号艇。2着候補は対抗評価(2連対率・モーター2連対率・ST)で3号艇・2号艇・6号艇、3着候補は3着残り評価(3連率・当地3連率・平均ST・モーター2連対率)で3号艇・4号艇・6号艇。この範囲7点のうち中穴帯(15〜40倍)に入ったのは3点: 1-3-6(31.2倍)、1-2-3(22.6倍)、1-2-4(30.8倍)"
     }
    ],
