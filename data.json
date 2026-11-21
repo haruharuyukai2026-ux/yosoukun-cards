@@ -1,18 +1,6 @@
 {
  "next_judge": [
   {
-   "code": "202611211011",
-   "race": "三国11R",
-   "deadline": "13:52",
-   "judge_at": "13:39"
-  },
-  {
-   "code": "202611210208",
-   "race": "戸田8R",
-   "deadline": "13:56",
-   "judge_at": "13:43"
-  },
-  {
    "code": "202611210908",
    "race": "津8R",
    "deadline": "14:01",
@@ -35,6 +23,18 @@
    "race": "芦屋12R",
    "deadline": "14:21",
    "judge_at": "14:08"
+  },
+  {
+   "code": "202611211309",
+   "race": "尼崎9R",
+   "deadline": "14:41",
+   "judge_at": "14:28"
+  },
+  {
+   "code": "202611210510",
+   "race": "多摩川10R",
+   "deadline": "14:46",
+   "judge_at": "14:33"
   }
  ],
  "pass_guar": {
@@ -1245,7 +1245,7 @@
    "in1": 0.626
   }
  ],
- "updated": "2026-11-21 13:40",
+ "updated": "2026-11-21 13:43",
  "public_from": "20261021",
  "summary": {
   "本命": {
@@ -1279,7 +1279,7 @@
    "h12": 197
   }
  },
- "judged": 2261,
+ "judged": 2263,
  "skipped": 599,
  "skips": [
   {
@@ -11435,6 +11435,18 @@
    "why": "一番手の1号艇でも1着予想47%で、勝負の目安(65%)に届かない"
   },
   {
+   "code": "202611210907",
+   "race": "津7R",
+   "deadline": "13:31",
+   "why": "一番手の1号艇でも1着予想40%で、勝負の目安(65%)に届かない"
+  },
+  {
+   "code": "202611211011",
+   "race": "三国11R",
+   "deadline": "13:52",
+   "why": "相手が絞れず、買い目がガミりやすい"
+  },
+  {
    "code": "202611211707",
    "race": "宮島7R",
    "deadline": "12:50",
@@ -13237,27 +13249,21 @@
    ]
   },
   {
-   "posted": "13:16",
-   "deadline": "13:31",
+   "posted": "13:42",
+   "deadline": "13:56",
    "date": "2026-11-21",
-   "race": "津7R",
-   "code": "202611210907",
+   "race": "戸田8R",
+   "code": "202611210208",
    "public": true,
    "result": null,
    "pay": null,
    "groups": [
     {
      "kind": "大穴",
-     "combos": [
-      "3-6-2",
-      "3-6-1"
-     ],
-     "odds": [
-      31.4,
-      44.0
-     ],
+     "combos": [],
+     "odds": [],
      "hit": null,
-     "why": "中穴の選出根拠: 頭は見解どおり3号艇。2着候補は対抗評価(2連対率・モーター2連対率・ST)で2号艇・1号艇・6号艇、3着候補は3着残り評価(3連率・当地3連率・平均ST・モーター2連対率)で2号艇・1号艇・6号艇。この範囲6点のうち中穴帯(15〜40倍)に入ったのは5点: 3-2-1(20.3倍)、3-2-6(18.2倍)、3-1-2(20.2倍)、3-1-6(31.9倍)、3-6-2(31.4倍)"
+     "why": "中穴の選出根拠: 頭は見解どおり4号艇。2着候補は対抗評価(2連対率・モーター2連対率・ST)で1号艇・3号艇・2号艇、3着候補は3着残り評価(3連率・当地3連率・平均ST・モーター2連対率)で1号艇・2号艇・3号艇。この範囲6点のうち中穴帯(15〜40倍)に入ったのは1点: 4-2-3(30.4倍)"
     }
    ],
    "sent": false,
@@ -13266,85 +13272,85 @@
     {
      "n": "1",
      "cls": "B1",
-     "ai": 40,
-     "pop": 23,
-     "ren": 68,
-     "loc": "5.02",
-     "ex": "0.0",
-     "st": "nan"
+     "ai": 26,
+     "pop": 28,
+     "ren": 49,
+     "loc": "4.96",
+     "ex": "6.74",
+     "st": "0.07"
     },
     {
      "n": "2",
      "cls": "A1",
-     "ai": 24,
-     "pop": 27,
-     "ren": 52,
-     "loc": "7.09",
-     "ex": "0.0",
-     "st": "nan"
+     "ai": 23,
+     "pop": 26,
+     "ren": 61,
+     "loc": "5.81",
+     "ex": "6.81",
+     "st": "0.09"
     },
     {
      "n": "3",
-     "cls": "A1",
-     "ai": 30,
-     "pop": 31,
-     "ren": 61,
-     "loc": "7.28",
-     "ex": "0.0",
-     "st": "nan"
+     "cls": "B1",
+     "ai": 14,
+     "pop": 8,
+     "ren": 31,
+     "loc": "0.0",
+     "ex": "6.77",
+     "st": "0.01"
     },
     {
      "n": "4",
-     "cls": "B1",
-     "ai": 2,
-     "pop": 8,
-     "ren": 11,
-     "loc": "4.44",
-     "ex": "0.0",
-     "st": "nan"
+     "cls": "A2",
+     "ai": 36,
+     "pop": 33,
+     "ren": 58,
+     "loc": "6.36",
+     "ex": "6.65",
+     "st": "0.02"
     },
     {
      "n": "5",
      "cls": "B2",
-     "ai": 0,
-     "pop": 6,
-     "ren": 1,
-     "loc": "1.0",
-     "ex": "0.0",
-     "st": "nan"
+     "ai": 1,
+     "pop": 2,
+     "ren": 4,
+     "loc": "1.38",
+     "ex": "6.79",
+     "st": "0.05"
     },
     {
      "n": "6",
-     "cls": "A2",
-     "ai": 4,
-     "pop": 6,
-     "ren": 20,
-     "loc": "6.06",
-     "ex": "0.0",
-     "st": "nan"
+     "cls": "B2",
+     "ai": 1,
+     "pop": 3,
+     "ren": 6,
+     "loc": "4.14",
+     "ex": "6.82",
+     "st": "0.05"
     }
    ],
    "yellow": [
-    "風6m"
+    "2号艇のSTが遅め(0.17・壁にならない)"
    ],
    "ana": {
     "boats": [
      {
       "w": 1,
-      "no": "4491",
-      "name": "田中 堅",
+      "no": "4843",
+      "name": "深尾 巴恵",
       "cls": "B1",
-      "branch": "群馬",
+      "branch": "静岡",
       "F": 0,
-      "local": 5.02,
-      "nat": 4.63,
-      "motor": 32.1,
-      "mno": "52",
+      "local": 4.96,
+      "nat": 3.98,
+      "motor": 40.0,
+      "mno": "43",
       "home": false,
       "recent": [
        {
-        "f": null,
-        "c": 3
+        "f": 4,
+        "c": 6
        },
        {
         "f": null,
@@ -13360,178 +13366,121 @@
        },
        {
         "f": null,
-        "c": 1
+        "c": 4
        }
       ],
-      "k_nige": 0.424,
-      "k_sasare": 0.226,
-      "k_makurare": 0.128,
-      "k_msasare": 0.177,
+      "k_nige": 0.323,
+      "k_sasare": 0.151,
+      "k_makurare": 0.333,
+      "k_msasare": 0.113,
       "k_nigashi": 0.0,
       "k_sashi": 0.0,
       "k_makuri": 0.0,
       "k_msashi": 0.0,
-      "rc_n": 333.0,
-      "rc_win": 0.417,
-      "rc_top2": 0.604,
-      "motor_adj": -0.001,
+      "rc_n": 192.0,
+      "rc_win": 0.312,
+      "rc_top2": 0.464,
+      "motor_adj": 0.021,
       "setsu_n": 0.0,
       "setsu_fin": null,
-      "ex": null,
-      "tilt": null,
-      "course": null,
-      "exst": null,
-      "ai": 40,
-      "pop": 23,
-      "mrank": 35,
-      "mcount": 47
+      "ex": 6.74,
+      "tilt": 0.0,
+      "course": 1,
+      "exst": 0.07,
+      "ai": 26,
+      "pop": 28,
+      "mrank": 15,
+      "mcount": 46
      },
      {
       "w": 2,
-      "no": "3412",
-      "name": "鈴木 博",
+      "no": "4373",
+      "name": "若狭 奈美子",
       "cls": "A1",
-      "branch": "埼玉",
+      "branch": "岡山",
       "F": 0,
-      "local": 7.09,
-      "nat": 6.13,
-      "motor": 30.7,
-      "mno": "62",
+      "local": 5.81,
+      "nat": 6.27,
+      "motor": 32.3,
+      "mno": "29",
       "home": false,
       "recent": [
        {
-        "f": null,
-        "c": 2
+        "f": 2,
+        "c": 3
        },
        {
-        "f": null,
-        "c": 4
-       },
-       {
-        "f": null,
-        "c": 2
-       },
-       {
-        "f": null,
-        "c": 2
-       },
-       {
-        "f": null,
+        "f": 4,
         "c": 6
+       },
+       {
+        "f": null,
+        "c": 2
+       },
+       {
+        "f": 3,
+        "c": 5
+       },
+       {
+        "f": null,
+        "c": 2
        }
       ],
       "k_nige": 0.0,
       "k_sasare": 0.0,
       "k_makurare": 0.0,
       "k_msasare": 0.0,
-      "k_nigashi": 0.485,
-      "k_sashi": 0.11,
-      "k_makuri": 0.067,
+      "k_nigashi": 0.477,
+      "k_sashi": 0.114,
+      "k_makuri": 0.033,
       "k_msashi": 0.0,
-      "rc_n": 438.0,
-      "rc_win": 0.194,
-      "rc_top2": 0.479,
-      "motor_adj": -0.02,
-      "setsu_n": 0.0,
-      "setsu_fin": null,
-      "ex": null,
-      "tilt": null,
-      "course": null,
-      "exst": null,
-      "ai": 24,
-      "pop": 27,
-      "mrank": 39,
-      "mcount": 47
+      "rc_n": 335.0,
+      "rc_win": 0.161,
+      "rc_top2": 0.478,
+      "motor_adj": 0.057,
+      "setsu_n": 4.0,
+      "setsu_fin": 3.25,
+      "ex": 6.81,
+      "tilt": -0.5,
+      "course": 2,
+      "exst": 0.09,
+      "ai": 23,
+      "pop": 26,
+      "mrank": 36,
+      "mcount": 46
      },
      {
       "w": 3,
-      "no": "5026",
-      "name": "安河内 健",
-      "cls": "A1",
-      "branch": "佐賀",
+      "no": "3871",
+      "name": "池田 紫乃",
+      "cls": "B1",
+      "branch": "長崎",
       "F": 0,
-      "local": 7.28,
-      "nat": 6.37,
-      "motor": 37.8,
-      "mno": "32",
+      "local": 0.0,
+      "nat": 3.93,
+      "motor": 47.7,
+      "mno": "18",
       "home": false,
       "recent": [
        {
-        "f": null,
-        "c": 2
-       },
-       {
-        "f": null,
+        "f": 3,
         "c": 6
        },
        {
-        "f": null,
-        "c": 6
+        "f": 2,
+        "c": 1
        },
        {
-        "f": null,
-        "c": 4
+        "f": 5,
+        "c": 6
        },
        {
         "f": null,
         "c": 3
-       }
-      ],
-      "k_nige": 0.0,
-      "k_sasare": 0.0,
-      "k_makurare": 0.0,
-      "k_msasare": 0.0,
-      "k_nigashi": 0.0,
-      "k_sashi": 0.013,
-      "k_makuri": 0.067,
-      "k_msashi": 0.125,
-      "rc_n": 245.0,
-      "rc_win": 0.224,
-      "rc_top2": 0.51,
-      "motor_adj": 0.036,
-      "setsu_n": 0.0,
-      "setsu_fin": null,
-      "ex": null,
-      "tilt": null,
-      "course": null,
-      "exst": null,
-      "ai": 30,
-      "pop": 31,
-      "mrank": 13,
-      "mcount": 47
-     },
-     {
-      "w": 4,
-      "no": "4181",
-      "name": "花本 夏樹",
-      "cls": "B1",
-      "branch": "三重",
-      "F": 0,
-      "local": 4.44,
-      "nat": 3.93,
-      "motor": 29.7,
-      "mno": "61",
-      "home": true,
-      "recent": [
-       {
-        "f": 4,
-        "c": 1
        },
        {
         "f": null,
-        "c": 4
-       },
-       {
-        "f": null,
-        "c": 5
-       },
-       {
-        "f": 1,
-        "c": 1
-       },
-       {
-        "f": null,
-        "c": 4
+        "c": 3
        }
       ],
       "k_nige": 0.0,
@@ -13540,51 +13489,108 @@
       "k_msasare": 0.0,
       "k_nigashi": 0.0,
       "k_sashi": 0.009,
-      "k_makuri": 0.002,
-      "k_msashi": 0.007,
-      "rc_n": 453.0,
-      "rc_win": 0.022,
-      "rc_top2": 0.11,
-      "motor_adj": -0.044,
+      "k_makuri": 0.106,
+      "k_msashi": 0.009,
+      "rc_n": 324.0,
+      "rc_win": 0.139,
+      "rc_top2": 0.417,
+      "motor_adj": 0.037,
       "setsu_n": 0.0,
       "setsu_fin": null,
-      "ex": null,
-      "tilt": null,
-      "course": null,
-      "exst": null,
-      "ai": 2,
+      "ex": 6.77,
+      "tilt": -0.5,
+      "course": 3,
+      "exst": 0.01,
+      "ai": 14,
       "pop": 8,
-      "mrank": 42,
-      "mcount": 47
+      "mrank": 6,
+      "mcount": 46
      },
      {
-      "w": 5,
-      "no": "5415",
-      "name": "阿部 未侑",
-      "cls": "B2",
-      "branch": "東京",
-      "F": 1,
-      "local": 1.0,
-      "nat": 1.68,
-      "motor": 38.1,
-      "mno": "44",
+      "w": 4,
+      "no": "4974",
+      "name": "安井 瑞紀",
+      "cls": "A2",
+      "branch": "岡山",
+      "F": 0,
+      "local": 6.36,
+      "nat": 5.85,
+      "motor": 40.3,
+      "mno": "54",
       "home": false,
       "recent": [
        {
-        "f": null,
-        "c": 6
+        "f": 1,
+        "c": 3
        },
        {
         "f": null,
-        "c": 6
+        "c": 2
        },
        {
         "f": null,
         "c": 4
        },
        {
+        "f": null,
+        "c": 2
+       },
+       {
+        "f": null,
+        "c": 4
+       }
+      ],
+      "k_nige": 0.0,
+      "k_sasare": 0.0,
+      "k_makurare": 0.0,
+      "k_msasare": 0.0,
+      "k_nigashi": 0.0,
+      "k_sashi": 0.015,
+      "k_makuri": 0.111,
+      "k_msashi": 0.015,
+      "rc_n": 262.0,
+      "rc_win": 0.149,
+      "rc_top2": 0.26,
+      "motor_adj": 0.03,
+      "setsu_n": 0.0,
+      "setsu_fin": null,
+      "ex": 6.65,
+      "tilt": 0.0,
+      "course": 4,
+      "exst": 0.02,
+      "ai": 36,
+      "pop": 33,
+      "mrank": 14,
+      "mcount": 46
+     },
+     {
+      "w": 5,
+      "no": "5397",
+      "name": "寺田 夢生",
+      "cls": "B2",
+      "branch": "山口",
+      "F": 0,
+      "local": 1.38,
+      "nat": 1.67,
+      "motor": 33.3,
+      "mno": "63",
+      "home": false,
+      "recent": [
+       {
+        "f": 2,
+        "c": 5
+       },
+       {
         "f": 6,
-        "c": 6
+        "c": 5
+       },
+       {
+        "f": 6,
+        "c": 4
+       },
+       {
+        "f": null,
+        "c": 5
        },
        {
         "f": null,
@@ -13599,45 +13605,41 @@
       "k_sashi": 0.0,
       "k_makuri": 0.0,
       "k_msashi": 0.0,
-      "rc_n": 29.0,
+      "rc_n": 44.0,
       "rc_win": 0.0,
       "rc_top2": 0.0,
-      "motor_adj": 0.045,
+      "motor_adj": 0.076,
       "setsu_n": 0.0,
       "setsu_fin": null,
-      "ex": null,
-      "tilt": null,
-      "course": null,
-      "exst": null,
-      "ai": 0,
-      "pop": 6,
-      "mrank": 11,
-      "mcount": 47
+      "ex": 6.79,
+      "tilt": -0.5,
+      "course": 5,
+      "exst": 0.05,
+      "ai": 1,
+      "pop": 2,
+      "mrank": 29,
+      "mcount": 46
      },
      {
       "w": 6,
-      "no": "4549",
-      "name": "小林 文彦",
-      "cls": "A2",
-      "branch": "福岡",
+      "no": "4940",
+      "name": "白石 有美",
+      "cls": "B2",
+      "branch": "東京",
       "F": 0,
-      "local": 6.06,
-      "nat": 6.1,
-      "motor": 36.4,
-      "mno": "39",
+      "local": 4.14,
+      "nat": 4.47,
+      "motor": 41.3,
+      "mno": "3",
       "home": false,
       "recent": [
        {
-        "f": null,
-        "c": 2
+        "f": 2,
+        "c": 3
        },
        {
         "f": null,
-        "c": 6
-       },
-       {
-        "f": null,
-        "c": 2
+        "c": 4
        },
        {
         "f": null,
@@ -13646,6 +13648,10 @@
        {
         "f": null,
         "c": 4
+       },
+       {
+        "f": null,
+        "c": 6
        }
       ],
       "k_nige": 0.0,
@@ -13655,32 +13661,33 @@
       "k_nigashi": 0.0,
       "k_sashi": 0.0,
       "k_makuri": 0.0,
-      "k_msashi": 0.003,
-      "rc_n": 304.0,
-      "rc_win": 0.007,
-      "rc_top2": 0.099,
-      "motor_adj": 0.051,
+      "k_msashi": 0.0,
+      "rc_n": 360.0,
+      "rc_win": 0.0,
+      "rc_top2": 0.011,
+      "motor_adj": 0.015,
       "setsu_n": 0.0,
       "setsu_fin": null,
-      "ex": null,
-      "tilt": null,
-      "course": null,
-      "exst": null,
-      "ai": 4,
-      "pop": 6,
-      "mrank": 18,
-      "mcount": 47
+      "ex": 6.82,
+      "tilt": 0.0,
+      "course": 6,
+      "exst": 0.05,
+      "ai": 1,
+      "pop": 3,
+      "mrank": 13,
+      "mcount": 46
      }
     ],
-    "wind": 6.0,
-    "wave": 5.0,
-    "has_ex": false
+    "wind": 2.0,
+    "wave": 1.0,
+    "has_ex": true
    },
-   "weather": "晴・風6m・波5cm",
+   "weather": "晴・風2m・波1cm",
+   "locked": true,
    "kenkai": [
-    "この場で3コースが1着の時、2着は1コース(1号艇)が40%で一番多いよ！",
-    "中穴の選出根拠: 頭は見解どおり3号艇。2着候補は対抗評価(2連対率・モーター2連対率・ST)で2号艇・1号艇・6号艇、3着候補は3着残り評価(3連率・当地3連率・平均ST・モーター2連対率)で2号艇・1号艇・6号艇。この範囲6点のうち中穴帯(15〜40倍)に入ったのは5点: 3-2-1(20.3倍)、3-2-6(18.2倍)、3-1-2(20.2倍)、3-1-6(31.9倍)、3-6-2(31.4倍)",
-    "結論:3号艇の一撃(1着予想30%)、相手は6・2・1号艇で勝負！"
+    "スタート展示は3号艇が0.01で一番早い！",
+    "展示タイムも4号艇が6.65で一番、2番手に0.09秒差の抜けた時計。足は一枚上！",
+    "結論:4号艇の一撃(1着予想36%)で勝負！"
    ]
   },
   {
