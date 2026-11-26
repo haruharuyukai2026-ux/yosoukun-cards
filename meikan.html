@@ -29,6 +29,7 @@ input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--lin
 .cnt{font-size:12px;color:var(--sub);margin:4px 0 8px}
 .rl{display:grid;gap:6px}
 .r{display:grid;grid-template-columns:1fr auto;gap:4px 10px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px;color:var(--ink);text-decoration:none}
+.r .pf{width:44px;height:56px;object-fit:cover;object-position:top;border-radius:8px;background:var(--line);flex:none}
 .r .nm{font-weight:900;font-size:16px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 /* 級別バッジは本体(template.html の .kb)と同じ見た目:明るいほど強い */
 .cls{display:inline-grid;place-items:center;min-width:30px;height:20px;padding:0 5px;border-radius:6px;font-size:12px;font-weight:900;line-height:1;box-sizing:border-box}
@@ -58,7 +59,7 @@ const draw=()=>{const q=document.getElementById('q').value.replace(/\s/g,'');
  let L=P.filter(p=>(V==='すべて'||p.races.some(x=>x.venue===V))&&(C==='すべて'||p.cls===C)&&(!q||p.name.replace(/\s/g,'').includes(q)));
  const k={win:p=>-(+p.win||0),st:p=>(+p.st||9),top2:p=>-(+p.top2||0)}[S];L.sort((a,b)=>k(a)-k(b));
  document.getElementById('cnt').textContent=`${L.length}人`;
- document.getElementById('rl').innerHTML=L.length?L.slice(0,N).map(p=>`<a class="r" href="./#p${p.no}"><div class="nm">${p.name}<span class="cls ${p.cls}">${p.cls}</span><span class="br">${p.branch} ${p.ki||''}</span></div><span class="go">›</span>
+ document.getElementById('rl').innerHTML=L.length?L.slice(0,N).map(p=>`<a class="r" href="./#p${p.no}"><div class="nm"><img class="pf" src="https://www.boatrace.jp/racerphoto/${p.no}.jpg" alt="" loading="lazy" onerror="this.remove()">${p.name}<span class="cls ${p.cls}">${p.cls}</span><span class="br">${p.branch} ${p.ki||''}</span></div><span class="go">›</span>
   <div class="nb"><span>勝率<b>${p.win||'—'}</b></span><span>2連対率<b>${p.top2?p.top2+'%':'—'}</b></span><span>平均ST<b>${p.st||'—'}</b></span></div>
   <div class="td">${p.races.map(x=>`<span>${R(x)} ${x.waku}号艇</span>`).join('')}</div></a>`).join('')+(L.length>N?`<button class="more" id="mr">もっと見る(あと${L.length-N}人)</button>`:''):'<p class="note">この条件の選手はいないよ</p>';
  const m=document.getElementById('mr');if(m)m.onclick=()=>{N+=40;draw()};
