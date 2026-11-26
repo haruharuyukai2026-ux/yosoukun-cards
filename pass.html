@@ -5,9 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>移動中</title>
 <script>
+// 今日のnoteが登録されている日(pass_target.json の date が今日・日本時間)だけ、そのnoteへ。無い日はサイトのトップへ。
+var today = new Date(Date.now() + 9 * 36e5).toISOString().slice(0, 10);
 fetch('./pass_target.json', { cache: 'no-store' })
   .then(function (r) { return r.json(); })
-  .then(function (d) { location.replace(d && d.url ? d.url : './'); })
+  .then(function (d) { location.replace(d && d.url && d.date === today ? d.url : './'); })
   .catch(function () { location.replace('./'); });
 setTimeout(function () { location.replace('./'); }, 5000);
 </script>
