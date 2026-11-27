@@ -1,5 +1,42 @@
 {
- "next_judge": [],
+ "next_judge": [
+  {
+   "code": "202611281401",
+   "race": "鳴門1R",
+   "deadline": "08:35",
+   "judge_at": "08:22"
+  },
+  {
+   "code": "202611282301",
+   "race": "唐津1R",
+   "deadline": "08:43",
+   "judge_at": "08:30"
+  },
+  {
+   "code": "202611282302",
+   "race": "唐津2R",
+   "deadline": "09:09",
+   "judge_at": "08:56"
+  },
+  {
+   "code": "202611282304",
+   "race": "唐津4R",
+   "deadline": "10:01",
+   "judge_at": "09:48"
+  },
+  {
+   "code": "202611281804",
+   "race": "徳山4R",
+   "deadline": "10:09",
+   "judge_at": "09:56"
+  },
+  {
+   "code": "202611281701",
+   "race": "宮島1R",
+   "deadline": "10:19",
+   "judge_at": "10:06"
+  }
+ ],
  "pass_guar": null,
  "watch": [
   {
@@ -1205,7 +1242,7 @@
    "in1": 0.626
   }
  ],
- "updated": "2026-11-28 07:46",
+ "updated": "2026-11-28 08:03",
  "public_from": "20261021",
  "summary": {
   "本命": {
